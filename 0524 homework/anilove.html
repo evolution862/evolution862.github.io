@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .section1 {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            margin: auto;
+            flex-wrap: wrap;
+            background-color: black;
+        }
+
+        .topwrap {
+            width: 1200px;
+            display: block;
+            margin: auto;
+            text-align: center;
+        }
+
+        .telephone {
+            color: #fff;
+            font-size: 20px;
+            text-align: left;
+            float: left;
+        }
+
+        .icon-list {
+            display: flex;
+            justify-content: end;
+            float:right;
+        }
+
+        .icon-list .icon {
+            width: 20px;
+            height: 20px;
+            background-color: #aaa;
+            margin: 0 5px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+
+            align-items: center;
+        }
+
+        .icon-list .icon:hover {
+            background-color: orange;
+            color: #fff;
+        }
+
+        /* ----------------------------------- */
+        .section2 {
+            width: 1200px;
+            height: 120px;
+            display: flex;
+            margin: auto;
+            text-align: center;
+        }
+
+        .section2 h1 {
+            width: 300px;
+            font-size: 80px;
+            text-align: left;
+        }
+
+        .menu {
+            width: 600px;
+            display: flex;
+
+        }
+
+        .menuitem {
+            width: 120px;
+            display: block;
+        }
+
+        .menuitem::after{
+            content: '';
+            color: white;
+            display: block;
+            height: 4px;
+            width: 50px;
+            background-color: orange;           
+            margin:20px auto 0px;
+        }
+      
+
+        .btn {
+            display: inline-block;
+            padding: 10px 30px;
+            background-color: #fff;
+            color: #fa0;
+            text-decoration: none;
+            border: 2px solid #fa0;
+            transition: .4s;
+            width: 300px;
+
+        }
+
+        .btn:hover {
+            background-color: #6af;
+            color: #fff;
+            border: 2px solid #6af;
+        }
+
+        /* ----------------------------------- */
+
+        .section3 {
+            width: auto;
+            height: 645px;
+            background-image: url(image/asset\ 4.jpeg);
+            background-size: cover;
+            display: block;
+
+        }
+
+
+        .needhelp {
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            text-align: left;
+
+        }
+
+        .needhelp-text {
+            width: 800px;
+            height: 370px;
+            display: flex;
+            flex-wrap: wrap;
+            text-align: left;
+
+        }
+
+        .needhelp h1 {
+            width: 800px;
+            height: 100px;
+            font-size: 50px;
+
+        }
+
+        .needhelp h2 {
+            width: 800px;
+            height: 100px;
+            font-size: 80px;
+            color: #7ABEE9;
+        }
+
+        .needhelp h3 {
+            width: 800px;
+            height: 100px;
+            font-size: 24px;
+        }
+
+
+        .btn2 {
+
+            padding: 10px 30px;
+            background-color: orange;
+            color: white;
+            text-decoration: none;
+            transition: .4s;
+            height: 50px;
+            width: 800px;
+
+
+        }
+
+        .btn2:hover {
+            background-color: black;
+            color: white;
+        }
+
+
+        /* ----------------------------------- */
+
+
+        .aboutus {
+            width: 1200px;
+            height: auto;
+            display: flex;
+            margin: auto;
+        }
+
+        .aboutus-img {
+            width: 400px;
+            background-color: #6af;
+            float: left;
+
+
+        }
+
+        .aboutus-img img {
+            display: block;
+            width: 100%;
+
+
+        }
+
+        .aboutus-text {
+
+            width: 800px;
+            display: block;
+            float: right;
+
+
+        }
+
+        .aboutus-text h1 {
+            width: 800px;
+            height: 100px;
+
+            font-size: 50px;
+        }
+
+        .aboutus-text h2 {
+            width: 800px;
+            height: 100px;
+            font-size: 30px;
+
+            color: #7ABEE9;
+        }
+
+        .aboutus-text p {
+            width: 800px;
+            height: 100px;
+            font-size: 14px;
+        }
+
+
+
+
+
+
+
+
+
+
+        .bottomwrap {
+            width: 1200px;
+            display: flex;
+            margin: auto;
+            flex-wrap: wrap;
+        }
+
+        .bottomtitle {
+            width: 1200px;
+            display: block;
+            margin: auto;
+            text-align: center;
+        }
+
+        .bottomtitle h1{
+            width: 1200px;
+            font-size: 50px;
+        }
+        .bottomtitle h2{
+            width: 1200px;
+            font-size: 30px;
+            color: #7ABEE9;
+        }
+       
+
+        .card-list {
+            width: 1200px;
+            display: flex;
+        }
+
+        .card {
+            width: 350px;
+            height: 400px;
+            margin: 15px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .card-1 {
+            background-image: url(image/volunteer.jpeg);
+            background-size: cover;
+        }
+
+        .card-2 {
+            background-image: url(image/adopt.jpeg);
+            background-size: cover;
+        }
+
+        .card-3 {
+            background-image: url(image/sponsor.jpeg);
+            background-size: cover;
+        }
+        .card-list p{
+            font-size: 34px;
+            color: white;
+            text-align: center;
+            position: relative;
+            top: 350px;
+           
+        }
+    
+    </style>
+</head>
+
+<body>
+
+
+
+
+    <section class="section1">
+        <div class="topwrap">
+            <div class="telephone">
+                <p>Toll-free: (123) 456-7890</p>
+            </div>
+            <div class="icon-list">
+                <div class="icon">
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+                <div class="icon">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </div>
+                <div class="icon">
+                    <i class="fa-brands fa-pinterest-p"></i>
+                </div>
+                <div class="icon">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section2">
+        <div>
+            <h1>Anilove</h1>
+        </div>
+        <div class="menu">
+            <div class="menuitem">
+                <p>Home</p>
+            </div>
+            <div class="menuitem">
+                <p>About</p>
+            </div>
+            <div class="menuitem">
+                <p>Events</p>
+            </div>
+            <div class="menuitem">
+                <p>News</p>
+            </div>
+            <div class="menuitem">
+                <p>Contacts</p>
+            </div>
+        </div>
+        <div><a href="#" class="btn">DONATE NOW!</a></div>
+    </section>
+
+    <section class="section3">
+        <div class="needhelp">
+            <div class="needhelp-text">
+                <div>
+                    <h1>Animals Need</h1>
+                </div>
+                <div>
+                    <h2>YOUR Help!</h2>
+                </div>
+                <div>
+                    <h3>You can chip in with money & effort!</h3>
+                </div>
+            </div>
+            <div><a href="#" class="btn2">DONATE NOW!</a></div>
+        </div>
+
+    </section>
+
+
+
+    <section class="section4">
+        <div class="aboutus">
+            <div>
+                <div class="aboutus-img">
+                    <img src="image/asset 1.jpeg" alt="">
+                </div>
+                <div class="aboutus-text">
+                    <div>
+                        <h1>
+                            About Us</h1>
+                    </div>
+                    <div>
+                        <h2>What Makes Us Care About Pets?</h2>
+                    </div>
+                    <div>
+                        <p>If it wasn’t for our founder’s childhood spent on a ranch in northern Texas, surrounded by
+                            domestic animals and pets all the time till she went to col
+                            lege – there might have been no Anilove animal shelter now. So as soon as she graduated with
+                            her
+                            Veterinary degree 12 years ago, she already knew what
+                            she will be doing for a living.</p>
+                    </div>
+                    <div>
+                        <p>All in all, with thousands of animals saved off the streets and cared for every year, we hope
+                            to
+                            encourage much more pet adoptions to happen!</p>
+                    </div>
+
+                    <div><a href="#" class="btn2">LEARN MORE</a></div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section5">
+        <div class="bottomwrap">
+            <div class="bottomtitle">
+                <h1>How You Can Help</h1>
+                <h2>There Are Countless Ways You Can Join In & Help Us!</h2>
+            </div>
+            <div class="card-list">
+                <div class="card card-1">
+                    <p>Volutnteer</p>
+                </div>
+                <div class="card card-2">
+                    <p>Adopt</p>
+                </div>
+                <div class="card card-3">
+                    <p>Sponsor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+</body>
+
+</html>
