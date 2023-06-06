@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .advantage {
+            font-family: Helvetica, Verdana, Arial, 微軟正黑體, "Microsoft JhengHei", "儷黑  Pro", "LiHei Pro", sans-serif;
+            width: 960px;
+            text-align: center;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .advantage h1 {
+            font-size: 40px;
+            letter-spacing: 0.5px;
+            width: 960px;
+           
+        }
+
+        h1::after {
+            content: '';
+            color: black;
+            display: block;
+            height: 4px;
+            width: 38px;
+            background-color: black;
+            margin: 10px auto 0px;
+        }
+
+        .titlelabel {
+            width: 960px;
+            display: flex;
+            justify-content: space-between; 
+
+
+        }
+
+        .titlelabel h2 {
+            width: 180px;
+            font-size: 20px;
+            outline: 1px dotted gray;
+            border-color: transparent transparent #ae0014 transparent;
+            border-width: 2px;
+            border-style: solid;
+            
+
+        }
+
+        .titlelabel h2:hover {
+            width: 300px;
+            font-size: 20px;
+            text-decoration: solid;
+            color: white;
+            background-color: #ae0014;
+            transition: 1s;
+        }
+
+        .fun {
+            width: 960px;
+            padding-top: 100px;
+            margin: auto;         
+            
+        }
+
+        .fun-title {
+            width: 280px;
+            background-color: green;
+            display: flex;
+            position: relative;
+            
+
+            height: 0x;
+
+
+        }
+
+        .fun h3 {
+            font-size: 40px;
+            background-color: red;
+            line-height: 100px;
+            flex-grow: 1;
+            color: white;
+            width: 280px;
+            
+
+        }
+     
+
+        .fun-text {
+            background-color: black;
+            color: white;
+            position:absolute;
+            
+            
+            font-size: 20px;
+            flex-grow: 0;
+            width: 280px;
+            height: 250px;
+                     
+            
+        }
+        .fun-text h4{
+            
+            margin:20px 5px 5px 20px;
+        }
+        .fun-text p{
+            
+            margin:10px 5px 5px 20px;
+            z-index: 1; 
+        }
+
+        .fun-pic {            
+        width: 800px;  
+        position: relative;   
+        bottom: 185px; 
+        left: 100px;      
+        z-index: -1;
+               
+        }
+        .fun-pic img{
+        width: 100%;            
+        }
+        
+      
+    </style>
+</head>
+
+<body>
+
+
+    <article class="advantage">
+        <div>
+            <h1>五大優勢</h1>
+        </div>
+        <div class="titlelabel">
+            <div>
+                <h2>操控樂趣</h2>
+            </div>
+            <div>
+                <h2>安全守護</h2>
+            </div>
+            <div>
+                <h2>乘坐舒適</h2>
+            </div>
+            <div>
+                <h2>以人為本</h2>
+            </div>
+            <div>
+                <h2>引以為傲</h2>
+            </div>
+        </div>
+    </article>
+
+    <section class="fun">
+        <div class="fun-title">
+            <div>
+                <h3> 03
+                     操控樂趣</h3>
+                <div class="fun-text">
+                    <h4>人人滿意的駕駛體驗</h4>
+                    <p>
+                        透過最佳重量分配，實現平順起步、直線穩定加速，過彎同時保持車身平穩，帶給駕駛更靈敏的道路反饋，享受隨心馳騁的行駛快感。
+                    </p>
+                   
+                     <div class="fun-pic"><img src="image/download.jpg" alt=""></div> 
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+</body>
+
+</html>
