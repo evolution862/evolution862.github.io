@@ -25,7 +25,9 @@
             font-size: 40px;
             letter-spacing: 0.5px;
             width: 960px;
-           
+            padding-top: 10px;
+            padding-bottom: 40px;
+
         }
 
         h1::after {
@@ -41,8 +43,7 @@
         .titlelabel {
             width: 960px;
             display: flex;
-            justify-content: space-between; 
-
+            justify-content: space-between;
 
         }
 
@@ -53,12 +54,12 @@
             border-color: transparent transparent #ae0014 transparent;
             border-width: 2px;
             border-style: solid;
-            
+
 
         }
 
         .titlelabel h2:hover {
-            width: 300px;
+            width: 180px;
             font-size: 20px;
             text-decoration: solid;
             color: white;
@@ -66,73 +67,151 @@
             transition: 1s;
         }
 
-        .fun {
+        .class {
             width: 960px;
-            padding-top: 100px;
-            margin: auto;         
-            
-        }
-
-        .fun-title {
-            width: 280px;
-            background-color: green;
-            display: flex;
-            position: relative;
-            
-
-            height: 0x;
-
+            padding-top: 150px;
+            padding-bottom: 200px;
+            margin: auto;
 
         }
 
-        .fun h3 {
-            font-size: 40px;
+
+        .title {
+            width: 310px;
+         position: relative;
+            color: white;
+
+
+        }
+
+        .title h3 {
+            font-size: 50px;
             background-color: red;
-            line-height: 100px;
-            flex-grow: 1;
-            color: white;
-            width: 280px;
-            
+            line-height: 80px;
+
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: space-around;
+
 
         }
-     
 
-        .fun-text {
+        .title h3 span {
+            writing-mode: vertical-lr;
+            display: inline-block;
+            text-align: center;
+            font-size: 120px;
+
+        }
+
+        .text {
             background-color: black;
-            color: white;
-            position:absolute;
-            
-            
+            padding: 10px;
             font-size: 20px;
-            flex-grow: 0;
-            width: 280px;
+            width: 290px;
             height: 250px;
-                     
             
-        }
-        .fun-text h4{
-            
-            margin:20px 5px 5px 20px;
-        }
-        .fun-text p{
-            
-            margin:10px 5px 5px 20px;
-            z-index: 1; 
         }
 
-        .fun-pic {            
-        width: 800px;  
-        position: relative;   
-        bottom: 185px; 
-        left: 100px;      
-        z-index: -1;
-               
+        .text h4 {
+            padding: 5px;
+            font-size: 25px;
         }
-        .fun-pic img{
-        width: 100%;            
+
+
+
+
+        .pic {
+            width: 800px;
+            position: relative;
+            bottom: 190px;
+            left: 120px;
+            z-index: -1;
         }
-        
-      
+
+        .pic img {
+            width: 100%;
+        }
+
+        .content {
+            width: 630px;
+            background-color: rgb(238, 238, 238);
+            position: absolute;
+            top: 535px;
+            left: 20px;
+            padding-left: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-right: 20px;
+        }
+
+        .content span {
+            color: red;
+            font-size: 20px;
+
+        }
+
+        .content span::after {
+            content: '';
+            display: inline-block;
+            width: 400px;
+            height: 1px;
+            background-color: #ae0014;
+            position: relative;
+            bottom: 8px;
+            left: 10px;
+
+        }
+
+        .content h4 {
+            background-color: black;
+            display: inline-block;
+            padding: 3px;
+
+        }
+
+        .content p {
+            line-height: 25px;
+            color: black;
+        }
+
+        .content p::before {
+            content: '';
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            background-color: #f00;
+            vertical-align: middle;
+            transform: scale(0.3);
+            border-radius: 50%;
+        }
+
+        .class:nth-child(odd) .title {
+            position: relative;
+            left: 800px;
+            top: 20px;
+        }
+
+        .class:nth-child(odd) .pic {
+            position: ab;
+            left: -680px;
+            top: -160px;
+
+        }
+
+        .class:nth-child(odd) .content {
+            position: absolute;
+            left: -400px;
+            top: 500px;
+        }
+
+        .class:nth-child(odd) .title h3 span {
+            writing-mode: vertical-lr;
+            text-align: end;
+            font-size: 100px;
+            order: 2;
+        }
     </style>
 </head>
 
@@ -162,24 +241,141 @@
         </div>
     </article>
 
-    <section class="fun">
-        <div class="fun-title">
+    <section class="class fun">
+        <div class="title fun">
             <div>
-                <h3> 03
-                     操控樂趣</h3>
-                <div class="fun-text">
+                <h3> <span>01</span>
+                    操控樂趣</h3>
+                <div class="text fun">
                     <h4>人人滿意的駕駛體驗</h4>
                     <p>
                         透過最佳重量分配，實現平順起步、直線穩定加速，過彎同時保持車身平穩，帶給駕駛更靈敏的道路反饋，享受隨心馳騁的行駛快感。
                     </p>
-                   
-                     <div class="fun-pic"><img src="image/download.jpg" alt=""></div> 
+                    <div class="pic fun"><img src="./image/fun.jpg" alt=""></div>
                 </div>
             </div>
+
+            <div class="content fun">
+                <div>
+                    <span>因為我們做了這些革新</span>
+
+                </div>
+                <h4>低重心設計</h4>
+                <p>透過低重心設計，不僅呈現更低伏的外觀，更能減少車身側傾，保持高速行駛穩定性。</p>
+                <h4>車體剛性強化</h4>
+                <p>車身結構採用超高強度鋼材，提高車輛穩定性，同時藉由雷射強化焊接技術，大幅增加焊點數量，提升車身抗扭剛性，強化駕馭穩定性及安全性。</p>
+                <h4>四輪獨立懸吊</h4>
+                <p>搭載全新四輪獨立懸吊設定，透過懸吊的高承載強度，保持輪胎抓地力，同時兼顧轉向靈敏度與清晰路感回饋，提升駕馭樂趣。</p>
+            </div>
         </div>
-
-
     </section>
+
+    <section class="class safe">
+        <div class="title safe">
+            <div>
+                <h3> <span>02</span>
+                    安全守護</h3>
+                <div class="text safe">
+                    <h4>行車更安心的高剛性車體</h4>
+                    <p>
+                        您的愛車會妥善保護您，強悍穩固的車身可使您安全無虞。世界級的安全功能讓您輕鬆自如享受旅程，毫無後顧之憂。
+                    </p>
+                    <div class="pic safe"><img src="./image/safe.jpg" alt=""></div>
+                </div>
+            </div>  
+
+            <div class="content safe">
+                <div>
+                    <span>因為我們做了這些革新</span>
+                </div>
+                <h4>主動安全</h4>
+                <p>可以先進的TSS系統主動偵測路況，輔助駕駛判斷路況並維持行車安全。</p>
+                <h4>被動安全</h4>
+                <p>堅固的高剛性車體，使用熱沖壓材料的高強度抗扭鋼板，強化座艙對意外事故的保護力。</p>      
+            </div>
+        </div>
+    </section>
+
+    <section class="class cozy">
+        <div class="title cozy">
+            <div>
+                <h3> <span>03</span>
+                    乘坐舒適</h3>
+                <div class="text cozy">
+                    <h4>令人放鬆舒適的車室空間</h4>
+                    <p>
+                        車室空間設計著重人體工學，透過方向盤，踏板等位置優化，追求更舒適的駕駛位置，並以新型座椅設計，提高座椅包覆性，致力實現長途駕駛疲勞的舒適駕馭體驗。"
+                    </p>
+                    <div class="pic cozy"><img src="./image/cozy.jpg" alt=""></div>
+                </div>
+            </div>
+
+            <div class="content cozy">
+                <div>
+                    <span>因為我們做了這些革新</span>
+                </div>
+                <h4>駕駛位置最佳化</h4>
+                <p> 針對駕駛位置進行徹底的修改，讓駕駛者可如同握手般自然且舒適地操控方向盤。</p>
+                <h4>駕馭視野佳</h4>
+                <p>考量駕駛坐進車內的高度，透過前擋風玻璃位置的調整，達到盲區極小化，使駕駛視野更開闊，同步提升駕取安全。</p>
+                <h4>更寧靜的車室</h4>
+                <p>採用最新三層結構的隔音材料，與引擎，變速箱的零件改革，將座艙的震動抑制在最小限度，提供乘客舒適安靜的感受。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="class human">
+        <div class="title human">
+            <div>
+                <h3> <span>04</span>
+                    以人為本</h3>
+                <div class="text human">
+                    <h4>使用者導向的貼心設計</h4>
+                    <p>
+                        藉由高度人性化的介面整合，傳遞車輛資訊，豐富日常駕駛體驗。從提升油耗表現到行李廂空間最適化，均細心考量，更加貼近使用者真正所需與習慣，並給予即時回應
+                    </p>
+                    <div class="pic human"><img src="./image/human.jpg" alt=""></div>
+                </div>
+            </div>
+
+            <div class="content human">
+                <div>
+                    <span>因為我們做了這些革新</span>
+                </div>
+                <h4>優異油耗表現</h4>
+                <p>以Corolla Sport為例，更強勁的高效引擎將熱效率提升至40％，達到世界級水準，屡屡突破燃油效率新境界。</p>
+                <h4> 行李箱空間最適化</h4>
+                <p>以第四代Prius為例，透過將電池位置移到後座下方，讓行李箱擁有更大的空間。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="class proud">
+        <div class="title proud">
+            <div>
+                <h3> <span>05</span>
+                    引以為傲</h3>
+                <div class="text proud">
+                    <h4>極具吸引力的精心設計</h4>
+                    <p>
+                        TNGA車款擁有讓人忍不住回頭的新潮外觀，讓駕駛充滿自信的駕馭快感！不僅讓車主能展現個人風格，能讓擁有者都能引以為傲。
+                    </p>
+                    <div class="pic proud"><img src="./image/proud.jpg" alt=""></div>
+                </div>
+            </div>
+
+            <div class="content proud">
+                <div>
+                    <span>因為我們做了這些革新</span>
+                </div>
+                <h4>設計概念</h4>
+                <p>TNGA低重心設計，不僅呈現更低伏的運動化外觀，更講究高品質內裝的一致性。</p>
+                <h4>環保概念</h4>
+                <p>為了對環境保護盡一份心力，我們全面提升傳統引擎，變速箱與油電複合動力的動力效能。</p>
+            </div>
+        </div>
+    </section>
+
 
 </body>
 
