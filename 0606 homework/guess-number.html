@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <body onload='ready()'>
+        <input type="text" id='num'>
+        <button onclick='check()'>確認</button>
+        <p id="msg"></p><br>
+        <p>目前範圍:<span id='min'></span>~<span id='max'></span></p>
+        <div id="pict"></div>
+      </body>
+
+
+
+
+    <script>  var result,input,message;
+        var pic = document.createElement("img");
+        var max = 100;
+       var min = 0;
+        
+        (function ready(){
+          result = Math.floor(Math.random()*101);
+          console.log(result);
+          if(result>=1 || result <=100){
+            message = '亂數準備好了，遊戲開始!';
+          }else{
+            result = Math.floor(Math.random()*101);
+            message = '亂數準備好了，遊戲開始!';
+          }
+          document.getElementById('msg').innerHTML = message;
+          document.getElementById('min').innerHTML = min;
+          document.getElementById('max').innerHTML = max;
+        }());
+        
+        function check(){
+          input = document.getElementById('num').value;
+          if(input == ""){
+            message = "請輸入數字";
+          }else if (isNaN(input)){
+            message = "輸入的不是數字";
+          }else if (input == 0){
+            message = "輸入不可為0";
+          }else if(result>input && input < max ){
+            message = '比'+input+'還大';
+            min = input;
+          }else if(result<input && input > min ){
+            message = '比'+input+'還小';
+            max = input;         
+          }else if (input <= min || input >= max ){
+            message = '輸入的數字不在範圍內';
+          } 
+        else if (result == input){
+            message = '恭喜你猜對了! 答案是'+result+'。遊戲結束!';
+            pic.setAttribute("src", "data:https://assets.pokemon.com/assets/cms2/img/pokedex/detail/005.png");}
+       
+          console.log(max+'/'+min+'/'+input);
+          document.getElementById('msg').innerHTML = message;
+          document.getElementById('max').innerHTML = max;
+          document.getElementById('min').innerHTML = min;
+          document.getElementById("pict").appendChild(pic);
+        }
+        
+      </script>
+  
+</body>
+</html>
