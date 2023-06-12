@@ -7,26 +7,43 @@
     <title>Document</title>
     <style>
         * {
-
             text-align: center;
-           
-          justify-items: center;
-            
+            justify-items: center;
         }
 
         .numberbutton {
-            display:grid;     
-            width: 300px;      
+            display: grid;
+            width: 300px;
             margin: auto;
             grid-template-rows: 25% 25% 25% 25%;
             grid-template-columns: 33% 33% 33%;
             background-color: blue;
             padding-top: 30px;
         }
-        .btn{
-            width: 100px;
-            height: 100px;
+
+        .btn {
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
+            font-size: 69px;
+            margin: 10px;
+            background-color: red;
+        }
+
+        .btn:hover {
+            background-color: pink;
+        }
+
+        .btn.zero {
+            grid-area: -2/2/-1/-2;
+        }
+        button{
+        width: 100px;
+        height:40px;
+        border-radius: 3em;
+        }
+        button:hover{
+        background-color: blueviolet;    
         }
     </style>
 
