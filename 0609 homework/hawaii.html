@@ -51,8 +51,10 @@
             color: #F65936;
             left: -30px;
             padding: 10px;
+
         }
-        .view_all a{
+
+        .view_all a {
             color: #F65936;
         }
 
@@ -90,17 +92,29 @@
 
         .pic {
             width: 100%;
-
+            /* height: 40%; */
         }
 
         .pic img {
             width: 100%;
+            /* height: 100%; */
+            object-fit: cover;
             vertical-align: top;
         }
 
         .text {
+            width: 100%;
             padding: 10px;
+            /* height: 60%;
+            display: inline-block;
+            position: relative;
+            top: 30px; */
         }
+
+        /* .content.main .text {
+            position: relative;
+            top: 0px;
+        } */
 
         .text h2 {
             font-size: 18px;
@@ -113,6 +127,7 @@
         .text span {
             font-size: 12px;
         }
+
 
         .pic .subject {
             display: inline;
@@ -141,6 +156,8 @@
         }
 
 
+
+
         @media screen and (min-width: 900px) {
 
             .container {
@@ -158,31 +175,33 @@
 
             .content.main {
                 grid-area: 1/1/-1/3;
-                             
-            }      
+
+            }
 
             .content.third {
                 grid-area: 2/3/-1/-2;
             }
 
-            .content.fourth {            
-                 grid-area: 2/4/-1/-1; 
+            .content.fourth {
+                grid-area: 2/4/-1/-1;
             }
 
             .topic .title h1 {
                 display: inline;
                 font-size: 25px;
             }
-            .topic .title span { 
-                padding-left: 10px;               
+
+            .topic .title span {
+                padding-left: 10px;
                 font-size: 15px;
             }
-            .text h2{
+
+            .text h2 {
                 font-size: 24px;
             }
 
             .text p {
-            font-size: 16px;
+                font-size: 16px;
             }
 
 
@@ -198,29 +217,31 @@
                 grid-area: 2/2/-1/-1;
             }
 
-            .card.corporate .content.main{
-                grid-area: 1/-3/-1/-1; 
-            }
-          
-            .card.corporate .content.third{
-                grid-area:  2/1/-1/2;               
-            }
-            .card.corporate .content.fourth{
-                grid-area:  2/2/-1/3;               
+            .card.corporate .content.main {
+                grid-area: 1/-3/-1/-1;
             }
 
-            .card.communitiy .content.main{
-                grid-area: 1/-3/-1/-1; 
+            .card.corporate .content.third {
+                grid-area: 2/1/-1/2;
             }
-          
-            .card.communitiy .content.third{
-                grid-area:  2/1/-1/2;               
-            }
-            .card.communitiy .content.fourth{
-                grid-area:  2/2/-1/3;               
-            }          
 
-          
+            .card.corporate .content.fourth {
+                grid-area: 2/2/-1/3;
+            }
+
+            .card.communitiy .content.main {
+                grid-area: 1/-3/-1/-1;
+            }
+
+            .card.communitiy .content.third {
+                grid-area: 2/1/-1/2;
+            }
+
+            .card.communitiy .content.fourth {
+                grid-area: 2/2/-1/3;
+            }
+
+
 
         }
     </style>
@@ -482,7 +503,7 @@
                 <a href="">
                     <div class="pic">
                         <div class="subject special">
-                            サスティナブル・コーストラインズ・ハワイ（Sustainable Coastlines Hawaii）</div>
+                            サスティナブル・コーストライ...</div>
                         <img src="./image/4-2.jpeg" alt="">
                     </div>
                     <div class="text">
