@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            text-align: center;
+            justify-items: center;
+        }
+
+        .numberbutton {
+            display: grid;
+            width: 300px;
+            margin: auto;
+            grid-template-rows: 25% 25% 25% 25%;
+            grid-template-columns: 33% 33% 33%;
+            background-color: blue;
+            padding-top: 30px;
+        }
+
+        .btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            font-size: 69px;
+            margin: 10px;
+            background-color: red;
+        }
+
+        .btn:hover {
+            background-color: pink;
+        }
+
+        .btn.zero {
+            grid-area: -2/2/-1/-2;
+        }
+        button{
+        width: 100px;
+        height:40px;
+        border-radius: 3em;
+        }
+        button:hover{
+        background-color: blueviolet;    
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>猜數字遊戲</h1>
+    <input type="text" id='guess_input' placeholder="請輸入數字">
+    <div class="hint"></div>
+    <div class="btn_group">
+        <button id="guess_btn">猜!</button>
+        <button id="restart_btn">重新開始!</button>
+        <button id="show_answer_btn">看答案 </button>
+        <div class="numberbutton">
+            <button class="btn one">1</button>
+            <button class="btn two">2</button>
+            <button class="btn three">3</button>
+            <button class="btn four">4</button>
+            <button class="btn five">5</button>
+            <button class="btn six">6</button>
+            <button class="btn seven">7</button>
+            <button class="btn eight">8</button>
+            <button class="btn nine">9</button>
+            <button class="btn zero">0</button>
+        </div>
+    </div>
+
+
+
+
+    <script src="main.js">
+
+    </script>
+</body>
+
+</html>
