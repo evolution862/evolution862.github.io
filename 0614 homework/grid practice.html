@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="grid.css">
+    <style>
+        .card {
+            display: flex;
+            align-items: center;
+            border: 1px solid #666;
+            gap: 5px;
+        }
+
+        p {
+            padding: 5px;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: top;
+            object-fit: cover;
+        }
+
+        @media screen and (min-width:768px) {
+            .card {
+                flex-direction: column;
+            }
+        }
+
+        @media screen and (min-width:1200px) {
+            .card {
+                flex-direction: row;
+            }
+
+            .card.custom {
+                flex-wrap: wrap;
+            }
+
+            .pic.highlight {
+                width: 50%;
+            }
+
+            .text.highlight {
+                width: 50%;
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-3 col-xl-12">
+                <div class="card">
+                    <div class="pic highlight">
+                        <img src="./image/cosmos.jpg">
+                    </div>
+                    <div class="text highlight">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia temporibus perferendis
+                            reiciendis error! Id reprehenderit libero commodi, porro assumenda atque.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-xl-4">
+                <div class="card custom">
+                    <div class="pic">
+                        <img src="./image/cosmos.jpg">
+                    </div>
+                    <div class="text">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia temporibus perferendis
+                            reiciendis error! Id reprehenderit libero commodi, porro assumenda atque.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-xl-4">
+                <div class="card custom">
+
+                    <div class="pic">
+                        <img src="./image/cosmos.jpg">
+                    </div>
+                    <div class="text">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia temporibus perferendis
+                            reiciendis error! Id reprehenderit libero commodi, porro assumenda atque.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-xl-4">
+                <div class="card custom">
+
+                    <div class="pic">
+                        <img src="./image/cosmos.jpg">
+                    </div>
+                    <div class="text">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia temporibus perferendis
+                            reiciendis error! Id reprehenderit libero commodi, porro assumenda atque.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-xl-6">
+                <div class="card">
+                    <div class="pic">
+                        <img src="./image/cosmos.jpg">
+                    </div>
+                    <div class="text">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia temporibus perferendis
+                            reiciendis error! Id reprehenderit libero commodi, porro assumenda atque.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-xl-6">
+                <div class="card">
+                    <div class="pic">
+                        <img src="./image/cosmos.jpg">
+                    </div>
+                    <div class="text">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia temporibus perferendis
+                            reiciendis error! Id reprehenderit libero commodi, porro assumenda atque.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
