@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="grid.css">
     <style>
-        * {
+       * {
             padding: 0;
             margin: 0;
             font-family: YakuHanJP, "游ゴシック Medium", YuGothic, YuGothicM, "Noto Sans Japanese", sans-serif;
@@ -77,16 +77,12 @@
         .container {
             display: flex;
             padding: 10px;
-            flex-wrap: wrap;
-            width: 100%;
-            height: 100%;
+            flex-wrap: wrap;         
         }
 
         .content {
-            padding: 10px;
-            width: 50%;
-        }
-        
+            padding: 10px;        
+        }       
 
         .pic {
             width: 100%;
@@ -102,17 +98,10 @@
 
         .text {
             width: 100%;
-            padding: 10px;
-            /* height: 60%;
-            display: inline-block;
-            position: relative;
-            top: 30px; */
+            padding: 10px;         
         }
 
-        /* .content.main .text {
-            position: relative;
-            top: 0px;
-        } */
+       
 
         .text h2 {
             font-size: 18px;
@@ -156,8 +145,7 @@
 
 
 
-        @media screen and (min-width: 900px) {
-
+        @media screen and (min-width: 900px) {        
             .topic .title h1 {
                 display: inline;
                 font-size: 25px;
@@ -174,7 +162,7 @@
 
             .text p {
                 font-size: 16px;
-            }
+            }         
         }
     </style>
 </head>
@@ -192,7 +180,7 @@
             <div class="view_all"><a href="">すべて見る</a></div>
         </div>
         <section class="container">
-            <div class="content main col-xl-6">
+            <div class="content main row-cols-md-2">
                 <a href="">
                     <div class="pic">
                         <img src="./image/1-1.jpg" alt="">
@@ -204,7 +192,7 @@
                     </div>
                 </a>
             </div>
-            <div class="content first">
+            <div class="content first col-1 col-md-6">
                 <a href="">
                     <div class="title">
                         <div class="icon"><img src="./image/icon1.svg" alt=""></div>
@@ -220,7 +208,7 @@
                     </div>
                 </a>
             </div>
-            <div class="content second">
+            <div class="content second col-1 col-md-6">
                 <a href="">
                     <div class="title">
                         <div class="icon"><img src="./image/icon2.svg" alt=""></div>
@@ -235,7 +223,7 @@
                     </div>
                 </a>
             </div>
-            <div class="content third">
+            <div class="content third col-1 col-md-6">
                 <a href="">
                     <div class="title">
                         <div class="icon"><img src="./image/icon3.svg" alt=""></div>
@@ -251,7 +239,7 @@
                     </div>
                 </a>
             </div>
-            <div class="content fourth">
+            <div class="content fourth col-1 col-md-6">
 
                 <a href="">
                     <div class="title">
