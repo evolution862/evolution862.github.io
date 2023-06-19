@@ -2162,70 +2162,143 @@
         integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
         crossorigin="anonymous"></script>
 
-    <script>
+        <script>
 
-        let heroArray = [];
-        let container;
-        let btnCreateHeroArray, btnListHero, btnTableHero;
-
-        window.onload = function () {
-            container =  document.querySelector("#container");
-            btnCreateHeroArray = document.getElementById("createhero");
-            btnListHero = document.getElementById("listhero");
-            btnTableHero = document.getElementById("tablehero");
-
-            btnCreateHeroArray.addEventListener("click", function () {
-                //alert("從DOM建立英雄人物陣列資料後清除container");
-                
-                alert("從DOM建立英雄人物陣列資料成功！");
-                
-                //1.從DOM建立英雄人物資料
-
-                //2.清除container
-                document.querySelector("#container").innerHTML = "";
-            });
-
-            btnListHero.addEventListener("click", function () {
-                if(heroArray.length==0){
-                    alert("請先建立陣列資料");
-                    return;
-                }
-                //alert("以文字迭代英雄人物資料！");
-
-
-                const ul = document.createElement("div");//create一個div tag
-                ul.setAttribute("class","herolist")
-
-                //迭代heroArray陣列
-                //每迭代一次，就create一個p tag
-                //再把每位英文的名字及描述放在p tag裡面
-                //再把p tag 附加到 div裡面
-                //最後再把div附加到html body內，顯示在畫面上
-                heroArray.forEach((hero) => {
-                    const li = document.createElement('p')
-                    li.append(hero.name, hero.text, hero.url);
-                    ul.append(li);
+            let heroArray = [];
+            let container;
+            let btnCreateHeroArray, btnListHero, btnTableHero;
+            let heroArray1 = []
+            let heroArray2 = []
+            
+    
+            window.onload = function () {
+                container = document.querySelector("#container");
+                btnCreateHeroArray = document.getElementById("createhero");
+                btnListHero = document.getElementById("listhero");
+                btnTableHero = document.getElementById("tablehero");
+                table = document.createElement("table")
+                table.setAttribute("class", "table table-bordered table-striped table-dark");
+                thead = document.createElement("thead")
+                tbody = document.createElement("tbody")
+                let titles = ['ID', '名字', '介紹', '圖片']
+    
+    
+                btnCreateHeroArray.addEventListener("click", function () {
+                    //alert("從DOM建立英雄人物陣列資料後清除container");
+    
+                    alert("從DOM建立英雄人物陣列資料成功！");
+    
+                    //1.從DOM建立英雄人物資料
+                    let cards = container.querySelectorAll(".card")
+                    cards.forEach((card, index) => {
+                        let title = card.querySelector(".card-title").innerText
+                        let text = card.querySelector(".card-text").innerText
+                        let img = card.querySelector("img")
+                        let url = img.src
+                        heroArray1.push({ index: index+1, id: title.replace(/.*:/, ''), text: text, url: url })
+                        heroArray.push({ index: index++, id: title.replace(/.*:/, ''), text: text, url: url })
+                        
+                        
+                    })
+                    //2.清除container
+                    document.querySelector("#container").innerHTML = "";
+                });
+    
+                btnListHero.addEventListener("click", function () {
+                    if (heroArray.length == 0) {
+                        alert("請先建立陣列資料");
+                        return;
+                    }
+                    alert("以文字迭代英雄人物資料！");
+    
+                    result = document.getElementById("result");
+    
+                    const ul1 = document.createElement("ul")
+                    const ul2 = document.createElement("ul")
+    
+                    heroArray.forEach((hero, index) => {
+                        ul1.append(JSON.stringify(hero))
+                        if (index < heroArray.length) {
+                            ul1.append(document.createElement("br"));
+                            ul1.append(document.createElement("br"));
+                        }
+                    })
+    
+                    heroArray.forEach((hero, index) => {
+                        ul2.append(`ID： ${hero.index + 1}, 英雄名字：${hero.id}, 介紹： ${hero.text}, 圖片網址： ${hero.url}`)
+                        if (index < heroArray.length) {
+                            ul2.append(document.createElement("br"));
+                            ul2.append(document.createElement("br"));
+                        }
+    
+                    })
+                    document.querySelector("#result").innerHTML = "";
+                    result.append(ul1)
+                    result.append(ul2)
+    
+                });
+    
+                btnTableHero.addEventListener("click", function () {
+                    if (heroArray.length == 0) {
+                        alert("請先建立陣列資料");
+                        return;
+                    }
+    
+                    alert("以表格呈現英雄人物資料！");
+                    table.innerHTML = ""
+                    thead.innerHTML = ""
+                    tbody.innerHTML = ""
+                    result.innerHTML = "";
+    
+                    heroArray1.forEach((hero) => {
+                        let values = Object.values(hero)
+                        // let startIndex = 1; // 从第二个值开始获取
+                        // let selectedValues = values.slice(startIndex);
+                        heroArray2.push(values)
+                    })
+                    CreateTable(titles, heroArray2)
+                    result.append(table)
+                });
+            }
+    
+        </script>
+        <script>
+            function CreateTable(titleArray, heroCardList) {
+                //(1)
+                let theadTR = document.createElement("tr");
+                //(2)建立th,設定資料,th加入tr
+                titleArray.forEach((title, index) => {
+                    let th = document.createElement("th");
+                    th.innerText = title;
+                    theadTR.append(th);
+                });
+                thead.append(theadTR);
+                table.append(thead);
+    
+    
+                heroCardList.forEach((hero) => {
+                    let tr = document.createElement("tr");
+                    hero.forEach((column, index) => {
+                        let td = document.createElement("td");
+                        if (index === 3) {
+                            let img = document.createElement("img")
+                            img.src = column
+                            img.style.maxWidth = "200px"
+                            td.append(img)
+                        }
+                        else { td.innerText = column; }
+    
+                        tr.append(td);
+                    });
+    
+                    tbody.append(tr);
+    
                 })
-                document.body.append(ul);
-
-                document.querySelector("#container").innerHTML = "";
-                document.querySelector(".wrapper").innerHTML=""; 
-
-                
-            });
-   
-
-            btnTableHero.addEventListener("click", function(){
-                if(heroArray.length==0){
-                    alert("請先建立陣列資料");
-                    return;
-                }
-                
-                alert("以表格呈現英雄人物資料！");
-            });
-        }
-
-    </script>
+                table.append(tbody);
+    
+    
+            }
+        </script>
 
 
 
