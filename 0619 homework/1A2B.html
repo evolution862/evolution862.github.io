@@ -44,17 +44,16 @@
             while (answerArr.length != 4);
             return answerArr; //產生答案，型別為陣列
         }
-        
+
         function guess() {
             guessBtn.addEventListener("click", function () {
                 let guessNum = guessInput.value;
                 let guessInputValue = guessNum;
                 let guessArray = guessInputValue.split(""); //0619
                 guessArr = guessArray.map(Number); //0620
-                
-                numberArrIsSame = new Set(guessArr);    //06.20            
+
+                numberArrIsSame = new Set(guessArr);    //0620            
                 if (guessNum === '' || isNaN(guessNum) || guessArr.length != 4 || guessArr.length !== numberArrIsSame.size) {
-                    123496
                     alert('請輸入4位不重複數字')
                     guessInput.value = ''
                     return
@@ -69,23 +68,23 @@
                     }
                 }
                 document.body.append(`${outPutA}A${outPutB}B 你輸入的四個數字為${guessNum}`, document.createElement("br")) //0620
-                
-                countBrElements() 
-                
+
+                countBrElements()
+
                 if (outPutA == 4) {
                     document.body.append(`猜中了! 答案是${answerNum} 你總共猜了${brCount}次`)
                 }
             })
-            
+
         }
         function countBrElements() {
             brElements = document.getElementsByTagName('br');
             brCount = brElements.length;
             return
         }
-        
-        
-        
+
+
+
         function init() {
             guessInput.value = ''
             guessBtn.disabled = false
@@ -93,8 +92,7 @@
 
         window.onload = function () {
             setGame() //產生四位不重覆數字        
-            guess() //遊戲邏輯運算
-            countBrElements()
+            guess() //遊戲邏輯運算            
         }
 
         answer_btn.addEventListener("click", function () {
@@ -115,7 +113,7 @@
             min = Math.ceil(min);
             max = Math.floor(max);
             return Math.floor(Math.random() * (max - min + 1) + min);
-        }
+        } //產生亂數
 
     </script>
 
