@@ -23,6 +23,7 @@
         const guessInput = document.getElementById("guess_input")
         const guessBtn = document.getElementById("guess_btn")
         const restartBtn = document.getElementById("restart_btn")
+        const startBtn = document.getElementById("start_btn")
         const showAnswer = document.getElementById("answer_btn")
         let min = 0
         let max = 9
@@ -46,13 +47,13 @@
             guessBtn.addEventListener("click", function () {
                 let guessNum = guessInput.value;
                 let guessInputValue = guessNum;
-                let guessArray = guessInputValue.split("");
-                guessArr = guessArray.map(Number);
+                let guessArray = guessInputValue.split(""); //0619
+                guessArr = guessArray.map(Number); //0620
 
-                numberArrIsSame = new Set(guessArr);                
+                numberArrIsSame = new Set(guessArr);    //06.20            
                  if (guessNum === '' || isNaN(guessNum)  || guessArr.length != 4|| guessArr.length !== numberArrIsSame.size)                 
                 {
-                    alert('請輸入正確的數字')
+                    alert('請輸入4位不重複數字)')
                     guessInput.value = ''
                     return
                 }
@@ -65,7 +66,7 @@
                         outPutB += 1;
                     }
                 }
-                document.body.append(`${outPutA}A${outPutB}B`, document.createElement("br"))
+                document.body.append(`${outPutA}A${outPutB}B`, document.createElement("br")) //0620
             })
         }
 
@@ -86,7 +87,12 @@
 
         restartBtn.addEventListener("click", function () {
             init()
+            alert('目前沒用')
         }) //放棄重來
+
+        restartBtn.addEventListener("click", function () {           
+            alert('目前沒用')
+        }) //開始
 
         function getRandomNumber(min, max) {
             min = Math.ceil(min);
