@@ -11,7 +11,7 @@
     <div class="btngroup">
         <button type="button" class="btn" id="start_btn">開始</button>
         <button type="button" class="btn" id="restart_btn">放棄重來</button>
-        <button type="button" class="btn" id="check_btn">看答案</button>
+        <button type="button" class="btn" id="answer_btn">看答案</button>
     </div>
 
     <div class="guessgroup">
@@ -23,46 +23,77 @@
         const guessInput = document.getElementById("guess_input")
         const guessBtn = document.getElementById("guess_btn")
         const restartBtn = document.getElementById("restart_btn")
-        const min = 0;
-        const max = 9;
+        const showAnswer = document.getElementById("answer_btn")
+        let min = 0
+        let max = 9
+        let answerArr = [] //為空   
+        let answerNum
+        let guessArr = []
+        let numberArrIsSame
 
-        let answerArr = [] //為空        
-     
-        let Alice=[]
+        function setGame() {
+            do {
+                let number = getRandomNumber(min, max)
+                if (!answerArr.includes(number)) {
+                    answerArr.push(number)
+                }
+            }
+            while (answerArr.length != 4);
+            return answerArr; //產生答案，型別為陣列
+        }
 
+        function guess() {
+            guessBtn.addEventListener("click", function () {
+                let guessNum = guessInput.value;
+                let guessInputValue = guessNum;
+                let guessArray = guessInputValue.split("");
+                guessArr = guessArray.map(Number);
+
+                numberArrIsSame = new Set(guessArr);                
+                 if (guessNum === '' || isNaN(guessNum)  || guessArr.length != 4|| guessArr.length !== numberArrIsSame.size)                 
+                {
+                    alert('請輸入正確的數字')
+                    guessInput.value = ''
+                    return
+                }
+                let outPutA = 0;
+                let outPutB = 0;
+                for (let i = 0; i < answerArr.length; i++) {
+                    if (answerArr[i] === guessArr[i]) {
+                        outPutA += 1;
+                    } else if (answerArr.includes(guessArr[i])) {
+                        outPutB += 1;
+                    }
+                }
+                document.body.append(`${outPutA}A${outPutB}B`, document.createElement("br"))
+            })
+        }
+
+        function init() {
+            guessInput.value = ''
+            guessBtn.disabled = false
+        }
+
+        window.onload = function () {
+            setGame() //產生四位不重覆數字        
+            guess() //遊戲邏輯運算
+        }
+
+        answer_btn.addEventListener("click", function () {
+            answerNum = answerArr.map(Number).join('')
+            alert(answerNum)
+        })  //看答案
+
+        restartBtn.addEventListener("click", function () {
+            init()
+        }) //放棄重來
 
         function getRandomNumber(min, max) {
             min = Math.ceil(min);
             max = Math.floor(max);
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
-        function setGame() {
-            do {
-                let number = getRandomNumber(min, max)
-                if (!answerArr.includes(number)) {
-                    answerArr.push(number);
-                }
-            }
-            while (answerArr.length != 4);
 
-            return answerArr; //產生答案，型別為陣列
-        } 
-        
-        let gu123essNumber = [...guessInput.value] //將輸入的數字由Number轉成Array 06/20 17:00
-
-        window.onload = function () {
-            setGame() //準備好隨機四數字
-            guess()
-           
-       
-        }
-
-
-        function guess() {
-            // if guessNumer[0]
-        }
-           
-           
     </script>
 
 </body>
