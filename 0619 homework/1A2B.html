@@ -26,9 +26,10 @@
         const min = 0;
         const max = 9;
 
-        let answerArr = [] //為空
-        let abc
-        let guessNum
+        let answerArr = [] //為空        
+     
+        let Alice=[]
+
 
         function getRandomNumber(min, max) {
             min = Math.ceil(min);
@@ -44,16 +45,22 @@
             }
             while (answerArr.length != 4);
 
-            return answerArr;
-        }
+            return answerArr; //產生答案，型別為陣列
+        } 
+        
+        let gu123essNumber = [...guessInput.value] //將輸入的數字由Number轉成Array 06/20 17:00
 
         window.onload = function () {
             setGame() //準備好隨機四數字
-         guess()
-           abc = String(guessInput.value.trim() )
+            guess()
+           
+       
         }
 
-        function guess() {}
+
+        function guess() {
+            // if guessNumer[0]
+        }
            
            
     </script>
