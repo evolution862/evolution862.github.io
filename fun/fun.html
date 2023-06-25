@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fan {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+            border: red 1px solid;
+        }
+
+        .inner {
+            width: 50%;
+            height: 100%;
+            background: #5858B9;
+            transform-origin: right center; 
+            transform: rotate(60deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fan">
+        <div class="inner">123</div>
+    </div>
+
+</body>
+
+</html>

@@ -5,26 +5,169 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Noto+Serif+TC:wght@900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;          
+            
+font-family: 'Noto Serif TC', serif;
+        }
+
+        .container {
+            height: 200px;
+            width: 800px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            margin: auto;            
+        }
+
+        .btngroup {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+        }
+
+        .btn {
+            width: 200px;
+            height: 50px;
+            font-size: 25px;
+            border-radius: 3em;
+            margin: 10px;
+            background-color: pink;
+        }
+
+        .btn:hover {
+            background-color: #6a82fb;
+        }
+
+        .guessgroup {
+            justify-content: center;
+        }
+
+        #guess_input {
+            width: 450px;
+            height: 50px;
+            font-size: 25px;
+            border-radius: 3em;
+            text-align: center;
+        }
+
+        .messagegroup {
+            color: pink;
+            font-size: 50px;
+        }
+
+        .wrapper {
+            z-index: -1;
+            width: 100%;
+            height: 500px;          
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .title {
+            position: absolute;            
+            width: 100%;
+            z-index: 1;
+            line-height: 300px;
+            text-align: center;
+            color: white;           
+            font-size: 100px;
+            font-family: 'Caprasimo', cursive;
+        }
+
+        .wave {
+            background: #6a82fb;
+            width: 600px;
+            height: 600px;
+            border-radius: 40%;
+            opacity: 0.4;
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            margin-left: -250px;
+            margin-top: -250px;
+            transform-origin: center;
+            animation: drift 7s infinite linear;
+        }
+
+        .wave.two {
+            animation: drift 9s infinite linear;
+        }
+
+        .wave.three {
+            animation: drift 11s infinite linear;
+            opacity: 0.1;
+        }
+
+        @keyframes drift {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .wrapper:after {
+            content: "";
+            display: block;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom,
+                    #ff99aa,
+                    rgba(238, 221, 255, 0) 80%,
+                    rgba(255, 255, 255, 0.5) 100%);
+            z-index: 11;
+            transform: translate3d(0, 0, 0);
+        }
+    </style>
 </head>
 
+
 <body>
-    <div class="btngroup">
-        <button type="button" class="btn" id="start_btn">開始</button>
-        <button type="button" class="btn" id="restart_btn">放棄重來</button>
-        <button type="button" class="btn" id="answer_btn">看答案</button>
+
+    <div class="wrapper">
+        <div class="wave one"></div>
+        <div class="wave two"></div>
+        <div class="wave three"></div>
+        <div class="title">1A2B
+        </div>
+    </div>
+    <div class="container">
+        <div class="btngroup">
+            <button type="button" class="btn" id="start_btn">開始</button>
+            <button type="button" class="btn" id="restart_btn">放棄重來</button>
+            <button type="button" class="btn" id="answer_btn">看答案</button>
+        </div>
+
+        <div class="guessgroup">
+            <input type="text" maxlength="4" placeholder="請輸入4位不重覆數字" id="guess_input">
+            <button onclick="countBrElements()" type="button" class="btn" id="guess_btn">猜!</button>
+        </div>
+
+        <div class="messagegroup">
+        </div>
     </div>
 
-    <div class="guessgroup">
-        <input type="text" maxlength="4" placeholder="請輸入4位不重覆數字" id="guess_input">
-        <button onclick="countBrElements()" type="button" class="btn" id="guess_btn">猜!</button>
-    </div>
 
     <script>
         const guessInput = document.getElementById("guess_input")
         const guessBtn = document.getElementById("guess_btn")
         const restartBtn = document.getElementById("restart_btn")
         const startBtn = document.getElementById("start_btn")
-        const showAnswer = document.getElementById("answer_btn")
+        const showAnswerBtn = document.getElementById("answer_btn")
         let min = 0
         let max = 9
         let answerArr = [] //為空   
@@ -34,6 +177,7 @@
         let brElements
         let brCount = 0
 
+        //產生答案，為四個不重複數字的陣列
         function setGame() {
             do {
                 let number = getRandomNumber(min, max)
@@ -42,17 +186,16 @@
                 }
             }
             while (answerArr.length != 4);
-            return answerArr; //產生答案，型別為陣列
+            return answerArr;
         }
 
         function guess() {
             guessBtn.addEventListener("click", function () {
                 let guessNum = guessInput.value;
                 let guessInputValue = guessNum;
-                let guessArray = guessInputValue.split(""); //0619
-                guessArr = guessArray.map(Number); //0620
-
-                numberArrIsSame = new Set(guessArr);    //0620            
+                let guessArray = guessInputValue.split("");
+                guessArr = guessArray.map(Number);
+                numberArrIsSame = new Set(guessArr);
                 if (guessNum === '' || isNaN(guessNum) || guessArr.length != 4 || guessArr.length !== numberArrIsSame.size) {
                     alert('請輸入4位不重複數字')
                     guessInput.value = ''
@@ -67,13 +210,27 @@
                         outPutB += 1;
                     }
                 }
-                document.body.append(`${outPutA}A${outPutB}B 你輸入的四個數字為${guessNum}`, document.createElement("br")) //0620
+
+                guessInput.value = ''
+
+                var str = document.createElement('em');
+                var br = document.createElement('br');
+                str.textContent = `${outPutA}A${outPutB}B 你輸入的四個數字為${guessNum}`;
+                str.setAttribute('class', 'msg');
+                document.querySelector('.messagegroup').appendChild(str);
+                document.querySelector('.messagegroup').appendChild(br);
 
                 countBrElements()
 
                 if (outPutA == 4) {
-                    document.body.append(`猜中了! 答案是${answerNum} 你總共猜了${brCount}次`)
+                    var ans = document.createElement('alice')
+                    ans.textContent = `猜中了! 答案是${answerNum} 你總共猜了${brCount}次`;
+                    document.querySelector('.messagegroup').appendChild(ans);
+                    guessInput.disabled = true;
+                    guessBtn.disabled = true;
                 }
+
+
             })
 
         }
@@ -83,37 +240,60 @@
             return
         }
 
-
-
-        function init() {
+        //在按下"開始"按鈕前，其他按鈕都反灰
+        function start() {
+            guessBtn.disabled = true
+            restartBtn.disabled = true
+            showAnswerBtn.disabled = true
             guessInput.value = ''
-            guessBtn.disabled = false
+            guessInput.disabled = true;
         }
 
         window.onload = function () {
-            setGame() //產生四位不重覆數字        
-            guess() //遊戲邏輯運算            
+            start()
+            guess()
+            setGame()
+
+
         }
 
+        //看答案
         answer_btn.addEventListener("click", function () {
             answerNum = answerArr.map(Number).join('')
             alert(answerNum)
-        })  //看答案
+        })
 
+        //放棄重來
         restartBtn.addEventListener("click", function () {
-            init()
-            alert('目前沒用')
-        }) //放棄重來
+            guessBtn.disabled = true
+            showAnswerBtn.disabled = true
+            restartBtn.disabled = true
+            guessInput.value = ''
+            guessInput.disabled = true;
+            answerArr = [];
+            answerArr = setGame();
+            const messageGroup = document.querySelector(".messagegroup");
+            messageGroup.innerHTML = "";
+            startBtn.disabled = false;
 
+
+        })
+
+        //在按下"開始"按鈕後，所有按鈕都能按
         startBtn.addEventListener("click", function () {
-            alert('目前沒用')
-        }) //開始
+            guessBtn.disabled = false
+            restartBtn.disabled = false
+            showAnswerBtn.disabled = false
+            guessInput.disabled = false;
+            startBtn.disabled = true;
+        })
 
+        //產生亂數
         function getRandomNumber(min, max) {
             min = Math.ceil(min);
             max = Math.floor(max);
             return Math.floor(Math.random() * (max - min + 1) + min);
-        } //產生亂數
+        }
 
     </script>
 
