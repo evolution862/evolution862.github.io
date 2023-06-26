@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>XHR iPad.json</h1>
+
+
+    <div id="msg"></div>
+
+    <script>
+        const url = "https://raw.githubusercontent.com/evolution862/FileStorage/main/ipadair2023.json";
+
+        let msg = document.getElementById("msg");
+    
+
+        window.onload = function () {   
+            iPadColor
+       
+        }
+
+        let ipadArray = [];
+        let xhr = new XMLHttpRequest();
+        let br =document.createElement("br")
+
+        function iPadColor(uri) {
+            xhr.onload = function () {
+                ipadArray=JSON.parse(this.response)    
+                ipadArray.forEach((item,index)=>{
+                    let ipad = document.createTextNode(`${++index}.${JSON.stringify(item)}`)
+                    msg.append(ipad,br,cloneNode())
+                })
+                    
+                let cardString = `
+        <div class="card" style="width: 18rem;">
+            <img src="${url}" class="card-img-top" alt="${title}">
+            <div class="card-body">
+                <h5 class="card-title">${title}</h5>
+                <p class="card-text">NT ${price}</p>
+            </div>
+        </div>
+        `;
+
+                     
+            }
+
+            xhr.open("GET",uri);
+            xhr.send();
+            
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>XHR iPad.json</h1>
+
+
+    <button id="btnSilver">銀色</button>
+    <button id="btnGray">太空灰色</button>
+    <button id="btnGolden">玫瑰金色</button>
+    <button id="btnGreen">綠色</button>
+    <button id="btnBlue">天藍色</button>
+
+    <button id="btn_64">64GB</button>
+    <button id="btn_256">256GB</button>
+    <button id="btn_wifi">Wifi</button>
+    <button id="btn_cellular">Cellular</button>
+
+    <div id="msg"></div>
+
+    <script>
+        const url = "https://raw.githubusercontent.com/evolution862/FileStorage/main/ipadair2023.json";
+
+        let msg = document.getElementById("msg");
+        let iPadColor_FirstStage
+        let iPadStorage_SecondStage
+        let iPadNetwork_ThirdStage
+
+        window.onload = function () {
+            document.querySelector("#btnSilver").addEventListener("click", iPadColor.bind(event, url, '銀色'));
+            document.querySelector("#btnGray").addEventListener("click", iPadColor.bind(event, url, '太空灰色'));
+            document.querySelector("#btnGolden").addEventListener("click", iPadColor.bind(event, url, '玫瑰金色'));
+            document.querySelector("#btnGreen").addEventListener("click", iPadColor.bind(event, url, '綠色'));
+            document.querySelector("#btnBlue").addEventListener("click", iPadColor.bind(event, url, '天藍色'));
+            document.querySelector("#btn_64").addEventListener("click", iPadStorage.bind(event, url, '64GB'));
+            document.querySelector("#btn_256").addEventListener("click", iPadStorage.bind(event, url, '256GB'));
+            document.querySelector("#btn_wifi").addEventListener("click", iPadNetwork.bind(event, url, 'Wi-Fi'));
+            document.querySelector("#btn_cellular").addEventListener("click", iPadNetwork.bind(event, url, 'Cellular'));
+        }
+        
+        let ipadArray = [];
+        let xhr = new XMLHttpRequest();
+
+        function iPadColor(uri, color) {
+            xhr.onload = function () {
+                ipadArray = JSON.parse(this.response)
+                iPadColor_FirstStage = ipadArray.filter(item => item.color == color)
+                console.log(iPadColor_FirstStage)
+            }
+
+            xhr.open("GET", uri, color);
+            xhr.send();
+            
+        }
+
+        function iPadStorage(uri, storage) {
+            xhr.onload = function () {
+                iPadStorage_SecondStage = iPadColor_FirstStage.filter(item => item.storage == storage)
+                console.log(iPadStorage_SecondStage)
+            }
+            
+            xhr.open("GET", uri, storage);
+            xhr.send();
+        }
+
+        function iPadNetwork(uri, network) {
+            xhr.onload = function () {
+                iPadNetwork_ThirdStage = iPadStorage_SecondStage.filter(item => item.network == network)
+                console.log(iPadNetwork_ThirdStage) 
+                console.log(iPadNetwork_ThirdStage[0].price)
+            }
+            
+            xhr.open("GET", uri, network);
+            xhr.send();
+           
+            
+         
+           
+          
+        }
+        
+        
+        </script>
+
+</body>
+
+</html>
