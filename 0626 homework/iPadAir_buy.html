@@ -7,8 +7,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .pic img{
-            width:70%;
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .pic {
+            width: 70%;
+        }
+
+        .pic img {
+            width: 100%;
+        }
+
+        .storage {
+            width: 15%;
+
+        }
+
+        .buttongroup {
+            display: flex;
+            flex-wrap: wrap;
+            width: 30%;
+        }
+
+        .btn {
+            width: 160px;
+            height: 100px;
+            border-radius: 12px;
+            margin: 10px;
+        }
+
+        .icon {
+            margin: auto;
+            display: block;
+            width: 32px;
+            padding-bottom: 10px;
+        }
+        .messagegroup{
+            text-align: center;
+            font-size: 100px;
         }
     </style>
 </head>
@@ -20,20 +58,25 @@
 
         </div>
         <div class="buttongroup">
+            <button id="btnGray" class="btn color">
+                <img src="../0626 homework/image/gray.png" class="icon">太空灰色
+            </button>
+            <button id="btnBlue" class="btn color"><img src="../0626 homework/image/blue.png" class="icon">藍色</button>
+            <button id="btnPink" class="btn color"><img src="../0626 homework/image/pink.png" class="icon">粉紅色</button>
+            <button id="btnPurple" class="btn color"><img src="../0626 homework/image/purple.png"
+                    class="icon">紫色</button>
+            <button id="btnStarlight" class="btn color"><img src="../0626 homework/image/starlight.png"
+                    class="icon">星光色</button>
 
+            <button id="btn_64" class="btn storage">64GB <br> <span>NT$19,000 起</span></button>
+            <button id="btn_256" class="btn storage">256GB <br> <span>NT$24,900 起</span></button>
+            <button id="btn_wifi" class="btn">Wi-Fi            
+                NT$19,900</button>
+            <button id="btn_cellular" class="btn">Wi-Fi + 行動網路 NT$24,900</button>
         </div>
     </div>
 
-    <button id="btnGray">太空灰色</button>
-    <button id="btnBlue">藍色</button>
-    <button id="btnPink">粉紅色</button>
-    <button id="btnPurple">紫色</button>
-    <button id="btnStarlight">星光色</button>
 
-    <button id="btn_64">64GB</button>
-    <button id="btn_256">256GB</button>
-    <button id="btn_wifi">Wifi</button>
-    <button id="btn_cellular">Cellular</button>
 
     <div id="msg" class="messagegroup"></div>
 
