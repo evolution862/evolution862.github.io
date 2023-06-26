@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .pic img{
+            width:70%;
+        }
+    </style>
 </head>
 
 <body>
@@ -39,15 +44,36 @@
         let iPadColor_FirstStage
         let iPadStorage_SecondStage
         let iPadNetwork_ThirdStage
-        let img = document.getElementsByClassName("pic");
+        let image = document.createElement('img');
+        let picElement = document.querySelector('.pic');
+
 
         document.querySelector("#btnGray").addEventListener("click", function () {
-            img.append(src="../0626 homework/image/gray.jpeg")
+            image.src = "../0626 homework/image/gray.jpeg"
+            picElement.appendChild(image);
         })
-        
+        document.querySelector("#btnBlue").addEventListener("click", function () {
+            image.src = "../0626 homework/image/blue.jpeg"
+            picElement.appendChild(image);
+        })
+        document.querySelector("#btnPink").addEventListener("click", function () {
+            image.src = "../0626 homework/image/pink.jpeg"
+            picElement.appendChild(image);
+        })
+        document.querySelector("#btnPurple").addEventListener("click", function () {
+            image.src = "../0626 homework/image/purple.jpeg"
+            picElement.appendChild(image);
+        })
+        document.querySelector("#btnStarlight").addEventListener("click", function () {
+            image.src = "../0626 homework/image/starlight.jpeg"
+            picElement.appendChild(image);
+        })
 
         window.onload = function () {
             document.querySelector("#btnGray").addEventListener("click", iPadColor.bind(event, url, '太空灰色'));
+
+
+
             document.querySelector("#btnBlue").addEventListener("click", iPadColor.bind(event, url, '藍色'));
             document.querySelector("#btnPink").addEventListener("click", iPadColor.bind(event, url, '粉紅色'));
             document.querySelector("#btnPurple").addEventListener("click", iPadColor.bind(event, url, '紫色'));
@@ -56,8 +82,12 @@
             document.querySelector("#btn_256").addEventListener("click", iPadStorage.bind(event, url, '256GB'));
             document.querySelector("#btn_wifi").addEventListener("click", iPadNetwork.bind(event, url, 'Wi-Fi'));
             document.querySelector("#btn_cellular").addEventListener("click", iPadNetwork.bind(event, url, 'Cellular'));
+
+
+
+
         }
-        
+
         let ipadArray = [];
         let xhr = new XMLHttpRequest();
 
@@ -70,7 +100,7 @@
 
             xhr.open("GET", uri, color);
             xhr.send();
-            
+
         }
 
         function iPadStorage(uri, storage) {
@@ -78,23 +108,23 @@
                 iPadStorage_SecondStage = iPadColor_FirstStage.filter(item => item.storage == storage)
                 console.log(iPadStorage_SecondStage)
             }
-            
+
             xhr.open("GET", uri, storage);
             xhr.send();
         }
 
         function iPadNetwork(uri, network) {
             xhr.onload = function () {
-                iPadNetwork_ThirdStage = iPadStorage_SecondStage.filter(item => item.network == network)               
+                iPadNetwork_ThirdStage = iPadStorage_SecondStage.filter(item => item.network == network)
                 msg.append(iPadNetwork_ThirdStage[0].price);
             }
-            
+
             xhr.open("GET", uri, network);
-            xhr.send();                          
-         }
-        
-        
-        </script>
+            xhr.send();
+        }
+
+
+    </script>
 
 </body>
 
