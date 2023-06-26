@@ -10,13 +10,20 @@
 
 <body>
     <h1>XHR iPad.json</h1>
+    <div class="container">
+        <div class="pic">
 
+        </div>
+        <div class="buttongroup">
+
+        </div>
+    </div>
 
     <button id="btnGray">太空灰色</button>
     <button id="btnBlue">藍色</button>
     <button id="btnPink">粉紅色</button>
     <button id="btnPurple">紫色</button>
-    <button id="btnStar">星光色</button>
+    <button id="btnStarlight">星光色</button>
 
     <button id="btn_64">64GB</button>
     <button id="btn_256">256GB</button>
@@ -32,13 +39,19 @@
         let iPadColor_FirstStage
         let iPadStorage_SecondStage
         let iPadNetwork_ThirdStage
+        let img = document.getElementsByClassName("pic");
+
+        answer_btn.addEventListener("click", function () {
+            img.append(url:"../0626 homework")
+        })
+        
 
         window.onload = function () {
             document.querySelector("#btnGray").addEventListener("click", iPadColor.bind(event, url, '太空灰色'));
             document.querySelector("#btnBlue").addEventListener("click", iPadColor.bind(event, url, '藍色'));
             document.querySelector("#btnPink").addEventListener("click", iPadColor.bind(event, url, '粉紅色'));
             document.querySelector("#btnPurple").addEventListener("click", iPadColor.bind(event, url, '紫色'));
-            document.querySelector("#btnStar").addEventListener("click", iPadColor.bind(event, url, '星光色'));
+            document.querySelector("#btnStarlight").addEventListener("click", iPadColor.bind(event, url, '星光色'));
             document.querySelector("#btn_64").addEventListener("click", iPadStorage.bind(event, url, '64GB'));
             document.querySelector("#btn_256").addEventListener("click", iPadStorage.bind(event, url, '256GB'));
             document.querySelector("#btn_wifi").addEventListener("click", iPadNetwork.bind(event, url, 'Wi-Fi'));
