@@ -13,16 +13,21 @@
             margin: 0px;
             font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "AOS Icons", "PingFang TC", "Helvetica Neue", Helvetica, Arial, sans-serif;
             font-size: 24px;
+
         }
 
-
+        .swiper.mySwiper {
+            width: 76.95%;
+            height: 75%;
+            position: fixed;
+            left: 2.5%;
+        }
 
         .swiper {
             width: 100%;
         }
 
         .swiper-slide {
-
             text-align: center;
             font-size: 18px;
             background: #fff;
@@ -46,8 +51,9 @@
         }
 
         .pic {
-            width: 60%;
+            width: 75%;
             padding: 3%;
+            position: relative;
         }
 
         .pic img {
@@ -56,19 +62,25 @@
 
 
         .menu {
+            padding-top: 20%;
             display: flex;
             flex-wrap: wrap;
-            width: 20%;          
+            width: 19%;
         }
 
         .btn {
             width: 46%;
             border-radius: 12px;
             margin: 2%;
-            font-size: 16px; 
+            font-size: 16px;
             border: 1px solid #8F8F94;
             background-color: white;
         }
+
+        .btn::click {
+            border: 2px solid #0071E3;
+        }
+
 
         .icon {
             margin: auto;
@@ -77,10 +89,9 @@
             padding: 10px;
         }
 
-        .btn p {
+        .btn p {           
             padding-bottom: 10px;
             font-size: 14px;
-           
         }
 
         .messagegroup {
@@ -88,13 +99,19 @@
             font-size: 100px;
         }
 
-        .menu .txt {        
-          margin: auto;
-            width: 80%;
+        .menu .txt {
+            margin: auto;
+            width: 76%;
+            padding: 2%;
+
         }
 
-        .txt span {
+        .menu .txt span {
             color: #86868B;
+        }
+
+        .menu .txt h2 {
+            display: inline;
         }
 
         .btngroup {
@@ -104,8 +121,9 @@
             width: 80%;
         }
 
-        .title {
 
+
+        .title {
             margin: auto;
             width: 95%;
             padding-top: 3%;
@@ -113,19 +131,28 @@
 
         .title h1 {
             font-size: 48px;
-            padding-left: 3%;
             display: block;
         }
 
         .title span {
             font-size: 14px;
-            padding-left: 3%;
         }
 
         .container {
             width: 100%;
         }
-        
+        .btn.storage p{     
+        padding-top: 40px;        
+        font-size: 17px;
+        line-height: 0%;
+       
+        }
+        .btn.storage span{    
+            display: block;             
+        font-size: 12px;        
+        padding-bottom: 40px;
+        }
+
     </style>
 </head>
 
@@ -152,22 +179,27 @@
             </div>
             <div class="menu color">
                 <div class="txt">
-                    <h1>外觀。 </h1>
+                    <h2>外觀。 </h2>
                     <span>挑選喜愛的顏色。</span>
                 </div>
-                <div class="btngroup color"> <button id="btnGray" class="btn color">
+                <div class="btngroup color">
+                    <button id="btnGray" class="btn color">
                         <img src="../0626 homework/image/gray.png" class="icon">
                         <p>太空灰色</p>
-
                     </button>
-                    <button id="btnBlue" class="btn color"><img src="../0626 homework/image/blue.png"
-                            class="icon"><p>藍色</p></button>
-                    <button id="btnPink" class="btn color"><img src="../0626 homework/image/pink.png"
-                            class="icon"><p>粉紅色</p></button>
-                    <button id="btnPurple" class="btn color"><img src="../0626 homework/image/purple.png"
-                            class="icon"><p>紫色</p></button>
+                    <button id="btnBlue" class="btn color"><img src="../0626 homework/image/blue.png" class="icon">
+                        <p>藍色</p>
+                    </button>
+                    <button id="btnPink" class="btn color"><img src="../0626 homework/image/pink.png" class="icon">
+                        <p>粉紅色</p>
+                    </button>
+                    <button id="btnPurple" class="btn color"><img src="../0626 homework/image/purple.png" class="icon">
+                        <p>紫色</p>
+                    </button>
                     <button id="btnStarlight" class="btn color"><img src="../0626 homework/image/starlight.png"
-                            class="icon"><p>星光色</p></button>
+                            class="icon">
+                        <p>星光色</p>
+                    </button>
                 </div>
 
 
@@ -176,16 +208,38 @@
             </div>
         </div>
         <div class="choose storage">
-            <div class="pic"><img src="https://picsum.photos/300/200/?random=10"></div>
-            <div class="menu"> <button id="btn_64" class="btn storage">64GB <br> <span>NT$19,000 起</span></button>
-                <button id="btn_256" class="btn storage">256GB <br> <span>NT$24,900 起</span></button>
+            <div class="pic"></div>
+            <div class="menu">
+                <div class="txt storage">
+                    <h2>儲存裝置。 </h2>
+                    <span>選擇需要的儲存空間大小。</span>
+                </div>
+                <div class="btngroup storage"> 
+                    <button id="btn_64" class="btn storage">
+                        <p>64GB</p>
+                        <span>NT$19,000 起</span>
+                    </button>
+                    <button id="btn_256" class="btn storage">   
+
+                        <p>256GB</p>
+                        <span>NT$24,900 起</span>
+                    </button>
+                </div>
+
             </div>
         </div>
         <div class="choose network">
-            <div class="pic"><img src="https://picsum.photos/300/200/?random=10"></div>
-            <div class="menu"> <button id="btn_wifi" class="btn">Wi-Fi
-                    NT$19,900</button>
-                <button id="btn_cellular" class="btn">Wi-Fi + 行動網路 NT$24,900</button>
+            <div class="pic"></div>
+            <div class="menu">
+                <div class="btngroup">
+                    <button id="btn_wifi" class="btn">Wi-Fi
+                        NT$19,900</button>
+                    <button id="btn_cellular" class="btn">Wi-Fi + 行動網路 NT$24,900</button>
+                </div>
+
+
+
+
             </div>
         </div>
 
@@ -216,12 +270,16 @@
         let swiperSlideThird //clone by swiperSlideSecond
         swiperSlideThird = swiperSlideSecond.cloneNode(true);
         swiperSlideThird.setAttribute('id', 'swiperThird');
+        let buttons = document.querySelectorAll(".btn");
 
 
 
 
 
         document.querySelector("#btnGray").addEventListener("click", function () {
+            buttons.forEach(function (button) {
+                button.style.border = "1px solid #8F8F94";
+            });
             while (swiperSlideFirst.firstChild) {
                 swiperSlideFirst.removeChild(swiperSlideFirst.firstChild)
             }
@@ -238,15 +296,14 @@
             swiperSlideSecond.appendChild(swiperImageSecond)
             swiperImageThird.src = "../0626 homework/image/gray3.jpeg"
             swiperSlideThird.append(swiperImageThird)
+            document.querySelector("#btnGray").style.border = "2px solid #0071E3"
         })
 
 
         document.querySelector("#btnBlue").addEventListener("click", function () {
-
-
-            // if (swiperSlideThird.childNodes.length != 0) {
-            //     swiperSlideThird.removeChild(swiperSlideThird.firstChild)}
-
+            buttons.forEach(function (button) {
+                button.style.border = "1px solid #8F8F94";
+            });
             while (swiperSlideFirst.firstChild) {
                 swiperSlideFirst.removeChild(swiperSlideFirst.firstChild)
             }
@@ -256,21 +313,22 @@
             while (swiperSlideThird.firstChild) {
                 swiperSlideThird.removeChild(swiperSlideThird.firstChild)
             }
-
             swiperWrapper.append(swiperSlideThird)
-
-
             swiperImageOne.src = "../0626 homework/image/blue.jpeg"
             swiperSlideFirst.appendChild(swiperImageOne)
             swiperImageSecond.src = "../0626 homework/image/blue2.jpeg"
             swiperSlideSecond.appendChild(swiperImageSecond)
             swiperImageThird.src = "../0626 homework/image/blue3.jpeg"
             swiperSlideThird.append(swiperImageThird)
-
+            document.querySelector("#btnBlue").style.border = "2px solid #0071E3"
         })
 
 
         document.querySelector("#btnPink").addEventListener("click", function () {
+            buttons.forEach(function (button) {
+                button.style.border = "1px solid #8F8F94";
+            });
+            document.querySelector(".btn").style.border = "1px solid #8F8F94"
             while (swiperSlideFirst.firstChild) {
                 swiperSlideFirst.removeChild(swiperSlideFirst.firstChild)
             }
@@ -287,10 +345,15 @@
             swiperSlideSecond.appendChild(swiperImageSecond)
             swiperImageThird.src = "../0626 homework/image/pink3.jpeg"
             swiperSlideThird.append(swiperImageThird)
-
-
+            document.querySelector("#btnPink").style.border = "2px solid #0071E3"
         })
+
         document.querySelector("#btnPurple").addEventListener("click", function () {
+            buttons.forEach(function (button) {
+                button.style.border = "1px solid #8F8F94";
+            });
+
+            document.querySelector("#btnPurple").style.border = "2px solid #0071E3"
             while (swiperSlideFirst.firstChild) {
                 swiperSlideFirst.removeChild(swiperSlideFirst.firstChild)
             }
@@ -309,6 +372,11 @@
             swiperSlideThird.append(swiperImageThird)
         })
         document.querySelector("#btnStarlight").addEventListener("click", function () {
+            buttons.forEach(function (button) {
+                button.style.border = "1px solid #8F8F94";
+            });
+
+            document.querySelector("#btnStarlight").style.border = "2px solid #0071E3"
             while (swiperSlideFirst.firstChild) {
                 swiperSlideFirst.removeChild(swiperSlideFirst.firstChild)
             }
@@ -325,6 +393,7 @@
             swiperSlideSecond.appendChild(swiperImageSecond)
             swiperImageThird.src = "../0626 homework/image/starlight3.jpeg"
             swiperSlideThird.append(swiperImageThird)
+
         })
 
         window.onload = function () {
