@@ -89,15 +89,11 @@
             padding: 10px;
         }
 
-        .btn p {           
+        .btn p {
             padding-bottom: 10px;
             font-size: 14px;
         }
-
-        .messagegroup {
-            text-align: center;
-            font-size: 100px;
-        }
+       
 
         .menu .txt {
             margin: auto;
@@ -141,16 +137,57 @@
         .container {
             width: 100%;
         }
-        .btn.storage p{     
-        padding-top: 40px;        
-        font-size: 17px;
-        line-height: 0%;
-       
+
+        .btn.storage p {
+            padding-top: 40px;
+            font-size: 17px;
+            line-height: 0%;
+            margin: 10px;
         }
-        .btn.storage span{    
-            display: block;             
-        font-size: 12px;        
-        padding-bottom: 40px;
+
+        .btn.storage span {
+            display: block;
+            font-size: 12px;
+            padding-bottom: 40px;
+            margin: 10px;
+        }
+
+
+        .btn.network .content {
+            width: 100%;
+            display: flex;
+        }
+
+        .btn.network {
+            width: 100%;
+            text-align: start;
+            padding: 10px;
+            padding-top: 20px;
+        }
+
+
+        .btn.network .content h2 {
+            width: 50%;
+            display: inline-block;
+            font-size: 12px;
+
+        }
+
+        .btn.network .content h3 {
+            width: 50%;
+            display: inline-block;
+            font-size: 16px;
+            text-align: end;
+        }
+
+        .btn.network p {
+            width: 100%;
+            margin: auto;
+            display: block;
+            font-size: 17px;
+        }
+        .choose.complete span{
+            font-size: 14px;
         }
 
     </style>
@@ -214,13 +251,12 @@
                     <h2>儲存裝置。 </h2>
                     <span>選擇需要的儲存空間大小。</span>
                 </div>
-                <div class="btngroup storage"> 
+                <div class="btngroup storage">
                     <button id="btn_64" class="btn storage">
                         <p>64GB</p>
                         <span>NT$19,000 起</span>
                     </button>
-                    <button id="btn_256" class="btn storage">   
-
+                    <button id="btn_256" class="btn storage">
                         <p>256GB</p>
                         <span>NT$24,900 起</span>
                     </button>
@@ -231,25 +267,53 @@
         <div class="choose network">
             <div class="pic"></div>
             <div class="menu">
-                <div class="btngroup">
-                    <button id="btn_wifi" class="btn">Wi-Fi
-                        NT$19,900</button>
-                    <button id="btn_cellular" class="btn">Wi-Fi + 行動網路 NT$24,900</button>
+                <div class="txt">
+                    <h2>連線能力。 </h2>
+                    <span>選擇連線方式。</span>
                 </div>
+                <div class="btngroup">
+                    <button id="btn_wifi" class="btn network">
+                        <p>Wi-Fi</p>
+                        <div class="content">
+                            <h2>每部 iPad 都可連接到 Wi-Fi 網路，使你能保持連線。</h2>
+                            <h3>NT$19,900</h3>
+                        </div>
 
-
+                    </button>
+                    <button id="btn_cellular" class="btn network">
+                        <p>Wi-Fi + 行動網路</p>
+                        <div class="content">
+                            <h2>Wi-Fi + 行動網路機型讓你在無法使用 Wi-Fi 時也能進行連線。</h2>
+                            <h3>NT$24,900</h3>
+                        </div>                       
+                    </button>
+                </div>
 
 
             </div>
         </div>
+        <div class="choose complete">
+            <div class="pic"></div>
+        <div class="menu">
+            <div class="txt">
+                <h2 id="msg" class="message">NT$</h2>
+                <span><br>含營業稅和其他法定稅費：約 NT$973。<br>*
+                    0 利率分期付款，每月 NT$1,658 起，共 12 個月
+                    <br>10.9 吋 iPad Air Wi-Fi 機型 64GB 
+                   <br>立即訂購。店內取貨：
+                   今天，地點：Apple 台北 101 <br>
+                   查看其他直營店</span>                 
+            </div>
+        </div>
+        </div>
 
-
+   
 
     </div>
 
 
 
-    <div id="msg" class="messagegroup"></div>
+
 
     <script>
         const url = "https://raw.githubusercontent.com/evolution862/FileStorage/main/ipadair2023.json";
@@ -398,9 +462,6 @@
 
         window.onload = function () {
             document.querySelector("#btnGray").addEventListener("click", iPadColor.bind(event, url, '太空灰色'));
-
-
-
             document.querySelector("#btnBlue").addEventListener("click", iPadColor.bind(event, url, '藍色'));
             document.querySelector("#btnPink").addEventListener("click", iPadColor.bind(event, url, '粉紅色'));
             document.querySelector("#btnPurple").addEventListener("click", iPadColor.bind(event, url, '紫色'));
@@ -409,10 +470,6 @@
             document.querySelector("#btn_256").addEventListener("click", iPadStorage.bind(event, url, '256GB'));
             document.querySelector("#btn_wifi").addEventListener("click", iPadNetwork.bind(event, url, 'Wi-Fi'));
             document.querySelector("#btn_cellular").addEventListener("click", iPadNetwork.bind(event, url, 'Cellular'));
-
-
-
-
         }
 
         let ipadArray = [];
