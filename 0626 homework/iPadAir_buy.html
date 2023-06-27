@@ -6,75 +6,112 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>    
-            * {
-                padding: 0px;
-                margin: 0px;
-                font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "AOS Icons", "PingFang TC", "Helvetica Neue", Helvetica, Arial, sans-serif;
-                font-size: 24px;
-            }
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "AOS Icons", "PingFang TC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 24px;
+        }
 
-            .choose {
-                width: 80%;
-                display: flex;
-                flex-wrap: wrap;
-                margin: auto;
-            }
+        body {
+            position: relative;
+            height: 100%;
+        }
 
-            .pic {
-                width: 74%;
-                padding: 3%;
-            }
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
 
-            .pic img {
-                width: 100%;
-            }
+        .swiper {
+            width: 100%;
+        }
+
+        .swiper-slide {
+
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .choose {
+            width: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+        }
+
+        .pic {
+            width: 74%;
+            padding: 3%;
+        }
+
+        .pic img {
+            width: 100%;
+        }
 
 
 
-            .menu {
-                display: flex;
-                flex-wrap: wrap;
-                width: 20%;
-                position: relative;
-            }
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            width: 20%;
+            position: relative;
+        }
 
-            .btn {
-                width: 46%;
-                height: 100px;
-                border-radius: 12px;
-                margin: 2%;
-                font-size: 16px;
-            }
+        .btn {
+            width: 46%;
+            height: 100px;
+            border-radius: 12px;
+            margin: 2%;
+            font-size: 16px;
+        }
 
-            .icon {
-                margin: auto;
-                display: block;
-                width: 32px;
-                padding-bottom: 10px;
-            }
+        .icon {
+            margin: auto;
+            display: block;
+            width: 32px;
+            padding-bottom: 10px;
+        }
 
-            .messagegroup {
-                text-align: center;
-                font-size: 100px;
-            }
+        .messagegroup {
+            text-align: center;
+            font-size: 100px;
+        }
 
-            .menu .txt {
-                margin: auto;
-                padding-top: 50%;
-            }
-.txt span{
-                color: #86868B;
-            }
-            .btngroup {
-                margin: auto;
-                display: flex;
-                flex-wrap: wrap;
-                width: 80%;
-                position: relative;
-                bottom: 150px;                
-            }
-        
+        .menu .txt {
+            margin: auto;
+            padding-top: 50%;
+        }
+
+        .txt span {
+            color: #86868B;
+        }
+
+        .btngroup {
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            width: 80%;
+            position: relative;
+            bottom: 150px;
+        }
     </style>
 </head>
 
@@ -83,7 +120,32 @@
     <div class="container">
         <div class="choose color">
             <div class="pic" id="picColor">
-                <img src="../0626 homework/image/none.jpeg">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" id="swiperFirst"> <img src="../0626 homework/image/none.jpeg"></div>
+                        <div class="swiper-slide" id="swiperSecond"> <img src="../0626 homework/image/none2.jpeg"></div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
             <div class="menu color">
                 <div class="txt">
@@ -137,36 +199,126 @@
         let iPadColor_FirstStage
         let iPadStorage_SecondStage
         let iPadNetwork_ThirdStage
-        let image = document.createElement('img');
+        let swiperImageOne = document.createElement('img');
+        let swiperImageSecond = document.createElement('img');
+        let swiperImageThird = document.createElement('img');
         let picElement = document.querySelector('.pic');
+        let swiperSlide = document.querySelector('.swiper-slide');
+        let swiperSlideFirst = document.getElementById("swiperFirst");
+        let swiperSlideSecond = document.getElementById('swiperSecond');
+        let swiperWrapper = document.querySelector('.swiper-wrapper');
+        let swiperSlideThird //clone by swiperSlideSecond
+        swiperSlideThird = swiperSlideSecond.cloneNode(true);
+        swiperSlideThird.setAttribute('id', 'swiperThird');
+
+
+
 
 
         document.querySelector("#btnGray").addEventListener("click", function () {
-            image.src = "../0626 homework/image/gray.jpeg"
-            while (ChooseColorElement.firstChild) {
-                ChooseColorElement.removeChild(ChooseColorElement.firstChild)
+            while (swiperSlideFirst.firstChild) {
+                swiperSlideFirst.removeChild(swiperSlideFirst.firstChild)
+            }
+            while (swiperSlideSecond.firstChild) {
+                swiperSlideSecond.removeChild(swiperSlideSecond.firstChild)
+            }
+            while (swiperSlideThird.firstChild) {
+                swiperSlideThird.removeChild(swiperSlideThird.firstChild)
+            }
+            swiperWrapper.append(swiperSlideThird)
+            swiperImageOne.src = "../0626 homework/image/gray.jpeg"
+            swiperSlideFirst.appendChild(swiperImageOne)
+            swiperImageSecond.src = "../0626 homework/image/gray2.jpeg"
+            swiperSlideSecond.appendChild(swiperImageSecond)
+            swiperImageThird.src = "../0626 homework/image/gray3.jpeg"
+            swiperSlideThird.append(swiperImageThird)
+        })
+
+
+        document.querySelector("#btnBlue").addEventListener("click", function () {
+
+
+            // if (swiperSlideThird.childNodes.length != 0) {
+            //     swiperSlideThird.removeChild(swiperSlideThird.firstChild)}
+
+            while (swiperSlideFirst.firstChild) {
+                swiperSlideFirst.removeChild(swiperSlideFirst.firstChild)
+            }
+            while (swiperSlideSecond.firstChild) {
+                swiperSlideSecond.removeChild(swiperSlideSecond.firstChild)
+            }
+            while (swiperSlideThird.firstChild) {
+                swiperSlideThird.removeChild(swiperSlideThird.firstChild)
             }
 
+            swiperWrapper.append(swiperSlideThird)
 
 
-            picElement.appendChild(image);
+            swiperImageOne.src = "../0626 homework/image/blue.jpeg"
+            swiperSlideFirst.appendChild(swiperImageOne)
+            swiperImageSecond.src = "../0626 homework/image/blue2.jpeg"
+            swiperSlideSecond.appendChild(swiperImageSecond)
+            swiperImageThird.src = "../0626 homework/image/blue3.jpeg"
+            swiperSlideThird.append(swiperImageThird)
 
         })
-        document.querySelector("#btnBlue").addEventListener("click", function () {
-            image.src = "../0626 homework/image/blue.jpeg"
-            picElement.appendChild(image);
-        })
+
+
         document.querySelector("#btnPink").addEventListener("click", function () {
-            image.src = "../0626 homework/image/pink.jpeg"
-            picElement.appendChild(image);
+            while (swiperSlideFirst.firstChild) {
+                swiperSlideFirst.removeChild(swiperSlideFirst.firstChild)
+            }
+            while (swiperSlideSecond.firstChild) {
+                swiperSlideSecond.removeChild(swiperSlideSecond.firstChild)
+            }
+            while (swiperSlideThird.firstChild) {
+                swiperSlideThird.removeChild(swiperSlideThird.firstChild)
+            }
+            swiperWrapper.append(swiperSlideThird)
+            swiperImageOne.src = "../0626 homework/image/pink.jpeg"
+            swiperSlideFirst.appendChild(swiperImageOne)
+            swiperImageSecond.src = "../0626 homework/image/pink2.jpeg"
+            swiperSlideSecond.appendChild(swiperImageSecond)
+            swiperImageThird.src = "../0626 homework/image/pink3.jpeg"
+            swiperSlideThird.append(swiperImageThird)
+
+
         })
         document.querySelector("#btnPurple").addEventListener("click", function () {
-            image.src = "../0626 homework/image/purple.jpeg"
-            picElement.appendChild(image);
+            while (swiperSlideFirst.firstChild) {
+                swiperSlideFirst.removeChild(swiperSlideFirst.firstChild)
+            }
+            while (swiperSlideSecond.firstChild) {
+                swiperSlideSecond.removeChild(swiperSlideSecond.firstChild)
+            }
+            while (swiperSlideThird.firstChild) {
+                swiperSlideThird.removeChild(swiperSlideThird.firstChild)
+            }
+            swiperWrapper.append(swiperSlideThird)
+            swiperImageOne.src = "../0626 homework/image/purple.jpeg"
+            swiperSlideFirst.appendChild(swiperImageOne)
+            swiperImageSecond.src = "../0626 homework/image/purple2.jpeg"
+            swiperSlideSecond.appendChild(swiperImageSecond)
+            swiperImageThird.src = "../0626 homework/image/purple3.jpeg"
+            swiperSlideThird.append(swiperImageThird)
         })
         document.querySelector("#btnStarlight").addEventListener("click", function () {
-            image.src = "../0626 homework/image/starlight.jpeg"
-            picElement.appendChild(image);
+            while (swiperSlideFirst.firstChild) {
+                swiperSlideFirst.removeChild(swiperSlideFirst.firstChild)
+            }
+            while (swiperSlideSecond.firstChild) {
+                swiperSlideSecond.removeChild(swiperSlideSecond.firstChild)
+            }
+            while (swiperSlideThird.firstChild) {
+                swiperSlideThird.removeChild(swiperSlideThird.firstChild)
+            }
+            swiperWrapper.append(swiperSlideThird)
+            swiperImageOne.src = "../0626 homework/image/starlight.jpeg"
+            swiperSlideFirst.appendChild(swiperImageOne)
+            swiperImageSecond.src = "../0626 homework/image/starlight2.jpeg"
+            swiperSlideSecond.appendChild(swiperImageSecond)
+            swiperImageThird.src = "../0626 homework/image/starlight3.jpeg"
+            swiperSlideThird.append(swiperImageThird)
         })
 
         window.onload = function () {
@@ -226,6 +378,22 @@
 
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            cssMode: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            mousewheel: true,
+            keyboard: true,
+        });
+    </script>
 </body>
 
 </html>
