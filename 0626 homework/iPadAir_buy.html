@@ -6,74 +6,123 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-        }
+    <style>    
+            * {
+                padding: 0px;
+                margin: 0px;
+                font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "AOS Icons", "PingFang TC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 24px;
+            }
 
-        .pic {
-            width: 70%;
-        }
+            .choose {
+                width: 80%;
+                display: flex;
+                flex-wrap: wrap;
+                margin: auto;
+            }
 
-        .pic img {
-            width: 100%;
-        }
+            .pic {
+                width: 74%;
+                padding: 3%;
+            }
 
-        .storage {
-            width: 15%;
+            .pic img {
+                width: 100%;
+            }
 
-        }
 
-        .buttongroup {
-            display: flex;
-            flex-wrap: wrap;
-            width: 30%;
-        }
 
-        .btn {
-            width: 160px;
-            height: 100px;
-            border-radius: 12px;
-            margin: 10px;
-        }
+            .menu {
+                display: flex;
+                flex-wrap: wrap;
+                width: 20%;
+                position: relative;
+            }
 
-        .icon {
-            margin: auto;
-            display: block;
-            width: 32px;
-            padding-bottom: 10px;
-        }
-        .messagegroup{
-            text-align: center;
-            font-size: 100px;
-        }
+            .btn {
+                width: 46%;
+                height: 100px;
+                border-radius: 12px;
+                margin: 2%;
+                font-size: 16px;
+            }
+
+            .icon {
+                margin: auto;
+                display: block;
+                width: 32px;
+                padding-bottom: 10px;
+            }
+
+            .messagegroup {
+                text-align: center;
+                font-size: 100px;
+            }
+
+            .menu .txt {
+                margin: auto;
+                padding-top: 50%;
+            }
+.txt span{
+                color: #86868B;
+            }
+            .btngroup {
+                margin: auto;
+                display: flex;
+                flex-wrap: wrap;
+                width: 80%;
+                position: relative;
+                bottom: 150px;                
+            }
+        
     </style>
 </head>
 
 <body>
     <h1>XHR iPad.json</h1>
     <div class="container">
-        <div class="pic">
+        <div class="choose color">
+            <div class="pic" id="picColor">
+                <img src="../0626 homework/image/none.jpeg">
+            </div>
+            <div class="menu color">
+                <div class="txt">
+                    <h1>外觀。 <span>挑選喜愛的顏色。</span></h1>
+                </div>
+                <div class="btngroup color"> <button id="btnGray" class="btn color">
+                        <img src="../0626 homework/image/gray.png" class="icon">太空灰色
+                    </button>
+                    <button id="btnBlue" class="btn color"><img src="../0626 homework/image/blue.png"
+                            class="icon">藍色</button>
+                    <button id="btnPink" class="btn color"><img src="../0626 homework/image/pink.png"
+                            class="icon">粉紅色</button>
+                    <button id="btnPurple" class="btn color"><img src="../0626 homework/image/purple.png"
+                            class="icon">紫色</button>
+                    <button id="btnStarlight" class="btn color"><img src="../0626 homework/image/starlight.png"
+                            class="icon">星光色</button>
+                </div>
 
-        </div>
-        <div class="buttongroup">
-            <button id="btnGray" class="btn color">
-                <img src="../0626 homework/image/gray.png" class="icon">太空灰色
-            </button>
-            <button id="btnBlue" class="btn color"><img src="../0626 homework/image/blue.png" class="icon">藍色</button>
-            <button id="btnPink" class="btn color"><img src="../0626 homework/image/pink.png" class="icon">粉紅色</button>
-            <button id="btnPurple" class="btn color"><img src="../0626 homework/image/purple.png"
-                    class="icon">紫色</button>
-            <button id="btnStarlight" class="btn color"><img src="../0626 homework/image/starlight.png"
-                    class="icon">星光色</button>
 
-            <button id="btn_64" class="btn storage">64GB <br> <span>NT$19,000 起</span></button>
-            <button id="btn_256" class="btn storage">256GB <br> <span>NT$24,900 起</span></button>
-            <button id="btn_wifi" class="btn">Wi-Fi            
-                NT$19,900</button>
-            <button id="btn_cellular" class="btn">Wi-Fi + 行動網路 NT$24,900</button>
+
+
+            </div>
         </div>
+        <div class="choose storage">
+            <div class="pic"><img src="https://picsum.photos/300/200/?random=10"></div>
+            <div class="menu"> <button id="btn_64" class="btn storage">64GB <br> <span>NT$19,000 起</span></button>
+                <button id="btn_256" class="btn storage">256GB <br> <span>NT$24,900 起</span></button>
+            </div>
+        </div>
+        <div class="choose network">
+            <div class="pic"><img src="https://picsum.photos/300/200/?random=10"></div>
+            <div class="menu"> <button id="btn_wifi" class="btn">Wi-Fi
+                    NT$19,900</button>
+                <button id="btn_cellular" class="btn">Wi-Fi + 行動網路 NT$24,900</button>
+            </div>
+        </div>
+
+
+
     </div>
 
 
@@ -84,6 +133,7 @@
         const url = "https://raw.githubusercontent.com/evolution862/FileStorage/main/ipadair2023.json";
 
         let msg = document.getElementById("msg");
+        let ChooseColorElement = document.getElementById("picColor");
         let iPadColor_FirstStage
         let iPadStorage_SecondStage
         let iPadNetwork_ThirdStage
@@ -93,7 +143,14 @@
 
         document.querySelector("#btnGray").addEventListener("click", function () {
             image.src = "../0626 homework/image/gray.jpeg"
+            while (ChooseColorElement.firstChild) {
+                ChooseColorElement.removeChild(ChooseColorElement.firstChild)
+            }
+
+
+
             picElement.appendChild(image);
+
         })
         document.querySelector("#btnBlue").addEventListener("click", function () {
             image.src = "../0626 homework/image/blue.jpeg"
