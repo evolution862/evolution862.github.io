@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+
     <style>
         * {
             padding: 0px;
@@ -93,7 +95,7 @@
             padding-bottom: 10px;
             font-size: 14px;
         }
-       
+
 
         .menu .txt {
             margin: auto;
@@ -186,10 +188,10 @@
             display: block;
             font-size: 17px;
         }
-        .choose.complete span{
+
+        .choose.complete span {
             font-size: 14px;
         }
-
     </style>
 </head>
 
@@ -285,7 +287,7 @@
                         <div class="content">
                             <h2>Wi-Fi + 行動網路機型讓你在無法使用 Wi-Fi 時也能進行連線。</h2>
                             <h3>NT$24,900</h3>
-                        </div>                       
+                        </div>
                     </button>
                 </div>
 
@@ -294,25 +296,27 @@
         </div>
         <div class="choose complete">
             <div class="pic"></div>
-        <div class="menu">
-            <div class="txt">
-                <h2 id="msg" class="message">NT$</h2>
-                <span><br>含營業稅和其他法定稅費：約 NT$973。<br>*
-                    0 利率分期付款，每月 NT$1,658 起，共 12 個月
-                    <br>10.9 吋 iPad Air Wi-Fi 機型 64GB 
-                   <br>立即訂購。店內取貨：
-                   今天，地點：Apple 台北 101 <br>
-                   查看其他直營店</span>                 
+            <div class="menu">
+                <div class="txt">
+                    <h2 id="msg" class="message">NT$</h2>
+                    <span><br>含營業稅和其他法定稅費：約 NT$973。<br>*
+                        0 利率分期付款，每月 NT$1,658 起，共 12 個月
+                        <br>10.9 吋 iPad Air Wi-Fi 機型 64GB
+                        <br>立即訂購。店內取貨：
+                        今天，地點：Apple 台北 101 <br>
+                        查看其他直營店</span>
+                </div>
             </div>
         </div>
-        </div>
 
-   
+
 
     </div>
 
 
-
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 
     <script>
@@ -320,9 +324,7 @@
 
         let msg = document.getElementById("msg");
         let ChooseColorElement = document.getElementById("picColor");
-        let iPadColor_FirstStage
-        let iPadStorage_SecondStage
-        let iPadNetwork_ThirdStage
+
         let swiperImageOne = document.createElement('img');
         let swiperImageSecond = document.createElement('img');
         let swiperImageThird = document.createElement('img');
@@ -471,10 +473,10 @@
             document.querySelector("#btn_256").addEventListener("click", iPadStorage.bind(event, url, '256GB'));
             document.querySelector("#btn_wifi").addEventListener("click", iPadNetwork.bind(event, url, 'Wi-Fi'));
             document.querySelector("#btn_cellular").addEventListener("click", iPadNetwork.bind(event, url, 'Cellular'));
+
         }
 
-      
-        let alice = []
+        let intersection = []
         let ipadArray = [];
         let xhr = new XMLHttpRequest();
         let arr1
@@ -489,11 +491,7 @@
                 });
                 console.log(arr1);
                 findArrayIntersection(arr1, arr2, arr3);
-                while (msg.firstChild) {
-                msg.removeChild(msg.firstChild)
-            }
-                
-                msg.append(`${alice[0].price} ${alice[0].color} ${alice[0].storage} ${alice[0].network}` );   
+                msg.append(intersection[0].price);
             }
             xhr.open("GET", uri, color);
             xhr.send();
@@ -506,11 +504,7 @@
                 });
                 console.log(arr2);
                 findArrayIntersection(arr1, arr2, arr3);
-                while (msg.firstChild) {
-                msg.removeChild(msg.firstChild)
-            }
-                          
-                msg.append(`${alice[0].price} ${alice[0].color} ${alice[0].storage} ${alice[0].network}` );               
+                msg.append(intersection[0].price);
             }
             xhr.open("GET", uri, storage);
             xhr.send();
@@ -523,10 +517,7 @@
                 });
                 console.log(arr3);
                 findArrayIntersection(arr1, arr2, arr3);
-                while (msg.firstChild) {
-                msg.removeChild(msg.firstChild)
-            }               
-                msg.append(`${alice[0].price} ${alice[0].color} ${alice[0].storage} ${alice[0].network}` );   
+                msg.append(intersection[0].price);
             }
             xhr.open("GET", uri, network);
             xhr.send();
@@ -536,10 +527,9 @@
             const set1 = new Set(arr1.map(item => item.id));
             const set2 = new Set(arr2.map(item => item.id));
             const set3 = new Set(arr3.map(item => item.id));
-            alice = arr1.filter(item => set2.has(item.id) && set3.has(item.id));
-            return alice;
+            intersection = arr1.filter(item => set2.has(item.id) && set3.has(item.id));
+            return intersection;
         }
-
 
     </script>
 
