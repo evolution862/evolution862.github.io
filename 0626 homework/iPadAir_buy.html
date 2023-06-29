@@ -361,6 +361,7 @@
             swiperImageThird.src = "../0626 homework/image/gray3.jpeg"
             swiperSlideThird.append(swiperImageThird)
             document.querySelector("#btnGray").style.border = "2px solid #0071E3"
+            swiper.updateSlides()
         })
 
 
@@ -385,7 +386,8 @@
             swiperImageThird.src = "../0626 homework/image/blue3.jpeg"
             swiperSlideThird.append(swiperImageThird)
             document.querySelector("#btnBlue").style.border = "2px solid #0071E3"
-        })
+swiper.updateSlides()
+        }) 
 
 
         document.querySelector("#btnPink").addEventListener("click", function () {
@@ -410,6 +412,7 @@
             swiperImageThird.src = "../0626 homework/image/pink3.jpeg"
             swiperSlideThird.append(swiperImageThird)
             document.querySelector("#btnPink").style.border = "2px solid #0071E3"
+            swiper.updateSlides()
         })
 
         document.querySelector("#btnPurple").addEventListener("click", function () {
@@ -434,6 +437,7 @@
             swiperSlideSecond.appendChild(swiperImageSecond)
             swiperImageThird.src = "../0626 homework/image/purple3.jpeg"
             swiperSlideThird.append(swiperImageThird)
+            swiper.updateSlides()
         })
         document.querySelector("#btnStarlight").addEventListener("click", function () {
             buttons.forEach(function (button) {
@@ -460,6 +464,8 @@
             swiper.updateSlides()
 
         })
+
+  
 
         window.onload = function () {
             document.querySelector("#btnGray").addEventListener("click", iPadColor.bind(event, url, '太空灰色'));
@@ -539,7 +545,6 @@
             answerArr = arr1.filter(item => set2.has(item.id) && set3.has(item.id));
             return answerArr;
         }
-
 
     </script>
 

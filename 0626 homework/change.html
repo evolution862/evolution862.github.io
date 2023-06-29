@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-
-
     <style>
         * {
             padding: 0px;
@@ -314,21 +312,16 @@
     </div>
 
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 
 
     <script>
         const url = "https://raw.githubusercontent.com/evolution862/FileStorage/main/ipadair2023.json";
 
         let msg = document.getElementById("msg");
-        let ChooseColorElement = document.getElementById("picColor");
-
         let swiperImageOne = document.createElement('img');
         let swiperImageSecond = document.createElement('img');
         let swiperImageThird = document.createElement('img');
-        let picElement = document.querySelector('.pic');
         let swiperSlide = document.querySelector('.swiper-slide');
         let swiperSlideFirst = document.getElementById("swiperFirst");
         let swiperSlideSecond = document.getElementById('swiperSecond');
@@ -338,130 +331,50 @@
         swiperSlideThird.setAttribute('id', 'swiperThird');
         let buttons = document.querySelectorAll(".btn");
 
-
-
-
-
-        document.querySelector("#btnGray").addEventListener("click", function () {
-            buttons.forEach(function (button) {
-                button.style.border = "1px solid #8F8F94";
-            });
-            while (swiperSlideFirst.firstChild) {
-                swiperSlideFirst.removeChild(swiperSlideFirst.firstChild)
-            }
-            while (swiperSlideSecond.firstChild) {
-                swiperSlideSecond.removeChild(swiperSlideSecond.firstChild)
-            }
-            while (swiperSlideThird.firstChild) {
-                swiperSlideThird.removeChild(swiperSlideThird.firstChild)
-            }
-            swiperWrapper.append(swiperSlideThird)
-            swiperImageOne.src = "../0626 homework/image/gray.jpeg"
-            swiperSlideFirst.appendChild(swiperImageOne)
-            swiperImageSecond.src = "../0626 homework/image/gray2.jpeg"
-            swiperSlideSecond.appendChild(swiperImageSecond)
-            swiperImageThird.src = "../0626 homework/image/gray3.jpeg"
-            swiperSlideThird.append(swiperImageThird)
-            document.querySelector("#btnGray").style.border = "2px solid #0071E3"
-        })
-
-
-        document.querySelector("#btnBlue").addEventListener("click", function () {
-            buttons.forEach(function (button) {
-                button.style.border = "1px solid #8F8F94";
-            });
-            while (swiperSlideFirst.firstChild) {
-                swiperSlideFirst.removeChild(swiperSlideFirst.firstChild)
-            }
-            while (swiperSlideSecond.firstChild) {
-                swiperSlideSecond.removeChild(swiperSlideSecond.firstChild)
-            }
-            while (swiperSlideThird.firstChild) {
-                swiperSlideThird.removeChild(swiperSlideThird.firstChild)
-            }
-            swiperWrapper.append(swiperSlideThird)
-            swiperImageOne.src = "../0626 homework/image/blue.jpeg"
-            swiperSlideFirst.appendChild(swiperImageOne)
-            swiperImageSecond.src = "../0626 homework/image/blue2.jpeg"
-            swiperSlideSecond.appendChild(swiperImageSecond)
-            swiperImageThird.src = "../0626 homework/image/blue3.jpeg"
-            swiperSlideThird.append(swiperImageThird)
-            document.querySelector("#btnBlue").style.border = "2px solid #0071E3"
-        })
-
-
-        document.querySelector("#btnPink").addEventListener("click", function () {
-            buttons.forEach(function (button) {
-                button.style.border = "1px solid #8F8F94";
-            });
-            document.querySelector(".btn").style.border = "1px solid #8F8F94"
-            while (swiperSlideFirst.firstChild) {
-                swiperSlideFirst.removeChild(swiperSlideFirst.firstChild)
-            }
-            while (swiperSlideSecond.firstChild) {
-                swiperSlideSecond.removeChild(swiperSlideSecond.firstChild)
-            }
-            while (swiperSlideThird.firstChild) {
-                swiperSlideThird.removeChild(swiperSlideThird.firstChild)
-            }
-            swiperWrapper.append(swiperSlideThird)
-            swiperImageOne.src = "../0626 homework/image/pink.jpeg"
-            swiperSlideFirst.appendChild(swiperImageOne)
-            swiperImageSecond.src = "../0626 homework/image/pink2.jpeg"
-            swiperSlideSecond.appendChild(swiperImageSecond)
-            swiperImageThird.src = "../0626 homework/image/pink3.jpeg"
-            swiperSlideThird.append(swiperImageThird)
-            document.querySelector("#btnPink").style.border = "2px solid #0071E3"
-        })
-
-        document.querySelector("#btnPurple").addEventListener("click", function () {
+        function handleButtonClick(btnId, imgSrc1, imgSrc2, imgSrc3) {
             buttons.forEach(function (button) {
                 button.style.border = "1px solid #8F8F94";
             });
 
-            document.querySelector("#btnPurple").style.border = "2px solid #0071E3"
+            document.querySelector(btnId).style.border = "2px solid #0071E3";
+
             while (swiperSlideFirst.firstChild) {
-                swiperSlideFirst.removeChild(swiperSlideFirst.firstChild)
+                swiperSlideFirst.removeChild(swiperSlideFirst.firstChild);
             }
             while (swiperSlideSecond.firstChild) {
-                swiperSlideSecond.removeChild(swiperSlideSecond.firstChild)
+                swiperSlideSecond.removeChild(swiperSlideSecond.firstChild);
             }
             while (swiperSlideThird.firstChild) {
-                swiperSlideThird.removeChild(swiperSlideThird.firstChild)
+                swiperSlideThird.removeChild(swiperSlideThird.firstChild);
             }
-            swiperWrapper.append(swiperSlideThird)
-            swiperImageOne.src = "../0626 homework/image/purple.jpeg"
-            swiperSlideFirst.appendChild(swiperImageOne)
-            swiperImageSecond.src = "../0626 homework/image/purple2.jpeg"
-            swiperSlideSecond.appendChild(swiperImageSecond)
-            swiperImageThird.src = "../0626 homework/image/purple3.jpeg"
-            swiperSlideThird.append(swiperImageThird)
-        })
-        document.querySelector("#btnStarlight").addEventListener("click", function () {
-            buttons.forEach(function (button) {
-                button.style.border = "1px solid #8F8F94";
+
+            swiperWrapper.append(swiperSlideThird);
+
+            swiperImageOne.src = imgSrc1;
+            swiperSlideFirst.appendChild(swiperImageOne);
+
+            swiperImageSecond.src = imgSrc2;
+            swiperSlideSecond.appendChild(swiperImageSecond);
+
+            swiperImageThird.src = imgSrc3;
+            swiperSlideThird.append(swiperImageThird);
+
+            swiper.updateSlides();
+        }
+
+        let buttonClickEvent = [
+            { id: "#btnGray", images: ["../0626 homework/image/gray.jpeg", "../0626 homework/image/gray2.jpeg", "../0626 homework/image/gray3.jpeg"] },
+            { id: "#btnBlue", images: ["../0626 homework/image/blue.jpeg", "../0626 homework/image/blue2.jpeg", "../0626 homework/image/blue3.jpeg"] },
+            { id: "#btnPink", images: ["../0626 homework/image/pink.jpeg", "../0626 homework/image/pink2.jpeg", "../0626 homework/image/pink3.jpeg"] },
+            { id: "#btnPurple", images: ["../0626 homework/image/purple.jpeg", "../0626 homework/image/purple2.jpeg", "../0626 homework/image/purple3.jpeg"] },
+            { id: "#btnStarlight", images: ["../0626 homework/image/starlight.jpeg", "../0626 homework/image/starlight2.jpeg", "../0626 homework/image/starlight3.jpeg"] }
+        ];
+
+        buttonClickEvent.forEach(({ id, images }) => {
+            document.querySelector(id).addEventListener("click", () => {
+                handleButtonClick(id, ...images);
             });
-
-            document.querySelector("#btnStarlight").style.border = "2px solid #0071E3"
-            while (swiperSlideFirst.firstChild) {
-                swiperSlideFirst.removeChild(swiperSlideFirst.firstChild)
-            }
-            while (swiperSlideSecond.firstChild) {
-                swiperSlideSecond.removeChild(swiperSlideSecond.firstChild)
-            }
-            while (swiperSlideThird.firstChild) {
-                swiperSlideThird.removeChild(swiperSlideThird.firstChild)
-            }
-            swiperWrapper.append(swiperSlideThird)
-            swiperImageOne.src = "../0626 homework/image/starlight.jpeg"
-            swiperSlideFirst.appendChild(swiperImageOne)
-            swiperImageSecond.src = "../0626 homework/image/starlight2.jpeg"
-            swiperSlideSecond.appendChild(swiperImageSecond)
-            swiperImageThird.src = "../0626 homework/image/starlight3.jpeg"
-            swiperSlideThird.append(swiperImageThird)
-            swiper.updateSlides()
-
-        })
+        });
 
         window.onload = function () {
             document.querySelector("#btnGray").addEventListener("click", iPadColor.bind(event, url, '太空灰色'));
@@ -473,25 +386,21 @@
             document.querySelector("#btn_256").addEventListener("click", iPadStorage.bind(event, url, '256GB'));
             document.querySelector("#btn_wifi").addEventListener("click", iPadNetwork.bind(event, url, 'Wi-Fi'));
             document.querySelector("#btn_cellular").addEventListener("click", iPadNetwork.bind(event, url, 'Cellular'));
-
         }
 
-        let intersection = []
-        let ipadArray = [];
+
+        let answerArr = [],ipadArray = [];        
+        let colorArr,storageArr,networkArr
         let xhr = new XMLHttpRequest();
-        let arr1
-        let arr2
-        let arr3
 
         function iPadColor(uri, color) {
             xhr.onload = function () {
                 ipadArray = JSON.parse(this.response)
-                arr1 = ipadArray.filter(function (item) {
+                colorArr = ipadArray.filter(function (item) {
                     return item.color === color;
-                });
-                console.log(arr1);
-                findArrayIntersection(arr1, arr2, arr3);
-                msg.append(intersection[0].price);
+                });              
+                createAnswer(colorArr, storageArr, networkArr);
+                showAnswer()
             }
             xhr.open("GET", uri, color);
             xhr.send();
@@ -499,12 +408,11 @@
         function iPadStorage(uri, storage) {
             xhr.onload = function () {
                 ipadArray = JSON.parse(this.response)
-                arr2 = ipadArray.filter(function (item) {
+                storageArr = ipadArray.filter(function (item) {
                     return item.storage === storage;
-                });
-                console.log(arr2);
-                findArrayIntersection(arr1, arr2, arr3);
-                msg.append(intersection[0].price);
+                });              
+                createAnswer(colorArr, storageArr, networkArr);
+                showAnswer()
             }
             xhr.open("GET", uri, storage);
             xhr.send();
@@ -512,23 +420,29 @@
         function iPadNetwork(uri, network) {
             xhr.onload = function () {
                 ipadArray = JSON.parse(this.response)
-                arr3 = ipadArray.filter(function (item) {
+                networkArr = ipadArray.filter(function (item) {
                     return item.network === network;
-                });
-                console.log(arr3);
-                findArrayIntersection(arr1, arr2, arr3);
-                msg.append(intersection[0].price);
+                });            
+                createAnswer(colorArr, storageArr, networkArr);
+                showAnswer()
             }
             xhr.open("GET", uri, network);
             xhr.send();
         }
 
-        function findArrayIntersection(arr1, arr2, arr3) {
+        function showAnswer(){
+            while (msg.firstChild) {
+                    msg.removeChild(msg.firstChild)
+                }
+                msg.append(`${answerArr[0].price} ${answerArr[0].color} ${answerArr[0].storage} ${answerArr[0].network}`);
+        }
+
+        function createAnswer(arr1, arr2, arr3) {
             const set1 = new Set(arr1.map(item => item.id));
             const set2 = new Set(arr2.map(item => item.id));
             const set3 = new Set(arr3.map(item => item.id));
-            intersection = arr1.filter(item => set2.has(item.id) && set3.has(item.id));
-            return intersection;
+            answerArr = arr1.filter(item => set2.has(item.id) && set3.has(item.id));
+            return answerArr;
         }
 
     </script>
