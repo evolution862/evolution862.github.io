@@ -488,7 +488,7 @@
                     return item.color === color;
                 });
                 console.log(arr1);
-                findArrayIntersection(arr1, arr2, arr3);
+                AnswerArr(arr1, arr2, arr3);
                 while (msg.firstChild) {
                 msg.removeChild(msg.firstChild)
             }
@@ -505,7 +505,7 @@
                     return item.storage === storage;
                 });
                 console.log(arr2);
-                findArrayIntersection(arr1, arr2, arr3);
+                AnswerArr(arr1, arr2, arr3);
                 while (msg.firstChild) {
                 msg.removeChild(msg.firstChild)
             }
@@ -522,7 +522,7 @@
                     return item.network === network;
                 });
                 console.log(arr3);
-                findArrayIntersection(arr1, arr2, arr3);
+                AnswerArr(arr1, arr2, arr3);
                 while (msg.firstChild) {
                 msg.removeChild(msg.firstChild)
             }               
@@ -532,7 +532,7 @@
             xhr.send();
         }
 
-        function findArrayIntersection(arr1, arr2, arr3) {
+        function AnswerArr(arr1, arr2, arr3) {
             const set1 = new Set(arr1.map(item => item.id));
             const set2 = new Set(arr2.map(item => item.id));
             const set3 = new Set(arr3.map(item => item.id));
