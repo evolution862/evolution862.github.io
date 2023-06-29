@@ -474,26 +474,26 @@
         }
 
       
-        let alice = []
+        let answerArr = []
         let ipadArray = [];
         let xhr = new XMLHttpRequest();
-        let arr1
-        let arr2
-        let arr3
+        let colorArr
+        let storageArr
+        let networkArr
 
         function iPadColor(uri, color) {
             xhr.onload = function () {
                 ipadArray = JSON.parse(this.response)
-                arr1 = ipadArray.filter(function (item) {
+                colorArr = ipadArray.filter(function (item) {
                     return item.color === color;
                 });
-                console.log(arr1);
-                AnswerArr(arr1, arr2, arr3);
+                console.log(colorArr);
+                Answer(colorArr, storageArr, networkArr);
                 while (msg.firstChild) {
                 msg.removeChild(msg.firstChild)
             }
                 
-                msg.append(`${alice[0].price} ${alice[0].color} ${alice[0].storage} ${alice[0].network}` );   
+                msg.append(`${answerArr[0].price} ${answerArr[0].color} ${answerArr[0].storage} ${answerArr[0].network}` );   
             }
             xhr.open("GET", uri, color);
             xhr.send();
@@ -501,16 +501,16 @@
         function iPadStorage(uri, storage) {
             xhr.onload = function () {
                 ipadArray = JSON.parse(this.response)
-                arr2 = ipadArray.filter(function (item) {
+                storageArr = ipadArray.filter(function (item) {
                     return item.storage === storage;
                 });
-                console.log(arr2);
-                AnswerArr(arr1, arr2, arr3);
+                console.log(storageArr);
+                Answer(colorArr, storageArr, networkArr);
                 while (msg.firstChild) {
                 msg.removeChild(msg.firstChild)
             }
                           
-                msg.append(`${alice[0].price} ${alice[0].color} ${alice[0].storage} ${alice[0].network}` );               
+                msg.append(`${answerArr[0].price} ${answerArr[0].color} ${answerArr[0].storage} ${answerArr[0].network}` );               
             }
             xhr.open("GET", uri, storage);
             xhr.send();
@@ -518,26 +518,26 @@
         function iPadNetwork(uri, network) {
             xhr.onload = function () {
                 ipadArray = JSON.parse(this.response)
-                arr3 = ipadArray.filter(function (item) {
+                networkArr = ipadArray.filter(function (item) {
                     return item.network === network;
                 });
-                console.log(arr3);
-                AnswerArr(arr1, arr2, arr3);
+                console.log(networkArr);
+                Answer(colorArr, storageArr, networkArr);
                 while (msg.firstChild) {
                 msg.removeChild(msg.firstChild)
             }               
-                msg.append(`${alice[0].price} ${alice[0].color} ${alice[0].storage} ${alice[0].network}` );   
+                msg.append(`${answerArr[0].price} ${answerArr[0].color} ${answerArr[0].storage} ${answerArr[0].network}` );   
             }
             xhr.open("GET", uri, network);
             xhr.send();
         }
 
-        function AnswerArr(arr1, arr2, arr3) {
+        function Answer(arr1, arr2, arr3) {
             const set1 = new Set(arr1.map(item => item.id));
             const set2 = new Set(arr2.map(item => item.id));
             const set3 = new Set(arr3.map(item => item.id));
-            alice = arr1.filter(item => set2.has(item.id) && set3.has(item.id));
-            return alice;
+            answerArr = arr1.filter(item => set2.has(item.id) && set3.has(item.id));
+            return answerArr;
         }
 
 
