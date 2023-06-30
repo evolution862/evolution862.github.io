@@ -9,11 +9,12 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <style>
-    .title {
-        width: 100%;
-        border: 1px solid red;
-
+    * {
+        padding: 0px;
+        margin: 0px;
     }
+
+
 
     .weeks {
         width: 100%;
@@ -22,6 +23,14 @@
         grid-template-columns: repeat(7, 1fr);
 
     }
+
+    .title {
+        width: 80%;
+        font-size: 30px;
+        text-align: center;
+    }
+
+
 
     .week {
 
@@ -36,13 +45,20 @@
         grid-template-rows: repeat(6, 1fr);
     }
 
-    .date {
-        border: 1px solid red;
+    #day {
+        border: 1px solid aqua;
     }
 </style>
 
 <body>
-    <div class="title">October <a href="#" id="nextmonth" class="btn btn-primary ">下一個月</a></div>
+    <div class="header">
+        <div class="row">
+            <a href="#" id="lastmonth" class="btn btn-primary ">上一個月</a>
+            <div class="title"></div>
+            <a href="#" id="nextmonth" class="btn btn-primary  ">下一個月</a>
+        </div>
+    </div>
+    </div>
     <div class="weeks">
         <div class="week">日</div>
         <div class="week">一</div>
@@ -95,14 +111,7 @@
         <div id="day" class=" date40"></a></div>
         <div id="day" class=" date41"></a></div>
         <div id="day" class=" date42"></a></div>
-
-
-
-
     </div>
-
-
-
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -114,61 +123,166 @@
                     </button>
                 </div>
                 <img id="pizzaImage">
-                <div class="modal-body">
-                    Modal內容
-                    <ul class="list-group">
-                        <li class="list-group-item disabled" aria-disabled="true">新增行程</li>
-                        <li class="list-group-item">請輸入年/月/日<input type="date" id="date"></li>
-                        <li class="list-group-item">時間<input type="time" id="time"></li>
-                        <li class="list-group-item">顏色<input type="color" id="color"></li>
-                        <li class="list-group-item">文字<input type="text" id="text"></li>
-                    </ul>
+                <div class="modal-body w-12">
 
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">年/月/日</span>
+                        <div class="form-floating">
+                            <label for="date" class="text-center"></label>
+                            <input type="date" class="form-control" id="date" placeholder="請輸入文字">
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">時間</span>
+                        <div class="form-floating">
+                            <label for="time" class="text-center"></label>
+                            <input type="time" class="form-control" id="time" placeholder="請輸入文字">
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">顏色</span>
+                        <div class="form-floating">
+                            <label for="color" class="text-center"></label>
+                            <input type="color" class="form-control" id="color" placeholder="請輸入文字">
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">文字</span>
+                        <div class="form-floating">
+                            <label for="text" class="text-center"></label>
+                            <input type="text" class="form-control" id="text" placeholder="請輸入文字">
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" id="save" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
     </div>
+
     <script>
         let currentTimeNow = new Date()
         currentTimeNow.setDate(1);
         let currentMonth = currentTimeNow.getUTCMonth()
+        let currentYear = currentTimeNow.getUTCFullYear()
         let dayOfWeek = currentTimeNow.getDay()
         let weekArray = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-        let tony = document.querySelector("#nextmonth")
-        let tony2 = document.querySelectorAll("#day")
-        function createCalculator(alice) {
-            tony2.forEach((item)=>{
-item.innerHTML=''
-            })
-           
-            for (i = 1; i < 32; i++) {
+        let nextMonth = document.querySelector("#nextmonth")
+        let lastMonth = document.querySelector("#lastmonth")
+        let dateBlock = document.querySelectorAll("#day")
+        let title = document.querySelector(".title")
 
+        function createCalculator(alice) {
+            title.textContent = ''
+            title.append(`${currentMonth + 1}月${currentYear}`)
+            dateBlock.forEach((item) => {
+                item.innerHTML = ''
+            })
+            for (i = 1; i < 32; i++) {
                 let locationOfCalculator = document.querySelector('.date' + (alice + i))
                 let button = `<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">創建行程</a>`
-
                 locationOfCalculator.innerHTML = `${i}` + button
-
             }
         }
         window.onload = function () {
             createCalculator(dayOfWeek)
+
         }
-
-        tony.addEventListener("click", function () {
-
+        nextMonth.addEventListener("click", function () {
             currentMonth += 1;
+            if (currentMonth > 11) {
+                currentMonth -= 12
+                currentYear += 1
+                currentTimeNow.setUTCFullYear(currentYear)
+            }
             currentTimeNow.setMonth(currentMonth);
             dayOfWeek = currentTimeNow.getDay();
             createCalculator(dayOfWeek);
         });
-        let inputOne = document.querySelector("#date")
+        lastMonth.addEventListener("click", function () {
+            currentMonth -= 1;
+            if (currentMonth < 0) {
+                currentMonth += 12
+                currentYear -= 1
+                currentTimeNow.setUTCFullYear(currentYear)
+            }
+            currentTimeNow.setMonth(currentMonth);
+            dayOfWeek = currentTimeNow.getDay();
+            createCalculator(dayOfWeek);
+        });
+
+
+        let inputDate = document.querySelector("#date")
+        let inputTime = document.querySelector("#time")
+        let inputColor = document.querySelector("#color")
+        let inputText = document.querySelector("#text")
+        let save = document.querySelector("#save")
+
         //2023-06-13
-        let abc = inputOne.value
-        // //625
+        let jsonData = {};
+        let data = {}
+        let item
+let zzz
+        function saveInputDate() {
+            for (let i = 0; i < 100; i++) {
+                if (localStorage.getItem('date' + i) == null) {
+                    localStorage.setItem(`date${i}`, inputDate.value);
+                    break;
+                }     
+                if (localStorage.getItem('time' + i) == null) {
+                    localStorage.setItem(`time${i}`, inputTime.value);
+                    break;
+                }
+                if (localStorage.getItem('color' + i) == null) {
+                    localStorage.setItem(`color${i}`, inputColor.value);
+                    break;
+                }
+                if (localStorage.getItem('text' + i) == null) {
+                    localStorage.setItem(`text${i}`, inputText.value);
+                    break;
+                }
+            }
+
+            for (let a = 0; a < localStorage.length+1; a++) {                
+                if(localStorage.getItem('color' + a)!=''||null){
+                     data={
+                    abc:localStorage.getItem('color' + a)
+                }
+                }              
+            }
+
+        }
+        save.addEventListener("click", saveInputDate)
+
+        // function parseLocalStorageData() {
+
+        //     for (let i = 1; i < 100; i++) {
+        //         const dateItem = localStorage.getItem('date' + i);
+        //         if (dateItem != null) {
+        //             jsonData[`date${i}`] = JSON.parse(dateItem);
+        //         }
+
+        //         const timeItem = localStorage.getItem('time' + i);
+        //         if (timeItem) {
+        //             jsonData[`time${i}`] = JSON.parse(timeItem);
+        //         }
+
+        //         const colorItem = localStorage.getItem('color' + i);
+        //         if (colorItem) {
+        //             jsonData[`color${i}`] = JSON.parse(colorItem);
+        //         }
+
+        //         const textItem = localStorage.getItem('text' + i);
+        //         if (textItem) {
+        //             jsonData[`text${i}`] = JSON.parse(textItem);
+        //         }
+        //     }
+
+        //     return jsonData;
+        // }
         //         function fhg() {
         //             currentMonth+=1   
 
