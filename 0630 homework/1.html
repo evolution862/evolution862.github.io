@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<style>
+    .title {
+        width: 100%;
+        border: 1px solid red;
+
+    }
+
+    .weeks {
+        width: 100%;
+        border: 1px solid red;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+
+    }
+
+    .week {
+
+        border: 1px solid red;
+    }
+
+    .dates {
+        width: 100%;
+        border: 1px solid red;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+    }
+
+    .date {
+        border: 1px solid red;
+    }
+</style>
+
+<body>
+    <div class="title">October <a href="#" id="nextmonth" class="btn btn-primary ">下一個月</a></div>
+    <div class="weeks">
+        <div class="week">日</div>
+        <div class="week">一</div>
+        <div class="week">二</div>
+        <div class="week">三</div>
+        <div class="week">四</div>
+        <div class="week">五</div>
+        <div class="week">六</div>
+    </div>
+    <div class="dates">
+        <div id="day" class=" date1"></div>
+        <div id="day" class=" date2"></a></div>
+        <div id="day" class=" date3"></a></div>
+        <div id="day" class=" date4"></a></div>
+        <div id="day" class=" date5"></a></div>
+        <div id="day" class=" date6"></a></div>
+        <div id="day" class=" date7"></a></div>
+        <div id="day" class=" date8"></a></div>
+        <div id="day" class=" date9"></a></div>
+        <div id="day" class=" date10"></a></div>
+        <div id="day" class=" date11"></a></div>
+        <div id="day" class=" date12"></a></div>
+        <div id="day" class=" date13"></a></div>
+        <div id="day" class=" date14"></a></div>
+        <div id="day" class=" date15"></a></div>
+        <div id="day" class=" date16"></a></div>
+        <div id="day" class=" date17"></a></div>
+        <div id="day" class=" date18"></a></div>
+        <div id="day" class=" date19"></a></div>
+        <div id="day" class=" date20"></a></div>
+        <div id="day" class=" date21"></a></div>
+        <div id="day" class=" date22"></a></div>
+        <div id="day" class=" date23"></a></div>
+        <div id="day" class=" date24"></a></div>
+        <div id="day" class=" date25"></a></div>
+        <div id="day" class=" date26"></a></div>
+        <div id="day" class=" date27"></a></div>
+        <div id="day" class=" date28"></a></div>
+        <div id="day" class=" date29"></a></div>
+        <div id="day" class=" date30"></a></div>
+        <div id="day" class=" date31"></a></div>
+        <div id="day" class=" date32"></a></div>
+        <div id="day" class=" date33"></a></div>
+        <div id="day" class=" date34"></a></div>
+        <div id="day" class=" date35"></a></div>
+        <div id="day" class=" date36"></a></div>
+        <div id="day" class=" date37"></a></div>
+        <div id="day" class=" date38"></a></div>
+        <div id="day" class=" date39"></a></div>
+        <div id="day" class=" date40"></a></div>
+        <div id="day" class=" date41"></a></div>
+        <div id="day" class=" date42"></a></div>
+
+
+
+
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">新增行程</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <img id="pizzaImage">
+                <div class="modal-body">
+                    Modal內容
+                    <ul class="list-group">
+                        <li class="list-group-item disabled" aria-disabled="true">新增行程</li>
+                        <li class="list-group-item">請輸入年/月/日<input type="date" id="date"></li>
+                        <li class="list-group-item">時間<input type="time" id="time"></li>
+                        <li class="list-group-item">顏色<input type="color" id="color"></li>
+                        <li class="list-group-item">文字<input type="text" id="text"></li>
+                    </ul>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentTimeNow = new Date()
+        currentTimeNow.setDate(1);
+        let currentMonth = currentTimeNow.getUTCMonth()
+        let dayOfWeek = currentTimeNow.getDay()
+        let weekArray = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+        let tony = document.querySelector("#nextmonth")
+        let tony2 = document.querySelectorAll("#day")
+        function createCalculator(alice) {
+            tony2.forEach((item)=>{
+item.innerHTML=''
+            })
+           
+            for (i = 1; i < 32; i++) {
+
+                let locationOfCalculator = document.querySelector('.date' + (alice + i))
+                let button = `<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">創建行程</a>`
+
+                locationOfCalculator.innerHTML = `${i}` + button
+
+            }
+        }
+        window.onload = function () {
+            createCalculator(dayOfWeek)
+        }
+
+        tony.addEventListener("click", function () {
+
+            currentMonth += 1;
+            currentTimeNow.setMonth(currentMonth);
+            dayOfWeek = currentTimeNow.getDay();
+            createCalculator(dayOfWeek);
+        });
+        let inputOne = document.querySelector("#date")
+        //2023-06-13
+        let abc = inputOne.value
+        // //625
+        //         function fhg() {
+        //             currentMonth+=1   
+
+        //             currentTimeNow.setMonth(currentMonth) 
+
+        //             debugger
+        //           dayOfWeek = currentTimeNow.getDay(); 
+
+        //         }
+        // let inputyear =abc.split("-")[0];
+        // localStorage.setItem("year:"myCat", "Tom" );
+
+
+
+
+        //     createCalculator2()
+        // }
+
+        // let currentWeekMonDate = currentTimeNow.toDateString().substring(0, 10);
+        // let dateData = currentWeekMonDate.split(" ");
+        // var currentWMDArray = [dateData[0], dateData[1], dateData[2]];
+        // console.log(currentWMDArray);
+
+        // let curDateNum = currentTimeNow.toDateString().substring(8, 10) //現在這個時間點是幾日(curDateNum) 值為數字
+
+        // 
+
+        // let curWeekNum = weekArray.indexOf(currentWMDArray[0]) + 1
+        // console.log(curWeekNum); //6
+        // let alice = countFirstDateWeek(curDateNum)
+        // console.log(alice) //2 這個月的第一個禮拜(curWeekNum)是(a)號
+
+        // let alice2 = document.querySelector('.date' + (dayOfWeek+1))
+        // alice2.append('1')
+
+
+        console.log(currentMonth + 1 + '月1號是' + weekArray[dayOfWeek]);
+
+
+        // function countFirstDateWeek(number) {
+        //     while (number >= 7) {
+        //         number -= 7;
+        //     }
+        //     return number;
+        // }
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
