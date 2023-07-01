@@ -189,7 +189,7 @@
         }
         window.onload = function () {
             createCalculator(dayOfWeek)
-
+            pullDataFromLocalstorage()
         }
         nextMonth.addEventListener("click", function () {
             currentMonth += 1;
@@ -223,35 +223,44 @@
 
         //2023-06-13
         let jsonData = {};
-        let data = {}
+        let inputData = {}
         let item
         let zzz
-        let asd
+        let inputDataToString
         function saveInputDate() {
-            data = {
+            inputData = {
                 date: inputDate.value,
                 time: inputTime.value,
                 color: inputColor.value,
                 text: inputText.value
             }
-            asd = JSON.stringify(data)
+            inputDataToString = JSON.stringify(inputData)
 
             for (let a = 0; a < localStorage.length + 1; a++) {
                 if (localStorage.getItem('data' + a) == null) {
-                    localStorage.setItem(`data${a}`, asd);
+                    localStorage.setItem(`data${a}`, inputDataToString);
                     break;
                 }
             } //這邊邏輯待檢查 應該沒問題?
         }
+        // localStorage.getItem('data0')
+        //'{"date":"2023-07-18","time":"01:59","color":"#942424","text":"lycolis"}'
+
+        save.addEventListener("click", saveInputDate)
+
+        let dataArray=[] //陣列包物件 需dataArray[0].date來使用
+
+        function pullDataFromLocalstorage() {
+            for (let f = 0; f < localStorage.length; f++) {
+                dataArray.push(localStorage.getItem(`data${f}`))
+            }
+        }
+
        
-       // localStorage.getItem('data0')
-       //'{"date":"2023-07-18","time":"01:59","color":"#942424","text":"lycolis"}'
-        
-       save.addEventListener("click", saveInputDate)
 
 
 
-       
+
 
 
 
