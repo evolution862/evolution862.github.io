@@ -225,37 +225,51 @@
         let jsonData = {};
         let data = {}
         let item
-let zzz
+        let zzz
+        let asd
         function saveInputDate() {
-            for (let i = 0; i < 100; i++) {
-                if (localStorage.getItem('date' + i) == null) {
-                    localStorage.setItem(`date${i}`, inputDate.value);
-                    break;
-                }     
-                if (localStorage.getItem('time' + i) == null) {
-                    localStorage.setItem(`time${i}`, inputTime.value);
-                    break;
-                }
-                if (localStorage.getItem('color' + i) == null) {
-                    localStorage.setItem(`color${i}`, inputColor.value);
-                    break;
-                }
-                if (localStorage.getItem('text' + i) == null) {
-                    localStorage.setItem(`text${i}`, inputText.value);
-                    break;
-                }
+            data = {
+                date: inputDate.value,
+                time: inputTime.value,
+                color: inputColor.value,
+                text: inputText.value
             }
+            asd = JSON.stringify(data)
 
-            for (let a = 0; a < localStorage.length+1; a++) {                
-                if(localStorage.getItem('color' + a)!=''||null){
-                     data={
-                    abc:localStorage.getItem('color' + a)
+            for (let a = 0; a < localStorage.length + 1; a++) {
+                if (localStorage.getItem('data' + a) == null) {
+                    localStorage.setItem(`data${a}`, asd);
+                    break;
                 }
-                }              
-            }
-
+            } //這邊邏輯待檢查 應該沒問題?
         }
-        save.addEventListener("click", saveInputDate)
+       
+       // localStorage.getItem('data0')
+       //'{"date":"2023-07-18","time":"01:59","color":"#942424","text":"lycolis"}'
+        
+       save.addEventListener("click", saveInputDate)
+
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // function parseLocalStorageData() {
 
