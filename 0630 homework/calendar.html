@@ -219,14 +219,11 @@
         let inputTime = document.querySelector("#time")
         let inputColor = document.querySelector("#color")
         let inputText = document.querySelector("#text")
-        let save = document.querySelector("#save")
+        let save = document.querySelector("#save")        
+      
+        let inputData = {}        
+        let inputDataToString//轉成json
 
-        //2023-06-13
-        let jsonData = {};
-        let inputData = {}
-        let item
-        let zzz
-        let inputDataToString
         function saveInputDate() {
             inputData = {
                 date: inputDate.value,
@@ -235,7 +232,6 @@
                 text: inputText.value
             }
             inputDataToString = JSON.stringify(inputData)
-
             for (let a = 0; a < localStorage.length + 1; a++) {
                 if (localStorage.getItem('data' + a) == null) {
                     localStorage.setItem(`data${a}`, inputDataToString);
@@ -248,7 +244,7 @@
 
         save.addEventListener("click", saveInputDate)
 
-        let dataArray=[] //陣列包物件 需dataArray[0].date來使用
+        let dataArray=[] //push全部object進這個array 為陣列包物件 需dataArray[0].date來使用
 
         function pullDataFromLocalstorage() {
             for (let f = 0; f < localStorage.length; f++) {
