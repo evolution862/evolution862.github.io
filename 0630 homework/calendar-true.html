@@ -157,7 +157,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" id="save" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
@@ -183,6 +183,7 @@
         //第一個禮拜的第一天是星期alice   
 
         function createCalculator(alice, dataArray) {
+            
             title.textContent = '';
             title.append(`${currentMonth + 1}月${currentYear}`);
             dateBlock.forEach((item) => {
@@ -194,7 +195,7 @@
                 let button = `<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">創建行程</a>`;
                 locationOfCalculator.innerHTML = `${i}` + button;
             }
-            postDataToCalendar()
+            postDataToCalendar() 
         }
 
         nextMonth.addEventListener("click", function () {
@@ -225,6 +226,7 @@
         let inputColor = document.querySelector("#color")
         let inputText = document.querySelector("#text")
         let save = document.querySelector("#save")
+        let close = document.querySelector("#save")
 
         let inputData = {}
         let inputDataToString//轉成json
@@ -243,11 +245,16 @@
                     break;
                 }
             } //這邊邏輯待檢查 應該沒問題?
+            postDataToCalendar() 
         }
         // localStorage.getItem('data0')
         //'{"date":"2023-07-18","time":"01:59","color":"#942424","text":"lycolis"}'       
 
         save.addEventListener("click", saveInputDate)
+     
+
+     
+
         let dataArray = [] //push全部object進這個array 為陣列包物件 需dataArray[0].date來使用
 
         function pullDataFromLocalstorage() {
@@ -257,16 +264,18 @@
         }
 
         window.onload = function () {
+            postDataToCalendar() 
             createCalculator(dayOfWeek, dataArray)
             pullDataFromLocalstorage()
         }
 
-        let eventData, eventDate, eventMonth, eventYear, eventDay, eventColor, eventText        
+        let eventData, eventDate, eventMonth, eventYear, eventDay, eventColor, eventText
 
         function postDataToCalendar() {
             dateBlock.forEach((item) => {
                 item.style.backgroundColor = ""
-            });
+            });  
+            pullDataFromLocalstorage() 
             for (let i = 0; i < dataArray.length; i++) {
                 eventData = JSON.parse(dataArray[i]);
                 eventDate = new Date(eventData.date);
@@ -278,8 +287,19 @@
                     eventColor = eventData.color;
                     eventText = eventData.text;
                     let dataPostToCalendar = document.querySelector(`.date${eventDay + dayOfWeek}`);
-                    dataPostToCalendar.append(`日期:${eventData.date},時間:${eventData.time},顏色:${eventColor},文字:${eventText}`);
-                    dataPostToCalendar.style.backgroundColor = eventColor;
+                    let list = `<div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        日期:${eventData.date}
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">時間:${eventData.time}</li>
+                        <li class="list-group-item" style="background-color:${eventColor}">顏色:${eventColor}/li>
+                        <li class="list-group-item">文字:${eventText}</li>
+                    </ul>
+                    </div>`
+                    dataPostToCalendar.innerHTML = list
+                    // dataPostToCalendar.append(`日期:${eventData.date},時間:${eventData.time},顏色:${eventColor},文字:${eventText}`);
+
                 }
             }
         }
