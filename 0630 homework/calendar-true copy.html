@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
@@ -16,55 +13,64 @@
         padding: 0px;
         margin: 0px;
         text-align: center;
-        font-family: 'Martian Mono', monospace;
+    }
+
+    .weeks {
+        width: 100%;
+        border: 1px solid red;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        
+
     }
 
     .title {
-        font-size: 50px;
+        width: 80%;
+        font-size: 30px;
+        text-align: center;
     }
 
-    * .dates {
+
+
+    .week {
+
+        border: 1px solid red;
+    }
+
+    .dates {
         width: 100%;
-        border: 1px solid palevioletred;
+        border: 1px solid red;
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         grid-template-rows: repeat(6, 1fr);
     }
 
     #day {
-        border: 1px solid palevioletred;
+        border: 1px solid aqua;
         text-align: center;
-    }
-    .weeks{
-        background-color: palevioletred;
-    }
-    .input-group-text{
-       height: fit-content;
-       position: relative;
-       top: 25px;
     }
 </style>
 
 <body>
     <div class="header">
-        <div class="row align-items-center justify-content-between">
+        <div class="row">
             <a href="#" id="lastmonth" class="btn btn-primary ">上一個月</a>
-            <div class="title fs-"></div>
+            <div class="title"></div>
             <a href="#" id="nextmonth" class="btn btn-primary  ">下一個月</a>
+            <!-- <button type="button" id="edit" class="btn btn-primary">编辑行程</button> -->
         </div>
     </div>
-
-    <div class="weeks row col-12 justify-content-around mx-auto">
-        <div class="week ">日</div>
-        <div class="week ">一</div>
-        <div class="week ">二</div>
-        <div class="week ">三</div>
-        <div class="week ">四</div>
-        <div class="week ">五</div>
-        <div class="week ">六</div>
     </div>
-
-    <div class="dates ">
+    <div class="weeks">
+        <div class="week">日</div>
+        <div class="week">一</div>
+        <div class="week">二</div>
+        <div class="week">三</div>
+        <div class="week">四</div>
+        <div class="week">五</div>
+        <div class="week">六</div>
+    </div>
+    <div class="dates">
         <div id="day" class=" date1"></div>
         <div id="day" class=" date2"></a></div>
         <div id="day" class=" date3"></a></div>
@@ -123,28 +129,28 @@
 
 
                     <div class="input-group mb-3">
-                        <span class="input-group-text">📅</span>
+                        <span class="input-group-text">年/月/日</span>
                         <div class="form-floating">
                             <label for="date" class="text-center"></label>
                             <input type="date" class="form-control" id="date" placeholder="請輸入文字">
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text">🕖</span>
+                        <span class="input-group-text">時間</span>
                         <div class="form-floating">
                             <label for="time" class="text-center"></label>
                             <input type="time" class="form-control" id="time" placeholder="請輸入文字">
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text">🖌️</span>
+                        <span class="input-group-text">顏色</span>
                         <div class="form-floating">
                             <label for="color" class="text-center"></label>
                             <input type="color" class="form-control" id="color" placeholder="請輸入文字">
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text">✎</span>
+                        <span class="input-group-text">文字</span>
                         <div class="form-floating">
                             <label for="text" class="text-center"></label>
                             <input type="text" class="form-control" id="text" placeholder="請輸入文字">
@@ -175,7 +181,10 @@
 
         //第一個禮拜的第一天是星期alice   
 
-        function createCalculator(alice, dataArray) {
+
+
+
+        function createCalculator(alice, dataArray) {            
             title.textContent = '';
             title.append(`${currentMonth + 1}月${currentYear}`);
             dateBlock.forEach((item) => {
@@ -185,9 +194,9 @@
             for (let i = 1; i < 32; i++) {
                 locationOfCalculator = document.querySelector('.date' + (alice + i));
                 let button = `<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">創建行程</a>`;
-                locationOfCalculator.innerHTML = button + `${i}` ;
+                locationOfCalculator.innerHTML = `${i}` + button;
             }
-            postDataToCalendar()
+            postDataToCalendar() 
         }
 
         nextMonth.addEventListener("click", function () {
@@ -237,15 +246,15 @@
                     break;
                 }
             } //這邊邏輯待檢查 應該沒問題?
-            postDataToCalendar()
+            postDataToCalendar() 
         }
         // localStorage.getItem('data0')
         //'{"date":"2023-07-18","time":"01:59","color":"#942424","text":"lycolis"}'       
 
         save.addEventListener("click", saveInputDate)
+     
 
-
-
+     
 
         let dataArray = [] //push全部object進這個array 為陣列包物件 需dataArray[0].date來使用
 
@@ -256,7 +265,7 @@
         }
 
         window.onload = function () {
-            postDataToCalendar()
+            postDataToCalendar() 
             createCalculator(dayOfWeek, dataArray)
             pullDataFromLocalstorage()
         }
@@ -266,8 +275,8 @@
         function postDataToCalendar() {
             dateBlock.forEach((item) => {
                 item.style.backgroundColor = ""
-            });
-            pullDataFromLocalstorage()
+            });  
+            pullDataFromLocalstorage() 
             for (let i = 0; i < dataArray.length; i++) {
                 eventData = JSON.parse(dataArray[i]);
                 eventDate = new Date(eventData.date);
@@ -279,13 +288,13 @@
                     eventColor = eventData.color;
                     eventText = eventData.text;
                     let dataPostToCalendar = document.querySelector(`.date${eventDay + dayOfWeek}`);
-                    let list = `<div class="card mx-auto" style="width: 18rem;">
-                    <div class="card-header ">
+                    let list = `<div class="card" style="width: 18rem;">
+                    <div class="card-header">
                         日期:${eventData.date}
                     </div>
-                    <ul class="list-group list-group-flush ">
+                    <ul class="list-group list-group-flush">
                         <li class="list-group-item">時間:${eventData.time}</li>
-                        <li class="list-group-item" style="background-color:${eventColor}">顏色:${eventColor}</li>
+                        <li class="list-group-item" style="background-color:${eventColor}">顏色:${eventColor}/li>
                         <li class="list-group-item">文字:${eventText}</li>
                     </ul>
                     </div>`
