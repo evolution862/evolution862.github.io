@@ -179,7 +179,34 @@
         let br=document.createElement('br')
         
         let dataPostToCalendar
-        //第一個禮拜的第一天是星期alice     
+        //第一個禮拜的第一天是星期alice
+        // function createCalculator(alice) {
+        //     title.textContent = ''
+        //     title.append(`${currentMonth + 1}月${currentYear}`)
+        //     dateBlock.forEach((item) => {
+        //         item.innerHTML = ''
+        //     })
+            
+        //     for (i = 1; i < 32; i++) {
+        //         locationOfCalculator = document.querySelector('.date' + (alice + i))
+        //         let button = `<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">創建行程</a>`
+        //         locationOfCalculator.innerHTML = `${i}` + button         
+        //     }
+            
+        //     dataPostToCalendar=document.querySelector(`.date${date+alice}`)
+            
+        //     if(currentMonth==month&&currentYear==year){    
+                
+        //      dataPostToCalendar.append(`日期:${tony.date},時間:${tony.time},顏色:${tony.color},文字:${tony.text}`)            
+        //      console.log(tony.color)
+        //      dataPostToCalendar.style.backgroundColor=tony.color
+        //     }      
+        // }
+
+
+
+
+
 
         function createCalculator(alice, dataArray) {
   title.textContent = '';
@@ -195,43 +222,59 @@
   }
 
   dataArray.forEach((data, index) => {
-  try {
-    const tony = JSON.parse(data);
-    const { date, time, color, text } = tony;
+    const eventData = JSON.parse(data);
+    const { date, time, color, text } = eventData;
+    const eventMonth = Number(date.substring(5, 7)) - 1;
+    const eventYear = Number(date.substring(0, 4));
 
-    if (currentMonth === Number(date.substring(5, 7)) - 1 && currentYear === Number(date.substring(0, 4))) {
-      const dataPostToCalendar = document.querySelector(`.date${index+alice}`);
+    if (currentMonth === eventMonth && currentYear === eventYear) {
+      const dataPostToCalendar = document.querySelector(`.date${index + alice}`);
       dataPostToCalendar.append(`日期:${date},時間:${time},顏色:${color},文字:${text}`);
       dataPostToCalendar.style.backgroundColor = color;
     }
-  } catch (error) {
-    console.error(`Error parsing data at index ${index}: ${error}`);
+  });
+}
+
+nextMonth.addEventListener("click", function () {
+  currentMonth += 1;
+  if (currentMonth > 11) {
+    currentMonth -= 12;
+    currentYear += 1;
+    currentTimeNow.setUTCFullYear(currentYear);
   }
+  currentTimeNow.setMonth(currentMonth);
+  dayOfWeek = currentTimeNow.getDay();
+
+  // 清除已新增的事件
+  dataArray = [];
+  localStorage.clear();
+
+  createCalculator(dayOfWeek, dataArray);
 });
 
-}
-        nextMonth.addEventListener("click", function () {
-            currentMonth += 1;
-            if (currentMonth > 11) {
-                currentMonth -= 12
-                currentYear += 1
-                currentTimeNow.setUTCFullYear(currentYear)
-            }
-            currentTimeNow.setMonth(currentMonth);
-            dayOfWeek = currentTimeNow.getDay();
-            createCalculator(dayOfWeek, dataArray);
-        });
-        lastMonth.addEventListener("click", function () {
-            currentMonth -= 1;
-            if (currentMonth < 0) {
-                currentMonth += 12
-                currentYear -= 1
-                currentTimeNow.setUTCFullYear(currentYear)
-            }
-            currentTimeNow.setMonth(currentMonth);
-            dayOfWeek = currentTimeNow.getDay();
-            createCalculator(dayOfWeek, dataArray);
-        });
+lastMonth.addEventListener("click", function () {
+  currentMonth -= 1;
+  if (currentMonth < 0) {
+    currentMonth += 12;
+    currentYear -= 1;
+    currentTimeNow.setUTCFullYear(currentYear);
+  }
+  currentTimeNow.setMonth(currentMonth);
+  dayOfWeek = currentTimeNow.getDay();
+
+  // 清除已新增的事件
+  dataArray = [];  
+
+  createCalculator(dayOfWeek, dataArray);
+});
+
+
+
+
+
+
+
+   
         
         
         let inputDate = document.querySelector("#date")
@@ -259,12 +302,15 @@
             } //這邊邏輯待檢查 應該沒問題?
         }
         // localStorage.getItem('data0')
-        //'{"date":"2023-07-18","time":"01:59","color":"#942424","text":"lycolis"}'        
-      
+        //'{"date":"2023-07-18","time":"01:59","color":"#942424","text":"lycolis"}'
         
-        save.addEventListener("click", saveInputDate)        
+       
+        let   obj 
+        
+        save.addEventListener("click", saveInputDate)
+        
         let dataArray=[] //push全部object進這個array 為陣列包物件 需dataArray[0].date來使用
-
+        
         function pullDataFromLocalstorage() {
             for (let f = 0; f < localStorage.length; f++) {
                 dataArray.push(localStorage.getItem(`data${f}`))                
@@ -274,64 +320,35 @@
         window.onload = function () {                     
             createCalculator(dayOfWeek,dataArray)   
             pullDataFromLocalstorage()          
-            postDataToCalendar()  
-        }         
-                       
-//    function postDataToCalendar() {
-//   for (let i = 0; i < dataArray.length; i++) {
-//     const eventData = JSON.parse(dataArray[i]);
-//     const eventDate = new Date(eventData.date);
+            practice()  
+        }        
     
-//     if (
-//       eventDate.getMonth() === currentMonth &&
-//       eventDate.getFullYear() === currentYear
-//     ) {
-//       const eventDay = eventDate.getDate();
-//       const eventColor = eventData.color;
-//       const eventText = eventData.text;
+        
+        let year,month,date
+        
+        
 
-//       const dataPostToCalendar = document.querySelector(`.date${eventDay + dayOfWeek}`);
-//       dataPostToCalendar.append(`日期:${eventData.date},時間:${eventData.time},顏色:${eventColor},文字:${eventText}`);
-//       dataPostToCalendar.style.backgroundColor = eventColor;
-//     }
-//   }
-// }
-     
-
-
-function postDataToCalendar() {
+        function practice() {
   for (let i = 0; i < dataArray.length; i++) {
     const eventData = JSON.parse(dataArray[i]);
     const eventDate = new Date(eventData.date);
-    const eventMonth = eventDate.getMonth();
-    const eventYear = eventDate.getFullYear();
-    const eventDay = eventDate.getDate();
-
-    if (eventMonth === currentMonth && eventYear === currentYear) {
+    
+    if (
+      eventDate.getMonth() === currentMonth &&
+      eventDate.getFullYear() === currentYear
+    ) {
+      const eventDay = eventDate.getDate();
       const eventColor = eventData.color;
       const eventText = eventData.text;
+
       const dataPostToCalendar = document.querySelector(`.date${eventDay + dayOfWeek}`);
       dataPostToCalendar.append(`日期:${eventData.date},時間:${eventData.time},顏色:${eventColor},文字:${eventText}`);
       dataPostToCalendar.style.backgroundColor = eventColor;
     }
   }
 }
-
-
-// function postDataToCalendar() {
-//   for (let i = 0; i < dataArray.length; i++) {
-//     const eventData = JSON.parse(dataArray[i]);
-//     const eventDate = new Date(eventData.date);
-    
-//     const eventDay = eventDate.getDate();
-//     const eventColor = eventData.color;
-//     const eventText = eventData.text;
-
-//     const dataPostToCalendar = document.querySelector(`.date${eventDay + dayOfWeek}`);
-//     dataPostToCalendar.append(`日期:${eventData.date},時間:${eventData.time},顏色:${eventColor},文字:${eventText}`);
-//     dataPostToCalendar.style.backgroundColor = eventColor;
-//   }
-// }
+        
+       
         // function practice(){     
 
         //     // for (let i = 1; i <= 12; i++) {
@@ -352,8 +369,84 @@ function postDataToCalendar() {
         //     console.log(typeof currentMonth)
         //     console.log(typeof currentYear)       
              
-        // } 
+        // }
         
+        function practice2()
+        {
+            
+            if(currentMonth==month&&currentYear==year){     
+                debugger          
+                dataPostToCalendar.append(123)
+            }
+            
+        }
+        
+        
+       
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+        // function parseLocalStorageData() {
+
+
+        //     return jsonData;
+        // }
+        //         function fhg() {
+        //             currentMonth+=1   
+
+        //             currentTimeNow.setMonth(currentMonth) 
+
+        //             debugger
+        //           dayOfWeek = currentTimeNow.getDay(); 
+
+        //         }
+        // let inputyear =abc.split("-")[0];
+        // localStorage.setItem("year:"myCat", "Tom" );
+
+
+
+
+        //     createCalculator2()
+        // }
+
+        // let currentWeekMonDate = currentTimeNow.toDateString().substring(0, 10);
+        // let dateData = currentWeekMonDate.split(" ");
+        // var currentWMDArray = [dateData[0], dateData[1], dateData[2]];
+        // console.log(currentWMDArray);
+
+        // let curDateNum = currentTimeNow.toDateString().substring(8, 10) //現在這個時間點是幾日(curDateNum) 值為數字
+
+        // 
+
+        // let curWeekNum = weekArray.indexOf(currentWMDArray[0]) + 1
+        // console.log(curWeekNum); //6
+        // let alice = countFirstDateWeek(curDateNum)
+        // console.log(alice) //2 這個月的第一個禮拜(curWeekNum)是(a)號
+
+        // let alice2 = document.querySelector('.date' + (dayOfWeek+1))
+        // alice2.append('1')
+
+
+     
+
+
+        // function countFirstDateWeek(number) {
+        //     while (number >= 7) {
+        //         number -= 7;
+        //     }
+        //     return number;
+        // }
+
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

@@ -47,7 +47,7 @@
 
     #day {
         border: 1px solid aqua;
-        text-align: center;        
+        text-align: center;
     }
 </style>
 
@@ -176,40 +176,27 @@
         let dateBlock = document.querySelectorAll("#day")
         let title = document.querySelector(".title")
         let locationOfCalculator
-        let br=document.createElement('br')
-        
+        let br = document.createElement('br')
+
         let dataPostToCalendar
-        //第一個禮拜的第一天是星期alice     
+        let dataPostToCalendar2 = document.querySelectorAll(".date")
+        //第一個禮拜的第一天是星期alice   
 
         function createCalculator(alice, dataArray) {
-  title.textContent = '';
-  title.append(`${currentMonth + 1}月${currentYear}`);
-  dateBlock.forEach((item) => {
-    item.innerHTML = '';
-  });
+            title.textContent = '';
+            title.append(`${currentMonth + 1}月${currentYear}`);
+            dateBlock.forEach((item) => {
+                item.innerHTML = '';
+            });
 
-  for (let i = 1; i < 32; i++) {
-    locationOfCalculator = document.querySelector('.date' + (alice + i));
-    let button = `<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">創建行程</a>`;
-    locationOfCalculator.innerHTML = `${i}` + button;
-  }
+            for (let i = 1; i < 32; i++) {
+                locationOfCalculator = document.querySelector('.date' + (alice + i));
+                let button = `<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">創建行程</a>`;
+                locationOfCalculator.innerHTML = `${i}` + button;
+            }
+            postDataToCalendar()
+        }
 
-  dataArray.forEach((data, index) => {
-  try {
-    const tony = JSON.parse(data);
-    const { date, time, color, text } = tony;
-
-    if (currentMonth === Number(date.substring(5, 7)) - 1 && currentYear === Number(date.substring(0, 4))) {
-      const dataPostToCalendar = document.querySelector(`.date${index+alice}`);
-      dataPostToCalendar.append(`日期:${date},時間:${time},顏色:${color},文字:${text}`);
-      dataPostToCalendar.style.backgroundColor = color;
-    }
-  } catch (error) {
-    console.error(`Error parsing data at index ${index}: ${error}`);
-  }
-});
-
-}
         nextMonth.addEventListener("click", function () {
             currentMonth += 1;
             if (currentMonth > 11) {
@@ -232,17 +219,16 @@
             dayOfWeek = currentTimeNow.getDay();
             createCalculator(dayOfWeek, dataArray);
         });
-        
-        
+
         let inputDate = document.querySelector("#date")
         let inputTime = document.querySelector("#time")
         let inputColor = document.querySelector("#color")
         let inputText = document.querySelector("#text")
-        let save = document.querySelector("#save")        
-        
-        let inputData = {}        
+        let save = document.querySelector("#save")
+
+        let inputData = {}
         let inputDataToString//轉成json
-        
+
         function saveInputDate() {
             inputData = {
                 date: inputDate.value,
@@ -259,101 +245,45 @@
             } //這邊邏輯待檢查 應該沒問題?
         }
         // localStorage.getItem('data0')
-        //'{"date":"2023-07-18","time":"01:59","color":"#942424","text":"lycolis"}'        
-      
-        
-        save.addEventListener("click", saveInputDate)        
-        let dataArray=[] //push全部object進這個array 為陣列包物件 需dataArray[0].date來使用
+        //'{"date":"2023-07-18","time":"01:59","color":"#942424","text":"lycolis"}'       
+
+        save.addEventListener("click", saveInputDate)
+        let dataArray = [] //push全部object進這個array 為陣列包物件 需dataArray[0].date來使用
 
         function pullDataFromLocalstorage() {
             for (let f = 0; f < localStorage.length; f++) {
-                dataArray.push(localStorage.getItem(`data${f}`))                
-            }            
+                dataArray.push(localStorage.getItem(`data${f}`))
+            }
         }
-        
-        window.onload = function () {                     
-            createCalculator(dayOfWeek,dataArray)   
-            pullDataFromLocalstorage()          
-            postDataToCalendar()  
-        }         
-                       
-//    function postDataToCalendar() {
-//   for (let i = 0; i < dataArray.length; i++) {
-//     const eventData = JSON.parse(dataArray[i]);
-//     const eventDate = new Date(eventData.date);
-    
-//     if (
-//       eventDate.getMonth() === currentMonth &&
-//       eventDate.getFullYear() === currentYear
-//     ) {
-//       const eventDay = eventDate.getDate();
-//       const eventColor = eventData.color;
-//       const eventText = eventData.text;
 
-//       const dataPostToCalendar = document.querySelector(`.date${eventDay + dayOfWeek}`);
-//       dataPostToCalendar.append(`日期:${eventData.date},時間:${eventData.time},顏色:${eventColor},文字:${eventText}`);
-//       dataPostToCalendar.style.backgroundColor = eventColor;
-//     }
-//   }
-// }
-     
+        window.onload = function () {
+            createCalculator(dayOfWeek, dataArray)
+            pullDataFromLocalstorage()
+        }
 
+        let eventData, eventDate, eventMonth, eventYear, eventDay, eventColor, eventText        
 
-function postDataToCalendar() {
-  for (let i = 0; i < dataArray.length; i++) {
-    const eventData = JSON.parse(dataArray[i]);
-    const eventDate = new Date(eventData.date);
-    const eventMonth = eventDate.getMonth();
-    const eventYear = eventDate.getFullYear();
-    const eventDay = eventDate.getDate();
+        function postDataToCalendar() {
+            dateBlock.forEach((item) => {
+                item.style.backgroundColor = ""
+            });
+            for (let i = 0; i < dataArray.length; i++) {
+                eventData = JSON.parse(dataArray[i]);
+                eventDate = new Date(eventData.date);
+                eventMonth = eventDate.getMonth();
+                eventYear = eventDate.getFullYear();
+                eventDay = eventDate.getDate();
 
-    if (eventMonth === currentMonth && eventYear === currentYear) {
-      const eventColor = eventData.color;
-      const eventText = eventData.text;
-      const dataPostToCalendar = document.querySelector(`.date${eventDay + dayOfWeek}`);
-      dataPostToCalendar.append(`日期:${eventData.date},時間:${eventData.time},顏色:${eventColor},文字:${eventText}`);
-      dataPostToCalendar.style.backgroundColor = eventColor;
-    }
-  }
-}
+                if (eventMonth === currentMonth && eventYear === currentYear) {
+                    eventColor = eventData.color;
+                    eventText = eventData.text;
+                    let dataPostToCalendar = document.querySelector(`.date${eventDay + dayOfWeek}`);
+                    dataPostToCalendar.append(`日期:${eventData.date},時間:${eventData.time},顏色:${eventColor},文字:${eventText}`);
+                    dataPostToCalendar.style.backgroundColor = eventColor;
+                }
+            }
+        }
 
-
-// function postDataToCalendar() {
-//   for (let i = 0; i < dataArray.length; i++) {
-//     const eventData = JSON.parse(dataArray[i]);
-//     const eventDate = new Date(eventData.date);
-    
-//     const eventDay = eventDate.getDate();
-//     const eventColor = eventData.color;
-//     const eventText = eventData.text;
-
-//     const dataPostToCalendar = document.querySelector(`.date${eventDay + dayOfWeek}`);
-//     dataPostToCalendar.append(`日期:${eventData.date},時間:${eventData.time},顏色:${eventColor},文字:${eventText}`);
-//     dataPostToCalendar.style.backgroundColor = eventColor;
-//   }
-// }
-        // function practice(){     
-
-        //     // for (let i = 1; i <= 12; i++) {
-        //     //       tony = JSON.parse(dataArray[i]);
-        //     //     }            
-            
-        //     console.log(tony.date) //2023-07-12
-        //     // locationOfCalculator.append(tony.date)
-        //     year = Number(tony.date.substring(0, 4));
-        //     console.log(year)
-        //     console.log(typeof year)
-        //     month = Number(tony.date.substring(5, 7))-1;
-        //     console.log(month)
-        //     console.log(typeof month)
-        //     date = Number(tony.date.substring(8, 10));
-        //     console.log(date)
-        //     console.log(typeof date)
-        //     console.log(typeof currentMonth)
-        //     console.log(typeof currentYear)       
-             
-        // } 
-        
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
