@@ -35,13 +35,15 @@
         border: 1px solid palevioletred;
         text-align: center;
     }
-    .weeks{
+
+    .weeks {
         background-color: palevioletred;
     }
-    .input-group-text{
-       height: fit-content;
-       position: relative;
-       top: 25px;
+
+    .input-group-text {
+        height: fit-content;
+        position: relative;
+        top: 25px;
     }
 </style>
 
@@ -158,6 +160,7 @@
             </div>
         </div>
     </div>
+ 
 
     <script>
         let currentTimeNow = new Date()
@@ -172,20 +175,20 @@
         let title = document.querySelector(".title")
         let locationOfCalculator
         let br = document.createElement('br')
+        let lastDateOfMonth
+        //dayofweek 第一個禮拜的第一天是星期幾 
 
-        //第一個禮拜的第一天是星期alice   
-
-        function createCalculator(alice, dataArray) {
+        function createCalculator(dayofweek, dataArray) {
             title.textContent = '';
             title.append(`${currentMonth + 1}月${currentYear}`);
             dateBlock.forEach((item) => {
                 item.innerHTML = '';
             });
-
-            for (let i = 1; i < 32; i++) {
-                locationOfCalculator = document.querySelector('.date' + (alice + i));
+            lastDateOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            for (let i = 1; i < lastDateOfMonth + 1; i++) {
+                locationOfCalculator = document.querySelector('.date' + (dayofweek + i));
                 let button = `<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">創建行程</a>`;
-                locationOfCalculator.innerHTML = button + `${i}` ;
+                locationOfCalculator.innerHTML = button + `${i}`;
             }
             postDataToCalendar()
         }
@@ -216,7 +219,7 @@
         let inputDate = document.querySelector("#date")
         let inputTime = document.querySelector("#time")
         let inputColor = document.querySelector("#color")
-        let inputText = document.querySelector("#text")
+        let inputText = document.querySelector("#text")    
         let save = document.querySelector("#save")
         let close = document.querySelector("#save")
 
@@ -230,6 +233,7 @@
                 color: inputColor.value,
                 text: inputText.value
             }
+           
             inputDataToString = JSON.stringify(inputData)
             for (let a = 0; a < localStorage.length + 1; a++) {
                 if (localStorage.getItem('data' + a) == null) {
@@ -279,9 +283,10 @@
                     eventColor = eventData.color;
                     eventText = eventData.text;
                     let dataPostToCalendar = document.querySelector(`.date${eventDay + dayOfWeek}`);
+                   
                     let list = `<div class="card mx-auto" style="width: 18rem;">
                     <div class="card-header ">
-                        日期:${eventData.date}
+                        日期:${eventData.date} <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">更改行程</a>
                     </div>
                     <ul class="list-group list-group-flush ">
                         <li class="list-group-item">時間:${eventData.time}</li>
