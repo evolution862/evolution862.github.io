@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+        text-align: center;
+        font-family: 'Martian Mono', monospace;
+    }
+
+    .title {
+        font-size: 50px;
+    }
+
+    * .dates {
+        width: 100%;
+        border: 1px solid palevioletred;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+    }
+
+    #day {
+        border: 1px solid palevioletred;
+        text-align: center;
+    }
+
+    .weeks {
+        background-color: palevioletred;
+    }
+
+    .input-group-text {
+        height: fit-content;
+        position: relative;
+        top: 25px;
+    }
+</style>
+
+<body>
+    <div class="header">
+        <div class="row align-items-center justify-content-between">
+            <a href="#" id="lastmonth" class="btn btn-primary ">上一個月</a>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">創建行程</a>
+            <div class="title fs-"></div>
+            <a href="#" id="nextmonth" class="btn btn-primary  ">下一個月</a>
+        </div>
+    </div>
+
+    <div class="weeks row col-12 justify-content-around mx-auto">
+        <div class="week ">日</div>
+        <div class="week ">一</div>
+        <div class="week ">二</div>
+        <div class="week ">三</div>
+        <div class="week ">四</div>
+        <div class="week ">五</div>
+        <div class="week ">六</div>
+    </div>
+
+    <div class="dates ">
+        <div id="day" class=" date1"></div>
+        <div id="day" class=" date2"></a></div>
+        <div id="day" class=" date3"></a></div>
+        <div id="day" class=" date4"></a></div>
+        <div id="day" class=" date5"></a></div>
+        <div id="day" class=" date6"></a></div>
+        <div id="day" class=" date7"></a></div>
+        <div id="day" class=" date8"></a></div>
+        <div id="day" class=" date9"></a></div>
+        <div id="day" class=" date10"></a></div>
+        <div id="day" class=" date11"></a></div>
+        <div id="day" class=" date12"></a></div>
+        <div id="day" class=" date13"></a></div>
+        <div id="day" class=" date14"></a></div>
+        <div id="day" class=" date15"></a></div>
+        <div id="day" class=" date16"></a></div>
+        <div id="day" class=" date17"></a></div>
+        <div id="day" class=" date18"></a></div>
+        <div id="day" class=" date19"></a></div>
+        <div id="day" class=" date20"></a></div>
+        <div id="day" class=" date21"></a></div>
+        <div id="day" class=" date22"></a></div>
+        <div id="day" class=" date23"></a></div>
+        <div id="day" class=" date24"></a></div>
+        <div id="day" class=" date25"></a></div>
+        <div id="day" class=" date26"></a></div>
+        <div id="day" class=" date27"></a></div>
+        <div id="day" class=" date28"></a></div>
+        <div id="day" class=" date29"></a></div>
+        <div id="day" class=" date30"></a></div>
+        <div id="day" class=" date31"></a></div>
+        <div id="day" class=" date32"></a></div>
+        <div id="day" class=" date33"></a></div>
+        <div id="day" class=" date34"></a></div>
+        <div id="day" class=" date35"></a></div>
+        <div id="day" class=" date36"></a></div>
+        <div id="day" class=" date37"></a></div>
+        <div id="day" class=" date38"></a></div>
+        <div id="day" class=" date39"></a></div>
+        <div id="day" class=" date40"></a></div>
+        <div id="day" class=" date41"></a></div>
+        <div id="day" class=" date42"></a></div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">新增行程</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <img id="pizzaImage">
+                <div class="modal-body w-12">
+
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">📅</span>
+                        <div class="form-floating">
+                            <label for="date" class="text-center"></label>
+                            <input type="date" class="form-control" id="date" placeholder="請輸入文字">
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">🕖</span>
+                        <div class="form-floating">
+                            <label for="time" class="text-center"></label>
+                            <input type="time" class="form-control" id="time" placeholder="請輸入文字">
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">🖌️</span>
+                        <div class="form-floating">
+                            <label for="color" class="text-center"></label>
+                            <input type="color" class="form-control" id="color" placeholder="請輸入文字">
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">✎</span>
+                        <div class="form-floating">
+                            <label for="text" class="text-center"></label>
+                            <input type="text" class="form-control" id="text" placeholder="請輸入文字">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="save" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+
+    <script>
+        let currentTimeNow = new Date()
+        currentTimeNow.setDate(1);
+        let currentMonth = currentTimeNow.getUTCMonth()
+        let currentYear = currentTimeNow.getUTCFullYear()
+        let dayOfWeek = currentTimeNow.getDay()
+        let weekArray = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+        let nextMonth = document.querySelector("#nextmonth")
+        let lastMonth = document.querySelector("#lastmonth")
+        let dateBlock = document.querySelectorAll("#day")
+        let title = document.querySelector(".title")
+        let locationOfCalculator
+        let br = document.createElement('br')
+        let lastDateOfMonth
+        //dayofweek 第一個禮拜的第一天是星期幾 
+
+        function createCalculator(dayofweek, dataArray) {
+            title.textContent = '';
+            title.append(`${currentMonth + 1}月${currentYear}`);
+            dateBlock.forEach((item) => {
+                item.innerHTML = '';
+            });
+            lastDateOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            for (let i = 1; i < lastDateOfMonth + 1; i++) {
+                locationOfCalculator = document.querySelector('.date' + (dayofweek + i));               
+                locationOfCalculator.innerHTML = `${i}`;
+            }
+            postDataToCalendar()
+        }
+
+        nextMonth.addEventListener("click", function () {
+            currentMonth += 1;
+            if (currentMonth > 11) {
+                currentMonth -= 12
+                currentYear += 1
+                currentTimeNow.setUTCFullYear(currentYear)
+            }
+            currentTimeNow.setMonth(currentMonth);
+            dayOfWeek = currentTimeNow.getDay();
+            createCalculator(dayOfWeek, dataArray);
+        });
+        lastMonth.addEventListener("click", function () {
+            currentMonth -= 1;
+            if (currentMonth < 0) {
+                currentMonth += 12
+                currentYear -= 1
+                currentTimeNow.setUTCFullYear(currentYear)
+            }
+            currentTimeNow.setMonth(currentMonth);
+            dayOfWeek = currentTimeNow.getDay();
+            createCalculator(dayOfWeek, dataArray);
+        });
+
+        let inputDate = document.querySelector("#date")
+        let inputTime = document.querySelector("#time")
+        let inputColor = document.querySelector("#color")
+        let inputText = document.querySelector("#text")    
+        let save = document.querySelector("#save")
+        let close = document.querySelector("#save")
+
+        let inputData = {}
+        let inputDataToString//轉成json
+
+        function saveInputDate() {
+            inputData = {
+                date: inputDate.value,
+                time: inputTime.value,
+                color: inputColor.value,
+                text: inputText.value
+            }
+           
+            inputDataToString = JSON.stringify(inputData)
+            for (let a = 0; a < localStorage.length + 1; a++) {
+                if (localStorage.getItem('data' + a) == null) {
+                    localStorage.setItem( inputDate.value, inputDataToString);
+                    break;
+                }
+            } //這邊邏輯待檢查 應該沒問題?
+            postDataToCalendar()
+        }
+        // localStorage.getItem('data0')
+        //'{"date":"2023-07-18","time":"01:59","color":"#942424","text":"lycolis"}'       
+
+        save.addEventListener("click", saveInputDate)
+
+
+
+
+        let dataArray = [] //push全部object進這個array 為陣列包物件 需dataArray[0].date來使用
+
+        function pullDataFromLocalstorage() {
+            for (let f = 0; f < localStorage.length; f++) {
+                dataArray.push(localStorage.getItem(`data${f}`))
+            }
+        }
+
+        window.onload = function () {
+            postDataToCalendar()
+            createCalculator(dayOfWeek, dataArray)
+            pullDataFromLocalstorage()
+        }
+
+        let eventData, eventDate, eventMonth, eventYear, eventDay, eventColor, eventText
+
+        function postDataToCalendar() {
+            dateBlock.forEach((item) => {
+                item.style.backgroundColor = ""
+            });
+            pullDataFromLocalstorage()
+            for (let i = 0; i < dataArray.length; i++) {
+                eventData = JSON.parse(dataArray[i]);
+                debugger
+                eventDate = new Date(eventData.date);
+                eventMonth = eventDate.getMonth();
+                eventYear = eventDate.getFullYear();
+                eventDay = eventDate.getDate();
+
+                if (eventMonth === currentMonth && eventYear === currentYear) {
+                    eventColor = eventData.color;
+                    eventText = eventData.text;
+                    let dataPostToCalendar = document.querySelector(`.date${eventDay + dayOfWeek}`);
+                   
+                    let list = `<div class="card mx-auto" style="width: 18rem;">
+                    <div class="card-header ">
+                        日期:${eventData.date} <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">更改行程</a>
+                    </div>
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item">時間:${eventData.time}</li>
+                        <li class="list-group-item" style="background-color:${eventColor}">顏色:${eventColor}</li>
+                        <li class="list-group-item">文字:${eventText}</li>
+                    </ul>
+                    </div>`
+                    dataPostToCalendar.innerHTML = list
+                    // dataPostToCalendar.append(`日期:${eventData.date},時間:${eventData.time},顏色:${eventColor},文字:${eventText}`);
+
+                }
+            }
+        }
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
