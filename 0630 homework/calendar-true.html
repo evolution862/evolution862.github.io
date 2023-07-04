@@ -52,6 +52,7 @@
         <div class="row align-items-center justify-content-between">
             <a href="#" id="lastmonth" class="btn btn-primary ">上一個月</a>
             <div class="title fs-"></div>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">創建行程</a>
             <a href="#" id="nextmonth" class="btn btn-primary  ">下一個月</a>
         </div>
     </div>
@@ -186,9 +187,8 @@
             });
             lastDateOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
             for (let i = 1; i < lastDateOfMonth + 1; i++) {
-                locationOfCalculator = document.querySelector('.date' + (dayofweek + i));
-                let button = `<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">創建行程</a>`;
-                locationOfCalculator.innerHTML = button + `${i}`;
+                locationOfCalculator = document.querySelector('.date' + (dayofweek + i));              ;
+                locationOfCalculator.innerHTML = `${i}`;
             }
             postDataToCalendar()
         }
