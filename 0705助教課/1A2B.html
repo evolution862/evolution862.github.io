@@ -78,7 +78,7 @@
 
         startGameBtn.addEventListener('click', function () {
             ulDom.innerHTML = ''
-            historyData=''
+            historyData = ''
             answerArr = []
 
             startGameStatus()
@@ -96,7 +96,17 @@
         })
 
         restartGameBtn.addEventListener('click', function () {
+            answerArr = []
+            historyData = ''          
 
+            while (answerArr.length !== 4) {
+                let randomValue2 = getRandomNumber(0, 9)
+                if (!answerArr.includes(randomValue2)) {
+                    answerArr.push(randomValue2)
+                }
+
+            }
+         
         })
 
         openAnsBtn.addEventListener('click', function () {
@@ -121,8 +131,8 @@
         function checkDataFn() {
             countA = 0
             countB = 0
-        
-          
+
+
             let inputValue = inputDataDom.value
             let clearValue = new Set(inputValue)
             if (isNaN(parseInt(inputValue)) || clearValue.size !== 4) {
@@ -177,7 +187,7 @@
             checkAnsBtn.disabled = false
             inputDataDom.disabled = false
             startGameBtn.disabled = true
-            inputDataDom.value=''
+            inputDataDom.value = ''
         }
 
         function getRandomNumber(min, max) {
