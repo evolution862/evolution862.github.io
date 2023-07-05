@@ -59,11 +59,11 @@
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">編輯行程</h1>
+                        <h1 class="modal-title fs-5" id="editModalLabel">編輯行程</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -85,7 +85,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                            id="edit-close">Close</button>
+                            id="edit-close">關閉</button>
                         <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
@@ -98,11 +98,11 @@
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">新增行程</h1>
+                        <h1 class="modal-title fs-5" id="addModalLabel">新增行程</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -124,8 +124,9 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                            id="add-close">Close</button>
-                        <button type="button" class="btn btn-primary" id="add-save">Save changes</button>
+                            id="add-close">關閉</button>
+                        <button type="button" class="btn btn-primary" id="add-save">修改</button>
+                        <button type="button" class="btn btn-primary" id="add-delete">刪除</button>
                     </div>
                 </div>
             </div>
@@ -154,6 +155,7 @@
         const addTitleDom = document.getElementById('add-title')
         const addContentDom = document.getElementById('add-content')
         const addSaveDom = document.getElementById('add-save')
+        const addDeleteDom = document.getElementById('add-delete')
 
         const editDateDom = document.getElementById('edit-date')
         const editTitleDom = document.getElementById('edit-title')
@@ -169,19 +171,23 @@
             renderDate()
         }
         preMonthBtn.addEventListener('click', function () {
+            day = 1
             month--
             if (month === -1) {
                 year--
                 month = 11
             }
             renderDate()
+
         })
         thisMonthBtn.addEventListener('click', function () {
-            year = today.getFullYear()
-            month = today.getMonth()
+            let thisDate = new Date()
+            month = thisDate.getMonth()
+            year = thisDate.getFullYear()
             renderDate()
         })
         nextMonthBtn.addEventListener('click', function () {
+            day = 1
             month++
             if (month > 11) {
                 year++
