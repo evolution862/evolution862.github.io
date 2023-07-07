@@ -86,7 +86,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
                             id="edit-close">關閉</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button  id="edit-save" type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -160,18 +160,19 @@
         const editDateDom = document.getElementById('edit-date')
         const editTitleDom = document.getElementById('edit-title')
         const editContentDom = document.getElementById('edit-content')
+        const editSavetDom = document.getElementById('edit-save')
 
         let today = new Date()
         let year = today.getFullYear()
         let month = today.getMonth()
-        let day = 1
+
 
 
         window.onload = function () {
             renderDate()
         }
         preMonthBtn.addEventListener('click', function () {
-            day = 1
+
             month--
             if (month === -1) {
                 year--
@@ -187,7 +188,7 @@
             renderDate()
         })
         nextMonthBtn.addEventListener('click', function () {
-            day = 1
+
             month++
             if (month > 11) {
                 year++
@@ -199,6 +200,8 @@
 
 
         //新增modal的新增按鈕
+
+
         addSaveDom.addEventListener('click', function () {
             let key = (addDateDom.value).split('-').join('')
             console.log(key)
@@ -215,10 +218,15 @@
                 dataArr.push(obj)
             }
             setLocalStorage(key, dataArr)
+            renderDate()
+
+            //從localstorage拿到值
             myModalAdd.hide()
+
         })
 
         function renderDate() {
+            let day = 1
             tbodyDom.innerHTML = ''
             yearMonthDom.innerText = `${year}年${month + 1}月`
             let dayOfMonth = new Date(year, month, 1).getDay()
@@ -234,8 +242,16 @@
                         tdDom.innerText = '上個月日期'
                     } else {
                         if (day <= dateOfMonth) {
+
+
                             tdDom.innerText = day
                             tdDom.addEventListener('click', tdClickFn.bind(null, year, month, day))
+
+                            let getDataFromLS = getLocalStorage(`${year}年${month + 1}月${day}日`)
+                            if (getDataFromLS !== null) {
+                                tdDom.innerText = '標題' + ':' + getDataFromLS[0].title + '內容' + ':' + getDataFromLS[0].content
+                            }
+
                             day++
                         }
                         else {
@@ -252,9 +268,35 @@
 
         }
         function tdClickFn(year, month, day) {
-            myModalAdd.show()
-            addDateDom.value = `${year}年${month + 1}月${day}日`
+            let abc = getLocalStorage(`${year}年${month + 1}月${day}日`)
+           
+
+            if (abc === null) {
+                myModalAdd.show()
+                addDateDom.value = `${year}年${month + 1}月${day}日`
+            }
+            else {
+                myModalEdit.show()
+                editDateDom.value = `${year}年${month + 1}月${day}日`
+            }
         }
+
+        editSavetDom.addEventListener('click', function () { 
+            let abc2= (editDateDom.value).split('-').join('')         
+            let obj2 = {
+                title: editTitleDom.value,
+                content: editContentDom.value
+            }
+            debugger
+            let dataArr2 = []
+            dataArr2.push(obj2)
+            debugger
+            console.log(dataArr2)
+            localStorage.removeItem(abc2)
+            setLocalStorage(abc2, dataArr2)
+            renderDate()
+        })
+
 
         function getLocalStorage(key) {
             let data = JSON.parse(localStorage.getItem(key))
