@@ -1,0 +1,24 @@
+{
+    "iphone14": {
+        "colors": [
+            "purple",
+            "blue"
+        ],
+        "capacities": [
+            128,
+            256,
+            512
+        ]
+    },
+    "iphone14 plus": {
+        "colors": [
+            "purple",
+            "blue"
+        ],
+        "capacities": [
+            128,
+            256,
+            512
+        ]
+    }
+}

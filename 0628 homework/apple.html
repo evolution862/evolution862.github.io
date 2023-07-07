@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="header">
+        <ul class="nav nav-tabs">
+            <li id="iphone" class="nav-item">
+                <a class="nav-link active" href="#">Iphone</a>
+            </li>
+            <li id="ipad" class="nav-item">
+                <a class="nav-link disabled" href="#">Ipad</a>
+            </li>
+            <li id="mac" class="nav-item">
+                <a class="nav-link disabled">Mac</a>
+            </li>
+        </ul>
+    </div>
+    <div class="body">
+        <div class="container">
+            <div class="row title">
+                <h1> 購買 iPhone 14 </h1>
+                <h2>NT$ 27,900 起</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row col-12">
+            <div class="pic col-6"><img src="https://picsum.photos/300/200/?random=10"></div>
+            <div class="text col-6">
+                <h2>機型 哪一款最適合你？</h2>
+                <div class="typeButton"></div>
+
+            </div>
+        </div>
+        <div class="row col-12">
+            <div class="pic col-6"><img src="https://picsum.photos/300/200/?random=10"></div>
+            <div class="text col-6 color">
+                <h2>外觀 挑選你喜愛的外觀。</h2>
+                <div class="colorButton"></div>
+            </div>
+        </div>
+        <div class="row col-12">
+            <div class="pic col-6"><img src="https://picsum.photos/300/200/?random=10"></div>
+            <div class="text col-6">
+                <h2>儲存裝置。 你需要多少儲存空間？</h2>
+                <div class="storageButton"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row col-12">
+        <h2 class="totalPrice"></h2>
+    </div>
+    </div>
+
+    <script>
+        // let json = "https://raw.githubusercontent.com/evolution862/FileStorage/main/ipadair2023.json"
+
+        // fetch(json)
+        //     .then(response => response.json())
+        //     .then(data => {              
+        //         console.log(data);
+        //     })
+        //     .catch(error => {             
+        //         console.log('error');
+        //     });
+
+
+        let color = document.querySelector(".colorButton")
+        let storage = document.querySelector(".storageButton")
+        let type = document.querySelector(".typeButton")
+        let ipad = document.querySelector("#ipad")
+        let iphone = document.querySelector("#iphone")
+        let mac = document.querySelector("#mac")
+        let ipad_nav = document.querySelector("#ipad a")
+        let iphone_nav = document.querySelector("#iphone a")
+        let mac_nav = document.querySelector("#mac a")
+        let title = document.querySelector(".title")
+        ipad.addEventListener("click", changeToIpad)
+        mac.addEventListener("click", changeToMac)
+        iphone.addEventListener("click", changeToIphone)
+        function changeToIphone() {
+            title.innerHTML = `<h1> 購買 iPhone </h1>
+                <h2>NT$ 870 起</h2>`
+            ipad_nav.setAttribute('class', 'nav-link disabled')
+            iphone_nav.setAttribute('class', 'nav-link active')
+            mac_nav.setAttribute('class', 'nav-link disabled')
+            color.innerHTML = ''
+            color.innerHTML = iphoneColorButton
+            storage.innerHTML = ''
+            storage.innerHTML = iphoneStorageButton
+            type.innerHTML = ''
+            type.innerHTML = iphoneTypeButton
+        }
+        function changeToIpad() {
+            title.innerHTML = `<h1> 購買 iPad </h1>
+                <h2>NT$ 0 起</h2>`
+            ipad_nav.setAttribute('class', 'nav-link active')
+            iphone_nav.setAttribute('class', 'nav-link disabled')
+            mac_nav.setAttribute('class', 'nav-link disabled')
+            color.innerHTML = ''
+            color.innerHTML = ipadColorButton
+            storage.innerHTML = ''
+            storage.innerHTML = ipadStorageButton
+            type.innerHTML = ''
+            type.innerHTML = ipadTypeButton
+        
+        }
+        function changeToMac() {
+            title.innerHTML = `<h1> 購買 Mac </h1>
+                <h2>NT$ 1000000000 起</h2>`
+            ipad_nav.setAttribute('class', 'nav-link disabled')
+            iphone_nav.setAttribute('class', 'nav-link disabled')
+            mac_nav.setAttribute('class', 'nav-link active')
+            color.innerHTML = ''
+            color.innerHTML = macColorButton
+            storage.innerHTML = ''
+            storage.innerHTML = macStorageButton
+            type.innerHTML = ''
+            type.innerHTML = macTypeButton
+         
+        }
+
+        let macStorageButton = `
+            <button id="storage_256"  type="button" class="btn btn-outline-primary">256GB</button>
+            <button id = "storage_512"  type = "button" class="btn btn-outline-primary" > 512GB </button>
+                `
+
+
+        let macColorButton = `       
+            <button  id = "black" type = "button" class="btn btn-outline-primary" > 午夜色
+                </button>
+                <button id="starlight" type="button" class="btn btn-outline-primary">星光色</button>
+                <button id="gray" type="button" class="btn btn-outline-primary">太空灰色</button>
+                <button id="silver" type="button" class="btn btn-outline-primary">銀色</button>
+              `
+
+        let macTypeButton = ` <button id = "mac_13_1" type = "button" class="btn btn-outline-primary" > 13吋(M1晶片)</button>
+        <button id = "mac_13_2" type = "button" class="btn btn-outline-primary" > 13吋(M2晶片)</button>
+        <button id = "mac_15_2" type = "button" class="btn btn-outline-primary" > 15吋(M2晶片)</button>`
+
+        let ipadTypeButton = ` <button id = "ipadair" type = "button" class="btn btn-outline-primary" > ipadair </button>`
+
+        let ipadColorButton = `       
+            <button  id = "gray type = "button" class="btn btn-outline-primary" > 太空灰色
+                </button>
+                <button id="blue" type="button" class="btn btn-outline-primary">藍色</button>
+                <button id="pink" type="button" class="btn btn-outline-primary">粉紅色</button>
+                <button id="purple" type="button" class="btn btn-outline-primary">紫色</button>
+                <button id="starlight" type="button" class="btn btn-outline-primary">星光色</button>`
+
+        let ipadStorageButton = `
+            <button id = "storage_64"  type = "button" class="btn btn-outline-primary" > 64GB </button>
+                <button id="storage_256"  type="button" class="btn btn-outline-primary">256GB</button>`
+
+
+        let iphoneColorButton = `       
+            <button  id = "black" type = "button" class="btn btn-outline-primary" > 午夜色
+                </button>
+                <button id="starlight" type="button" class="btn btn-outline-primary">星光色</button>
+                <button id="blue" type="button" class="btn btn-outline-primary">藍色</button>
+                <button id="purple" type="button" class="btn btn-outline-primary">紫色</button>
+                <button id="yellow" type="button" class="btn btn-outline-primary">黃色</button>`
+
+        let iphoneStorageButton = `
+            <button id = "storage_128"  type = "button" class="btn btn-outline-primary" > 128GB </button>
+                <button id="storage_256"  type="button" class="btn btn-outline-primary">256GB</button>
+                <button id="storage_512"  type="button" class="btn btn-outline-primary">512GB</button>`
+
+        let iphoneTypeButton = `<button id = "iphone14" type = "button" class="btn btn-outline-primary" > iPhone 14 </ >
+            <button id="iphone14_plus" type="button" class="btn btn-outline-primary">iPhone 14 Plus</button>`
+
+            color.innerHTML = iphoneColorButton
+                      storage.innerHTML = iphoneStorageButton
+                      type.innerHTML = iphoneTypeButton
+        
+            let iphone14 = document.querySelector("#iphone14")
+        let iphone14_plus = document.querySelector("#iphone14_plus")
+
+        let starlight = document.querySelector("#starlight")
+        let blue = document.querySelector("#blue")
+        let black = document.querySelector("#black")
+        let purple = document.querySelector("#purple")
+        let yellow = document.querySelector("#yellow")
+
+        let storage_128 = document.querySelector("#storage_128")
+        let storage_256 = document.querySelector("#storage_256")
+        let storage_512 = document.querySelector("#storage_512")
+
+        let totalPrice = document.querySelector(".totalPrice")
+
+        iphone14.addEventListener("click", iPhoneType.bind(event, 'iphone14', 0))
+        iphone14_plus.addEventListener("click", iPhoneType.bind(event, 'iphone14 plus', 4000))
+
+        starlight.addEventListener("click", iPhoneColor.bind(event, '星光色'))
+        blue.addEventListener("click", iPhoneColor.bind(event, '藍色'))
+        black.addEventListener("click", iPhoneColor.bind(event, '午夜色'))
+        purple.addEventListener("click", iPhoneColor.bind(event, '紫色'))
+        yellow.addEventListener("click", iPhoneColor.bind(event, '黃色'))
+
+        storage_128.addEventListener("click", iPhoneStorage.bind(event, '128GB', 0))
+        storage_256.addEventListener("click", iPhoneStorage.bind(event, '256GB', 3500))
+        storage_512.addEventListener("click", iPhoneStorage.bind(event, '512GB', 10500))
+
+        let colorArr = ["未決定"]
+        let storageArr = ["未決定"]
+        let typeArr = ["未決定"]
+        let typePrice = 0
+        let storagePrice = 0
+        let price
+        let answer
+
+        function iPhoneType(type, price) {
+            typeArr = []
+            typeArr.push(type)
+            typePrice = parseInt(price)
+            showAnswer()
+        }
+
+        function iPhoneColor(color) {
+            colorArr = []
+            colorArr.push(color)
+            showAnswer()
+        }
+
+        function iPhoneStorage(storage, price) {
+            storageArr = []
+            storageArr.push(storage)
+            storagePrice = parseInt(price)
+            showAnswer()
+        }
+
+
+
+
+        function showAnswer() {
+            totalPrice.innerHTML = ''
+            price = storagePrice + typePrice + 27900
+            totalPrice.append(`機型是${typeArr} 顏色是${colorArr} 容量是${storageArr} 總價格是${price} 元`)
+        }
+
+        window.onload = function () {
+      
+                      
+        }
+    </script>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
