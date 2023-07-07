@@ -87,6 +87,7 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
                             id="edit-close">關閉</button>
                         <button  id="edit-save" type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary" id="edit-delete">刪除</button>
                     </div>
                 </div>
             </div>
@@ -126,7 +127,7 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
                             id="add-close">關閉</button>
                         <button type="button" class="btn btn-primary" id="add-save">修改</button>
-                        <button type="button" class="btn btn-primary" id="add-delete">刪除</button>
+                        
                     </div>
                 </div>
             </div>
@@ -155,7 +156,7 @@
         const addTitleDom = document.getElementById('add-title')
         const addContentDom = document.getElementById('add-content')
         const addSaveDom = document.getElementById('add-save')
-        const addDeleteDom = document.getElementById('add-delete')
+        const editDeleteDom = document.getElementById('edit-delete')
 
         const editDateDom = document.getElementById('edit-date')
         const editTitleDom = document.getElementById('edit-title')
@@ -172,14 +173,12 @@
             renderDate()
         }
         preMonthBtn.addEventListener('click', function () {
-
             month--
             if (month === -1) {
                 year--
                 month = 11
             }
             renderDate()
-
         })
         thisMonthBtn.addEventListener('click', function () {
             let thisDate = new Date()
@@ -188,20 +187,14 @@
             renderDate()
         })
         nextMonthBtn.addEventListener('click', function () {
-
             month++
             if (month > 11) {
                 year++
                 month = 0
             }
             renderDate()
-
         })
-
-
-        //新增modal的新增按鈕
-
-
+     
         addSaveDom.addEventListener('click', function () {
             let key = (addDateDom.value).split('-').join('')
             console.log(key)
@@ -219,10 +212,7 @@
             }
             setLocalStorage(key, dataArr)
             renderDate()
-
-            //從localstorage拿到值
             myModalAdd.hide()
-
         })
 
         function renderDate() {
@@ -242,34 +232,28 @@
                         tdDom.innerText = '上個月日期'
                     } else {
                         if (day <= dateOfMonth) {
-
-
                             tdDom.innerText = day
                             tdDom.addEventListener('click', tdClickFn.bind(null, year, month, day))
-
                             let getDataFromLS = getLocalStorage(`${year}年${month + 1}月${day}日`)
+                            let li = document.createElement('li')
                             if (getDataFromLS !== null) {
                                 tdDom.innerText = '標題' + ':' + getDataFromLS[0].title + '內容' + ':' + getDataFromLS[0].content
-                            }
-
+                                li.append(getDataFromLS[0].title)
+                              }
                             day++
                         }
                         else {
                             tdDom.innerText = '下個月日期'
-                        }
-
+                        }                      
                     }
                     trDom.append(tdDom)
                 }
                 tbodyDom.append(trDom)
             }
-
-
-
         }
+
         function tdClickFn(year, month, day) {
-            let abc = getLocalStorage(`${year}年${month + 1}月${day}日`)
-           
+            let abc = getLocalStorage(`${year}年${month + 1}月${day}日`)          
 
             if (abc === null) {
                 myModalAdd.show()
@@ -278,25 +262,23 @@
             else {
                 myModalEdit.show()
                 editDateDom.value = `${year}年${month + 1}月${day}日`
+                editDateDom.value = `${year}年${month + 1}月${day}日`
             }
         }
 
         editSavetDom.addEventListener('click', function () { 
-            let abc2= (editDateDom.value).split('-').join('')         
+            let key2= (editDateDom.value).split('-').join('')         
             let obj2 = {
                 title: editTitleDom.value,
                 content: editContentDom.value
-            }
-            debugger
+            }           
             let dataArr2 = []
-            dataArr2.push(obj2)
-            debugger
+            dataArr2.push(obj2)         
             console.log(dataArr2)
-            localStorage.removeItem(abc2)
-            setLocalStorage(abc2, dataArr2)
+            localStorage.removeItem(key2)
+            setLocalStorage(key2, dataArr2)
             renderDate()
         })
-
 
         function getLocalStorage(key) {
             let data = JSON.parse(localStorage.getItem(key))
@@ -305,6 +287,13 @@
         function setLocalStorage(key, value) {
             localStorage.setItem(key, JSON.stringify(value))
         }
+
+        editDeleteDom.addEventListener('click', function () { 
+            let key3= (editDateDom.value).split('-').join('')  
+            localStorage.removeItem(key3)
+            renderDate()
+        })
+
     </script>
 
 </body>
