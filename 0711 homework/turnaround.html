@@ -44,7 +44,7 @@
       <div box-id="9" class="col-1"><img src="https://picsum.photos/300/200/?random=10"></div>
       <div box-id="10" class="col-1"><img src="https://picsum.photos/300/200/?random=10"></div>
       <div box-id="11" class="col-1"><img src="https://picsum.photos/300/200/?random=10"></div>
-      <div box-id="12" class="col-1"><img src="https://picsum.photos/300/200/?random=10"></div>
+      <div box-id="12" class="col-1"><img src="./banana.jpg"></div>
     </div>
 
     <div class="row col-12">
@@ -57,21 +57,136 @@
 
     <div class="row col-12">
       <div box-id="31" class="col-1 mt-2"><img src="https://picsum.photos/300/200/?random=10"></div>
-      <div class="col-10"></div>
+      <div class="col-10">
+        <table class="table  text-center">
+          <tr>
+            <td>100</td>
+            <td>50</td>
+            <td>40</td>
+            <td>30</td>
+            <td>20</td>
+            <td>15</td>
+            <td>10</td>
+          </tr>
+
+          <tr style="background-color:brown">
+            <td>
+              <span id="bet-0">0</span>
+            </td>
+            <td>
+              <span id="bet-1">0</span>
+            </td>
+            <td>
+              <span id="bet-2">0</span>
+            </td>
+            <td>
+              <span id="bet-3">0</span>
+            </td>
+            <td>
+              <span id="bet-4">0</span>
+            </td>
+            <td>
+              <span id="bet-5">0</span>
+            </td>
+            <td>
+              <span id="bet-6">0</span>
+            </td>
+          </tr>
+
+        </table>
+      </div>
       <div box-id="14" class="col-1 mt-2"><img src="https://picsum.photos/300/200/?random=10"></div>
     </div>
 
     <div class="row col-12">
       <div box-id="30" class="col-1 mt-2"><img src="https://picsum.photos/300/200/?random=10"></div>
-      <div class="col-10"></div>
+      <div class="col-10 mx-auto">
+        <table class="table  text-center">
+          <tr>
+            <td>
+              <img class="col-10" src="https://picsum.photos/300/200/?random=10">
+            </td>
+            <td>
+              <img class="col-10" src="https://picsum.photos/300/200/?random=10">
+            </td>
+            <td>
+              <img class="col-10" src="https://picsum.photos/300/200/?random=10">
+            </td>
+            <td>
+              <img class="col-10" src="https://picsum.photos/300/200/?random=10">
+            </td>
+            <td>
+              <img class="col-10" src="https://picsum.photos/300/200/?random=10">
+            </td>
+            <td>
+              <img class="col-10" src="https://picsum.photos/300/200/?random=10">
+            </td>
+            <td>
+              <img class="col-10" src="https://picsum.photos/300/200/?random=10">
+            </td>
+          </tr>
+        </table>
+      </div>
       <div box-id="15" class="col-1 mt-2"><img src="https://picsum.photos/300/200/?random=10"></div>
     </div>
 
     <div class="row col-12">
       <div box-id="29" class="col-1 mt-2"><img src="https://picsum.photos/300/200/?random=10"></div>
-      <div class="col-10"></div>
+      <div class="col-10">
+        <table class="table  text-center">
+          <tr>
+            <td>
+              <button type="button" name="bet-0" value="100" class="btn btn-secondary btn-lg btn-block">押</button>
+            </td>
+            <td>
+              <button type="button" name="bet-1" value="50" class="btn btn-secondary btn-lg btn-block">押</button>
+            </td>
+            <td>
+              <button type="button" name="bet-2" value="40" class="btn btn-secondary btn-lg btn-block">押</button>
+            </td>
+            <td>
+              <button type="button" name="bet-3" value="30" class="btn btn-secondary btn-lg btn-block">押</button>
+            </td>
+            <td>
+              <button type="button" name="bet-4" value="20" class="btn btn-secondary btn-lg btn-block">押</button>
+            </td>
+            <td>
+              <button type="button" name="bet-5" value="15" class="btn btn-secondary btn-lg btn-block">押</button>
+            </td>
+            <td>
+              <button type="button" name="bet-6" value="10" class="btn btn-secondary btn-lg btn-block">押</button>
+            </td>
+            <td>
+              <button type="button" name="bet-7" value="5" class="btn btn-secondary btn-lg btn-block">押</button>
+            </td>
+          </tr>
+        </table>
+      </div>
       <div box-id="16" class="col-1 mt-2"><img src="https://picsum.photos/300/200/?random=10"></div>
     </div>
+
+   
+
+  <div class="row col-12">
+    <div box-id="29" class="col-1 mt-2"><img src="https://picsum.photos/300/200/?random=10"></div>
+    <div class="col-10">
+    <table class="table  text-center">
+      <tr>
+          <td>總金額:</td>
+          <td>
+              <span id="totalmoney"></span>
+          </td>
+      </tr>
+      <tr>
+          <td>獲利:</td>
+          <td>
+              <span id="earnmoney"></span>
+          </td>
+      </tr>
+  </table>
+    </div>
+    <div box-id="17" class="col-1 mt-2"><img src="https://picsum.photos/300/200/?random=10"></div>
+  </div>
 
     <div class="row col-12 mt-2">
       <div box-id="28" class="col-1"><img src="https://picsum.photos/300/200/?random=10"></div>
@@ -99,7 +214,7 @@
       Steps = (bricks.length * 5);
       Steps += Math.floor(Math.random() * bricks.length);
       TurnAround();
-    }   
+    }
 
     function TurnAround() {
       bricks[currentIndex].classList.remove("active");
