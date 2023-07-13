@@ -406,22 +406,22 @@
         }
         var azx;
         //轉圈 + 慘影
-        // function forwardBrick() {
-        //     bricks[currentBrick].className = "img-responsive";
-        //     currentBrick++;
-        //     if (currentBrick >= bricks.length) {
-        //         currentBrick = 0;
-        //     }
+        function forwardBrick() {
+            bricks[currentBrick].className = "img-responsive";
+            currentBrick++;
+            if (currentBrick >= bricks.length) {
+                currentBrick = 0;
+            }
 
-        //     bricks[currentBrick].className = "img-responsive active";
+            bricks[currentBrick].className = "img-responsive active";
 
-        //     if (--forwardSteps > 0) {
-        //         setTimeout(forwardBrick, 20);
-        //     }
-        //     if (forwardSteps == 0) {
-        //         getK(bricks[currentBrick]);
-        //     }
-        // }
+            if (--forwardSteps > 0) {
+                setTimeout(forwardBrick, 20);
+            }
+            if (forwardSteps == 0) {
+                getK(bricks[currentBrick]);
+            }
+        }
         //計算
         function getK(z) {
 
