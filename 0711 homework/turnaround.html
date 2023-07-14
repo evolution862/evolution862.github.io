@@ -91,249 +91,258 @@
       <div id="200" box-id="18" class="col-1"><img src="./image/seven.png"></div>
       <div id="20" box-id="17" class="col-1"><img src="./image/cherry.png"></div>
     </div>
-    <button id="go" class="btn btn-warning">Go</button>
+
   </div>
 
-  <table>
-    <table class="table table-bordered border-primary text-center">
-      <tr>
-        <td>1000</td>
-        <td>500</td>
-        <td>200</td>
-        <td>100</td>
-        <td>50</td>
-        <td>20</td>
-        <td>10</td>
-      </tr>
-      <tr>
-        <td>
-          <span id="bet-0">0</span>
-        </td>
-        <td>
-          <span id="bet-1">0</span>
-        </td>
-        <td>
-          <span id="bet-2">0</span>
-        </td>
-        <td>
-          <span id="bet-3">0</span>
-        </td>
-        <td>
-          <span id="bet-4">0</span>
-        </td>
-        <td>
-          <span id="bet-5">0</span>
-        </td>
-        <td>
-          <span id="bet-6">0</span>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <img class="col-10" src="./image/slot.png">
-        <td>
-          <img class="col-10" src="./image/diamond.png">
-        </td>
-        <td>
-          <img class="col-10" src="./image/seven.png">
-        </td>
-        <td>
-          <img class="col-10" src="./image/crown.png">
-        </td>
-        <td>
-          <img class="col-10" src="./image/orange.png">
-        </td>
-        <td>
-          <img class="col-10" src="./image/cherry.png">
-        </td>
-        <td>
-          <img class="col-10" src="./image/bell.png">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button type="button" name="bet-0" value="1000" class="btn btn-primary  btn-block">押</button>
-        </td>
-        <td>
-          <button type="button" name="bet-1" value="500" class="btn btn-primary btn-block">押</button>
-        </td>
-        <td>
-          <button type="button" name="bet-2" value="200" class="btn btn-primary btn-block">押</button>
-        </td>
-        <td>
-          <button type="button" name="bet-3" value="100" class="btn btn-primary btn-block">押</button>
-        </td>
-        <td>
-          <button type="button" name="bet-4" value="50" class="btn btn-primary btn-block">押</button>
-        </td>
-        <td>
-          <button type="button" name="bet-5" value="20" class="btn btn-primary btn-block">押</button>
-        </td>
-        <td>
-          <button type="button" name="bet-6" value="10" class="btn btn-primary btn-block">押</button>
-        </td>
-      </tr>
-      <tr>
-        <td>總金額:</td>
-        <td colspan="6">
-          <span id="totalmoney"></span>
-        </td>
-      </tr>
-      <tr>
-        <td>你本次贏得:</td>
-        <td colspan="6">
-          <span id="earnmoney"></span>
-        </td>
-      </tr>   
-    </table>
+  <div class="container col-5">
+    <table>
+      <table class="table table-bordered border-primary text-center mt-3">
+        <tr>
+          <td>$1000</td>
+          <td>$500</td>
+          <td>$200</td>
+          <td>$100</td>
+          <td>$50</td>
+          <td>$20</td>
+          <td>$10</td>
+        </tr>
+        <tr>
+          <td>
+            <span id="bet-0">0</span>
+          </td>
+          <td>
+            <span id="bet-1">0</span>
+          </td>
+          <td>
+            <span id="bet-2">0</span>
+          </td>
+          <td>
+            <span id="bet-3">0</span>
+          </td>
+          <td>
+            <span id="bet-4">0</span>
+          </td>
+          <td>
+            <span id="bet-5">0</span>
+          </td>
+          <td>
+            <span id="bet-6">0</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img class="col-10" src="./image/slot.png">
+          <td>
+            <img class="col-10" src="./image/diamond.png">
+          </td>
+          <td>
+            <img class="col-10" src="./image/seven.png">
+          </td>
+          <td>
+            <img class="col-10" src="./image/crown.png">
+          </td>
+          <td>
+            <img class="col-10" src="./image/orange.png">
+          </td>
+          <td>
+            <img class="col-10" src="./image/cherry.png">
+          </td>
+          <td>
+            <img class="col-10" src="./image/bell.png">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button type="button" name="bet-0" value="1000" class="btn btn-primary  btn-block">押</button>
+          </td>
+          <td>
+            <button type="button" name="bet-1" value="500" class="btn btn-primary btn-block">押</button>
+          </td>
+          <td>
+            <button type="button" name="bet-2" value="200" class="btn btn-primary btn-block">押</button>
+          </td>
+          <td>
+            <button type="button" name="bet-3" value="100" class="btn btn-primary btn-block">押</button>
+          </td>
+          <td>
+            <button type="button" name="bet-4" value="50" class="btn btn-primary btn-block">押</button>
+          </td>
+          <td>
+            <button type="button" name="bet-5" value="20" class="btn btn-primary btn-block">押</button>
+          </td>
+          <td>
+            <button type="button" name="bet-6" value="10" class="btn btn-primary btn-block">押</button>
+          </td>
+        </tr>
+        <tr>
+          <td>總金額:</td>
+          <td colspan="6">
+            <span id="totalmoney"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>你本次贏得:</td>
+          <td colspan="6">
+            <span id="earnmoney"></span>
+          </td>
+        </tr>
+       
+      </table>
+      <div class="col-2"> <button id="go" class="btn btn-warning">Go</button></div>
+  </div>
 
-    <script>
-      let bricks = document.querySelectorAll('[box-id]');
-      let Steps = 0;
-      let currentIndex = 0;  //中獎的是box-id="currentIndex+1"
-      let answerArr = [0, 0, 0, 0, 0, 0, 0]
-      //bricks[0].getAttributeNode('box-id').value=1
-      bricks = Array.from(bricks).sort((a, b) => { return a.getAttributeNode('box-id').value - b.getAttributeNode('box-id').value })
 
-      // document.getElementById("go").onclick = function () {
-      //   Steps = (bricks.length * 1);
-      //   Steps += Math.floor(Math.random() * bricks.length);
-      //   TurnAround();
-      // }
+  <script>
+    let bricks = document.querySelectorAll('[box-id]');
+    let Steps = 0;
+    let currentIndex = 0;  //中獎的是box-id="currentIndex+1"
+    let answerArr = [0, 0, 0, 0, 0, 0, 0]
+    //bricks[0].getAttributeNode('box-id').value=1
+    bricks = Array.from(bricks).sort((a, b) => { return a.getAttributeNode('box-id').value - b.getAttributeNode('box-id').value })
 
-      // function TurnAround() {
-      //   bricks[currentIndex].classList.remove("active");
-      //   currentIndex++;
-      //   if (currentIndex >= bricks.length) {
-      //     currentIndex = 0;
-      //   }
-      //   bricks[currentIndex].classList.add("active");
-      //   if (--Steps > 0) {
-      //     setTimeout(TurnAround, 20);
-      //   }
+    // document.getElementById("go").onclick = function () {
+    //   Steps = (bricks.length * 1);
+    //   Steps += Math.floor(Math.random() * bricks.length);
+    //   TurnAround();
+    // }
 
-      // }
+    // function TurnAround() {
+    //   bricks[currentIndex].classList.remove("active");
+    //   currentIndex++;
+    //   if (currentIndex >= bricks.length) {
+    //     currentIndex = 0;
+    //   }
+    //   bricks[currentIndex].classList.add("active");
+    //   if (--Steps > 0) {
+    //     setTimeout(TurnAround, 20);
+    //   }
+    // }
 
-      let winHowManyMoney
-      let totalMoney = 5000; //總金額5000元
-      let earnMoney = 0; //獲利0元
-      let totalMoneyElement = document.getElementById('totalmoney')
-      let earnMoneyElement = document.getElementById('earnmoney')
-      let betnumber = [0, 0, 0, 0, 0, 0, 0]
-      let betmoney = [1000, 500, 200, 100, 50, 20, 10]
-      window.onload = function () {
+    let winHowManyMoney
+    let totalMoney = 5000; //總金額5000元
+    let earnMoney = 0; //獲利0元
+    let totalMoneyElement = document.getElementById('totalmoney')
+    let earnMoneyElement = document.getElementById('earnmoney')
+    let betnumber = [0, 0, 0, 0, 0, 0, 0]
+    let betmoney = [1000, 500, 200, 100, 50, 20, 10]
+
+    window.onload = function () {
+      totalMoneyElement.textContent = '$' + totalMoney;
+      earnMoneyElement.textContent = earnMoney;
+      setClick()
+    }
+
+    function setClick() {
+
+      var i = 0;
+      for (var i = 0; i <= 7; i++) {
+        var button = document.querySelector('button[name=bet-' + i + ']')
+        if (!button) {
+          return;
+        }
+        button.onclick = function () {
+          let which = this.name.split('-')[1];
+          betnumber[which] += 1;
+          let a = betmoney[which]
+          totalMoney -= a;
+          if (totalMoney < 0) {
+            this.disabled = true
+            totalMoney += a
+            betnumber[which] -= 1;
+          }
+
+          totalMoneyElement.textContent = '$' + totalMoney;
+
+          earnMoneyElement.textContent = '$' + earnMoney;
+          document.getElementById(this.name).textContent = betnumber[which];
+        }
+      }
+    }
+
+
+    function TurnAroundWithPromise() {
+      return new Promise((resolve, reject) => {
+        function turn() {
+          bricks[currentIndex].classList.remove("active");
+          currentIndex++;
+          if (currentIndex >= bricks.length) {
+            currentIndex = 0;
+          }
+          bricks[currentIndex].classList.add("active");
+          if (--Steps > 0) {
+            setTimeout(turn, 20);
+          } else {
+            resolve(); // 表示 Promise 完成
+          }
+        }
+        turn();
+      });
+    }
+
+    document.getElementById("go").onclick = function () {
+      answerArr = [0, 0, 0, 0, 0, 0, 0]
+      Steps = bricks.length * 1 + Math.floor(Math.random() * bricks.length);
+      TurnAroundWithPromise().then(() => {
+        calculateEarn();
+        earnMoney = answer
+        totalMoney = totalMoney + answer;
         totalMoneyElement.textContent = totalMoney;
         earnMoneyElement.textContent = earnMoney;
-        setClick()
-      }
-
-      function setClick() {
-       
-        var i = 0;
-        for (var i = 0; i <= 7; i++) {
-          var button = document.querySelector('button[name=bet-' + i + ']')
-          if (!button) {
-            return;
-          }
-          button.onclick = function () {           
-            let which = this.name.split('-')[1];
-            betnumber[which] += 1;
-            let a = betmoney[which]
-            totalMoney -= a;
-            if (totalMoney < 0) {
-              this.disabled = true
-              totalMoney += a
-              betnumber[which] -= 1;
-            }
-            totalMoneyElement.textContent = totalMoney;
-            earnMoneyElement.textContent = earnMoney;
-            document.getElementById(this.name).textContent = betnumber[which];                     
+        betnumber = [0, 0, 0, 0, 0, 0, 0]
+        for (let i = 0; i < 7; i++) {
+          var button2 = document.getElementById(`bet-${i}`)
+          button2.textContent = 0;
+        }
+        for (let j = 0; j < 7; j++) {
+          var button3 = document.querySelector('button[name=bet-' + j + ']')
+          if (totalMoney > 0) {
+            button3.disabled = false
           }
         }
+      });
+    };
+    let answer
+    function calculateEarn() {
+      winHowManyMoney = parseInt(document.getElementsByClassName('active')[0].id)
+      if (winHowManyMoney === 1000) {
+        answerArr[0] = betnumber[0] * winHowManyMoney;
       }
-
-
-      function TurnAroundWithPromise() {
-        return new Promise((resolve, reject) => {
-          function turn() {
-            bricks[currentIndex].classList.remove("active");
-            currentIndex++;
-            if (currentIndex >= bricks.length) {
-              currentIndex = 0;
-            }
-            bricks[currentIndex].classList.add("active");
-            if (--Steps > 0) {
-              setTimeout(turn, 20);
-            } else {
-              resolve(); // 表示 Promise 完成
-            }
-          }
-          turn();
-        });
+      else if (winHowManyMoney === 500) {
+        answerArr[1] = betnumber[1] * winHowManyMoney;
       }
-
-      document.getElementById("go").onclick = function () {
-        answerArr=[0, 0, 0, 0, 0, 0, 0]        
-        Steps = bricks.length * 1 + Math.floor(Math.random() * bricks.length);
-        TurnAroundWithPromise().then(() => {
-          calculateEarn();
-          earnMoney=answer
-          totalMoney=totalMoney+answer;
-          totalMoneyElement.textContent = totalMoney;
-          earnMoneyElement.textContent = earnMoney;
-         betnumber = [0, 0, 0, 0, 0, 0, 0]
-          for (let i = 0; i < 7; i++) {            
-          var button2 = document.getElementById(`bet-${i}`)              
-          button2.textContent = 0;          
-        }
-          
-        });
-      };
-      let answer
-      function calculateEarn() {
-        winHowManyMoney = parseInt(document.getElementsByClassName('active')[0].id)
-        if (winHowManyMoney === 1000) {
-          answerArr[0] = betnumber[0] * winHowManyMoney; 
-        }
-        else if (winHowManyMoney === 500) {
-          answerArr[1] = betnumber[1] * winHowManyMoney; 
-        }
-        else if (winHowManyMoney === 200) {
-          answerArr[2] = betnumber[2] * winHowManyMoney; 
-        }
-        else if (winHowManyMoney === 100) {
-          answerArr[3] = betnumber[3] * winHowManyMoney; 
-        }
-        else if (winHowManyMoney === 50) {
-          answerArr[4] = betnumber[4] * winHowManyMoney; 
-        }
-        else if (winHowManyMoney === 20) {
-          answerArr[5] = betnumber[5] * winHowManyMoney; 
-        }
-        else {
-          answerArr[6] = betnumber[6] * winHowManyMoney; 
-        }
-        answer = sumArray(answerArr);
+      else if (winHowManyMoney === 200) {
+        answerArr[2] = betnumber[2] * winHowManyMoney;
       }
-
-      function sumArray(arr) {
-        const total = arr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-        return total;
+      else if (winHowManyMoney === 100) {
+        answerArr[3] = betnumber[3] * winHowManyMoney;
       }
+      else if (winHowManyMoney === 50) {
+        answerArr[4] = betnumber[4] * winHowManyMoney;
+      }
+      else if (winHowManyMoney === 20) {
+        answerArr[5] = betnumber[5] * winHowManyMoney;
+      }
+      else {
+        answerArr[6] = betnumber[6] * winHowManyMoney;
+      }
+      answer = sumArray(answerArr);
+    }
+
+    function sumArray(arr) {
+      const total = arr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+      return total;
+    }
 
 
+  </script>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
 
+  <script>
 
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-      crossorigin="anonymous"></script>
-
-    <script>
-
-    </script>
+  </script>
 </body>
 
 </html>
