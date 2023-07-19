@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="input-group my-3">
+            <input type="text" class="form-control" placeholder="...todo" aria-label="Username"
+                aria-describedby="basic-addon1" id="inputData">
+            <button type="button" class="btn btn-success" id="add" data-bs-toggle="modal"
+                data-bs-target="#addModal">新增</button>
+        </div>
+
+        <ul class="list-group">
+            <!-- <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
+                <label class="form-check-label" for="firstCheckbox">First checkbox</label>
+                <button type="button" class="btn btn-success" id="edit" data-bs-toggle="modal"
+                    data-bs-target="#editModal">編輯</button>
+                <button type="button" class="btn btn-success" id="delete">刪除</button>
+            </li> -->
+        </ul>
+
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="addModalLabel">待辦清單</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">內容</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default" id="add-content">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            id="add-close">關閉</button>
+                        <button type="button" class="btn btn-primary" id="add-save">儲存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="editModalLabel">編輯待辦清單</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">內容</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default" id="edit-content" data-index=${k}>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            id="edit-close">關閉</button>
+                        <button type="button" class="btn btn-primary" id="edit-save">儲存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        const myModalAdd = new bootstrap.Modal('#addModal', {
+            keyboard: false
+        })
+        // const myModalEdit = new bootstrap.Modal('#editModal', {
+        //     keyboard: false
+        // })
+
+        const editContentDom = document.getElementById('edit-content')
+
+        const addContentDom = document.getElementById('add-content')
+        const addSaveDom = document.getElementById('add-save')
+
+        const editDeleteDom = document.getElementById('edit-delete')
+        const editSaveDom = document.getElementById('edit-save')
+
+        const labeltext = document.querySelector("label")
+
+        const listGroup = document.querySelector(".list-group")
+
+
+        addSaveDom.addEventListener('click', function () {
+            for (i = 1; i < 100; i++) {
+                if (getLocalStorage(`第${i}筆代辦清單`) == null) {
+                    let key2 = (`第${i}筆代辦清單`)
+                    let obj2 = {
+                        content: addContentDom.value
+                    }
+                    let dataArr2 = []
+                    dataArr2.push(obj2)
+                    localStorage.removeItem(key2)
+                    setLocalStorage(key2, dataArr2)
+                    console.log(i)
+                    break;
+                }
+            }
+            listGroup.innerHTML = ''
+            showList()
+            myModalAdd.hide()
+        })
+
+
+
+
+
+        editSaveDom.addEventListener('click', function () {
+            let index = this.getAttribute('data-index')
+            console.log(index)
+            console.log(this)
+            let key = ('第1筆代辦清單')
+            let obj = {
+                content: editContentDom.value
+            }
+            let dataArr = []
+            dataArr.push(obj)
+            localStorage.removeItem(key)
+            setLocalStorage(key, dataArr)
+            listGroup.innerHTML = ''
+            showList()
+
+        })
+
+        function showList() {
+            for (k = 1; k < 100; k++) {
+                let getDataFromLS = getLocalStorage(`第${k}筆代辦清單`)
+                if (getDataFromLS !== null) {
+                    let listData = `  
+                <input class="form-check-input me-1" type="checkbox" value="" id="Checkbox${k}">
+                <label class="form-check-label" for="Checkbox${k}">${getDataFromLS[0].content}</label>
+                <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal"
+                    id="fuckyou"  data-bs-target="#editModal" data-index=${k}>編輯</button>
+                <button type="button" class="btn btn-success" id="delete">刪除</button>            `
+                    let liDom = document.createElement('li')
+                    liDom.innerHTML = listData
+                    liDom.className = "list-group-item"
+                    listGroup.append(liDom)
+                    const dataIndex = document.querySelector('[data-index="' + k + '"]');
+                    console.log(dataIndex)
+                }
+            }
+        }
+
+        function getLocalStorage(key) {
+            let data = JSON.parse(localStorage.getItem(key))
+            return data
+        }
+        function setLocalStorage(key, value) {
+            localStorage.setItem(key, JSON.stringify(value))
+        }
+
+        window.onload = function () {
+            showList()
+        }
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
