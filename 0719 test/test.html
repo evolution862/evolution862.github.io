@@ -28,10 +28,6 @@
             </li> -->
         </ul>
 
-
-
-
-
         <!-- Modal -->
         <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -100,6 +96,7 @@
         const addSaveDom = document.getElementById('add-save')
 
         const editDeleteDom = document.getElementById('edit-delete')
+        const deleteDom = document.getElementById('delete')
         const editSaveDom = document.getElementById('edit-save')
 
         const labeltext = document.querySelector("label")
@@ -112,13 +109,13 @@
                 if (getLocalStorage(`第${i}筆代辦清單`) == null) {
                     let key2 = (`第${i}筆代辦清單`)
                     let obj2 = {
-                        content: addContentDom.value
+                        content: addContentDom.value,
+                        done: 0
                     }
                     let dataArr2 = []
                     dataArr2.push(obj2)
                     localStorage.removeItem(key2)
                     setLocalStorage(key2, dataArr2)
-                    console.log(i)
                     break;
                 }
             }
@@ -131,41 +128,136 @@
 
 
 
-        editSaveDom.addEventListener('click', function () {
-            let index = this.getAttribute('data-index')
-            console.log(index)
-            console.log(this)
-            let key = ('第1筆代辦清單')
-            let obj = {
-                content: editContentDom.value
-            }
-            let dataArr = []
-            dataArr.push(obj)
-            localStorage.removeItem(key)
-            setLocalStorage(key, dataArr)
-            listGroup.innerHTML = ''
-            showList()
+        // editSaveDom.addEventListener('click', function () {
+        //     let index = this.getAttribute('data-index')
+        //     console.log(index)
+        //     console.log(this)
+        //     let key = ('第1筆代辦清單')
+        //     let obj = {
+        //         content: editContentDom.value
+        //     }
+        //     let dataArr = []
+        //     dataArr.push(obj)
+        //     localStorage.removeItem(key)
+        //     setLocalStorage(key, dataArr)
+        //     listGroup.innerHTML = ''
+        //     showList()
 
-        })
+        // })
 
+        let index
         function showList() {
             for (k = 1; k < 100; k++) {
                 let getDataFromLS = getLocalStorage(`第${k}筆代辦清單`)
                 if (getDataFromLS !== null) {
                     let listData = `  
-                <input class="form-check-input me-1" type="checkbox" value="" id="Checkbox${k}">
+                <input class="form-check-input me-1" type="checkbox" value="" id="Checkbox${k}" data-indea=${k} >
                 <label class="form-check-label" for="Checkbox${k}">${getDataFromLS[0].content}</label>
                 <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal"
                     id="fuckyou"  data-bs-target="#editModal" data-index=${k}>編輯</button>
-                <button type="button" class="btn btn-success" id="delete">刪除</button>            `
+                <button type="button" class="btn btn-success" id="delete" data-indep=${k}>刪除</button>            `
                     let liDom = document.createElement('li')
                     liDom.innerHTML = listData
                     liDom.className = "list-group-item"
                     listGroup.append(liDom)
+
                     const dataIndex = document.querySelector('[data-index="' + k + '"]');
-                    console.log(dataIndex)
+                    const dataIndep = document.querySelector('[data-indep="' + k + '"]');
+
+                    // const alice=document.querySelector('.form-check-input:checked[type=checkbox"' + k + '"]')
+                    const dataIndea = document.querySelector('[data-indea="' + k + '"]');
+
+
+
+
+                    dataIndea.addEventListener('click', function () {
+
+                        indea = this.getAttribute('data-indea')
+                        let key3 = (`第${indea}筆代辦清單`)
+                        let marker = getLocalStorage(key3)
+                        console.log(marker)
+                        let obj4 = {}
+                        if (marker[0].done == 0) {
+                            obj4 = {
+                                content: marker[0].content,
+                                done: 1
+                            }
+
+                        }
+                        else {
+                            obj4 = {
+                                content: marker[0].content,
+                                done: 0
+                            }
+
+                        }
+                        let dataArr2 = []
+                        dataArr2.push(obj4)
+
+                        console.log(marker)
+                        setLocalStorage(key3, dataArr2)
+                        marker2 = getLocalStorage(key3)
+                        console.log(marker2)
+
+
+
+                        //     if(marker2[0].done==1){                        
+                        //         this.setAttribute("checked",true)
+
+                        //    }
+
+                    })
+
+                    dataIndep.addEventListener('click', function () {
+                        indep = this.getAttribute('data-indep')
+                        console.log(indep)
+                        console.log('fuck yoiu')
+                        let key2 = (`第${indep}筆代辦清單`)
+                        console.log(key2)
+                        localStorage.removeItem(key2)
+                        listGroup.innerHTML = ''
+                        showList()
+                    })
+
+                    dataIndex.addEventListener('click', function () {
+                        index = this.getAttribute('data-index')
+                        editSaveDom.addEventListener('click', function () {
+                            console.log(index)
+                            console.log(this)
+                            let key = (`第${index}筆代辦清單`)
+                            let obj = {
+                                content: editContentDom.value,
+                                done: 0
+                            }
+                            let dataArr = []
+                            dataArr.push(obj)
+                            localStorage.removeItem(key)
+                            setLocalStorage(key, dataArr)
+                            listGroup.innerHTML = ''
+                            index = 0
+                            showList()
+                        })
+
+                    })
+
                 }
             }
+        }
+     
+        let dog,markers
+
+        function alice() {
+            for (j = 1; j < 20; j++) {
+                dog = getLocalStorage(`第${j}筆代辦清單`)
+              
+           let markers = document.getElementById(`Checkbox${j}`);
+           console.log(markers)
+               if (dog[0].done == 1) {
+              markers.setAttribute("checked", true)
+
+                }
+            }
+
         }
 
         function getLocalStorage(key) {
@@ -178,7 +270,10 @@
 
         window.onload = function () {
             showList()
+            alice()
         }
+
+
 
 
 
