@@ -242,22 +242,14 @@
 
                 }
             }
-        }
-     
-        let dog,markers
+        }   
 
-        function alice() {
-            for (j = 1; j < 20; j++) {
-                dog = getLocalStorage(`第${j}筆代辦清單`)
-              
-           let markers = document.getElementById(`Checkbox${j}`);
-           console.log(markers)
-               if (dog[0].done == 1) {
-              markers.setAttribute("checked", true)
-
-                }
+        function saveMarkerToNextTime() {
+            for (j = 1; j < localStorage.length + 1; j++) {
+                let data = getLocalStorage(`第${j}筆代辦清單`)
+                let markerDom = document.getElementById(`Checkbox${j}`) //取得勾勾dom        
+                if (data[0].done == 1) { markerDom.setAttribute("checked", true) }
             }
-
         }
 
         function getLocalStorage(key) {
@@ -270,12 +262,8 @@
 
         window.onload = function () {
             showList()
-            alice()
+            saveMarkerToNextTime()
         }
-
-
-
-
 
     </script>
 
