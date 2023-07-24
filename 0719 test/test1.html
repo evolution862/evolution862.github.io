@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #form {
+        margin-bottom: 10px;
+      }
+
+      #todoList {
+        list-style-type: none;
+      }
+
+      .todo-item {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>待辦清單</h1>
+    <div id="form">
+      <input id="todoInput" type="text" placeholder="新增待辦事項" />
+      <button id="addButton">新增</button>
+    </div>
+    <ul id="todoList"></ul>
+  </body>
+  <script>
+    let todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+    window.onload = function () {
+      renderTodos();
+
+      document.getElementById("addButton").onclick = function () {
+        let todoInput = document.getElementById("todoInput");
+        let todo = { text: todoInput.value, completed: false };
+        todos.push(todo);
+        todoInput.value = "";
+        localStorage.setItem("todos", JSON.stringify(todos));
+        renderTodos();
+      };
+    };
+
+    function renderTodos() {
+      let todoList = document.getElementById("todoList");
+      todoList.innerHTML = "";
+      for (let i = 0; i < todos.length; i++) {
+        let todoItem = document.createElement("li");
+        todoItem.className = "todo-item";
+
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = todos[i].completed;
+        checkbox.onchange = function () {
+          todos[i].completed = !todos[i].completed;
+          localStorage.setItem("todos", JSON.stringify(todos));
+          renderTodos();
+        };
+
+        let text = document.createElement("span");
+        text.textContent = todos[i].text;
+
+        let editButton = document.createElement("button");
+        editButton.textContent = "編輯";
+        editButton.onclick = function () {
+          let newText = prompt("修改待辦事項", todos[i].text);
+          if (newText) {
+            todos[i].text = newText;
+            localStorage.setItem("todos", JSON.stringify(todos));
+            renderTodos();
+          }
+        };
+
+        let deleteButton = document.createElement("button");
+        deleteButton.textContent = "刪除";
+        deleteButton.onclick = function () {
+          todos.splice(i, 1);
+          localStorage.setItem("todos", JSON.stringify(todos));
+          renderTodos();
+        };
+
+        todoItem.appendChild(checkbox);
+        todoItem.appendChild(text);
+        todoItem.appendChild(editButton);
+        todoItem.appendChild(deleteButton);
+        todoList.appendChild(todoItem);
+      }
+    }
+  </script>
+</html>
