@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container col-6 mt-5">
+      <div class="input-group mb-3">
+        <input
+          id="todoInput"
+          type="text"
+          class="form-control"
+          placeholder="輸入代辦事項"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+        />
+        <button class="btn btn-primary" type="button" id="addButton">
+          新增
+        </button>
+      </div>
+      <ul id="ulTodoList" class="list-group border border-dark">
+        <!-- <li class="list-group-item m-3">
+            <input  type="checkbox" id="flexCheckDefault"/>
+            <span id="textContent"></span>
+            <button class="btn btn-primary">編輯</button>
+            <button class="btn btn-danger">刪除</button>
+        </li> -->
+      </ul>
+    </div>
+
+    <!-- ========== -->
+
+    <div class="modal" tabindex="-1" id="editModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">編輯待辦事項</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <input id="editInput" type="text" class="form-control" />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button id="saveButton" type="button" class="btn btn-primary">
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <h5 id="abc">這是內容</h5> -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+  
+
+      let storageArray = [] 
+      let btnNewItem = document.getElementById("addButton");
+
+      //新增按鈕
+      let btnNewItemClick = btnNewItem.addEventListener("click", function () {
+        let inputItem = document.getElementById("todoInput");
+        let inputItemText = inputItem.value;
+        if (inputItemText != "") {
+          //輸入不是空值的話將他加進去localStorage
+
+          //localStorage.setItem("todo", `${inputItemText}`); //取inputItemText內容存進去(一開始寫成字串)
+          //照上面這樣寫會複寫到localStorage
+          let arrayItem = {"todo":`${inputItemText}`}       
+          storageArray.push(arrayItem);
+          let abc = JSON.stringify(storageArray)
+          localStorage.removeItem("todo")
+          localStorage.setItem("todo", abc)
+
+          let liDom = document.createElement("li");
+          liDom.className = "list-group-item m-3";
+
+          let liDomCheck = document.createElement("input");
+          liDomCheck.type = "checkbox";
+
+          let liDomSpan = document.createElement("span");
+          liDomSpan.id = "textContent";
+
+          let liDomButtonEdit = document.createElement("button");
+          liDomButtonEdit.class = "btn btn-primary"
+          liDomButtonEdit.textContent = "編輯"
+
+          let liDomButtonDelete = document.createElement("button");
+          liDomButtonDelete.class = "btn btn-danger"
+          liDomButtonDelete.textContent = "刪除"
+
+          liDomSpan.append(inputItemText)
+
+          let ulDom = document.getElementById("ulTodoList");
+          
+          liDom.append(liDomCheck, liDomSpan, liDomButtonEdit, liDomButtonDelete);
+          ulDom.append(liDom);
+
+          inputItem.value = ""
+        }
+      });
+
+      //編輯按鈕
+    </script>
+  </body>
+</html>
