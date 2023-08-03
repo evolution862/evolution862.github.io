@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .background {
+            background-image: url(./image/abstract-black-stripes-diagonal-background-free-vector\ \(1\).webp);
+            background-size: cover;
+        }
+
+        * {
+            font-family: 'Oswald', sans-serif;
+            color: white;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .context {
+            color: black;
+        }
+
+        /* [class*="col"] {
+            border: red 1px solid;
+        } */
+
+
+
+        .footerspan {
+            font-size: 12px;
+        }
+
+        .footerspan a {
+            font-size: 14px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .list-unstyled :first-child {
+            margin-top: 50px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .list-unstyled li {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .findevents :nth-child(3) {
+            font-size: 14px;
+            color: black;
+        }
+
+        .findevents :nth-child(1) {
+            padding-bottom: 5px;
+            padding-top: 5px;
+        }
+
+        .card-titleurl {
+            font-size: 18px;
+        }
+
+
+        .card .pic {
+            overflow: hidden;
+            border-radius: 0.3em;
+        }
+
+        .card img {
+            width: 100%;
+            vertical-align: top;
+            transition: 1s;
+            transform: scale(1);
+
+        }
+
+        .card:hover img {
+            transform: scale(1.2);
+        }
+
+        .pic-text {
+            position: absolute;
+            background-color: black;
+            bottom: 5px;
+            left: 20px;
+            opacity: 0.6;
+            box-sizing: border-box;
+            width: fit-content;
+        }
+
+        .pic-text :first-child {
+            padding-top: 5px;
+            padding-left: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            padding-right: 5px;
+        }
+
+        .pic-text :nth-child(2) {
+            padding-left: 5px;
+            padding-bottom: 5px;
+            padding-right: 5px;
+            font-size: 14px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            padding-bottom: 20px;
+        }
+
+        .card {
+            border: none;
+        }
+
+        .cardmain-title {
+            font-size: 24px;
+            color: black;
+            padding-top: 30px;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        .cardmain-title span {
+            font-size: 16px;
+            color: gray;
+            font-weight: lighter;
+        }
+
+        .btn {
+            border-radius: 10em;
+            font-size: 14px;
+
+
+        }
+
+        .btn img {
+            border-radius: 10em;
+
+        }
+
+        .hl-txt p {
+            color: black;
+            display: inline;
+        }
+
+        .hl-name {
+            padding-top: 15px;
+            font-size: 20px;
+            color: black;
+            font-weight: bolder;
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary " data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">TicketMonster</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item ">
+                        <a class="nav-link active" aria-current="page" href="#">Conecerts</a>
+                    </li>
+                    <li class="nav-itemms-auto">
+                        <a class="nav-link" href="#">Sports</a>
+                    </li>
+                    <li class="nav-itemms-auto"><a class="nav-link" href="#">Arts&Theater </a></li>
+                    <li class="nav-itemms-auto"><a class="nav-link" href="#">Family</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            More
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Deals</a></li>
+                            <li><a class="dropdown-item" href="#">Entertainment Guides</a></li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    <li class="nav-item ">
+                        <a class="nav-link active " aria-current="page" href="#">Sign In</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link active " aria-current="page" href="#">Sell</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active " aria-current="page" href="#">Gift Cards</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active " aria-current="page" href="#">Help</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="background">
+        <div class="container">
+            <div class="row">
+                <h1 class="fs-1 text-center mt-5 title">Let's Make Live Happen</h1>
+                <h2 class="fs-5 text-center mb-5 title">Shop millions of live events and discover can't-miss concerts,
+                    games, theater and more.</h2>
+                <form class="d-flex mb-4 col-9 mx-auto" role="search">
+                    <div class="input-group mb-2 ">
+                        <input type="text" class="form-control" placeholder="City or Zip Code" aria-label="Username"
+                            aria-describedby="basic-addon1">
+                        <span class="input-group-text" id="basic-addon1"><img src="./image/pin.png"></span>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            All Dates
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><button class="dropdown-item" type="button">All Dates</button></li>
+                            <li><button class="dropdown-item" type="button">This Weekend</button></li>
+                            <li><button class="dropdown-item" type="button">Date Range </button></li>
+                        </ul>
+                    </div> <input class="form-control mb-2" type="search"
+                        placeholder="Search for artists, venues, and events" aria-label="Search">
+                    <button class="btn btn-outline-primary mb-2" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container pt-5">
+        <div class="row col-12">
+            <div class="col-8">
+                <img class="w-100" src="./image/hightlight-1.png">
+                <p class="hl-name">
+                    Guns N’ Roses </p>
+                <div class="hl-txt d-flex justify-content-between">
+                    <p>See the powerhouse rock band when they stop in your city. Get your tickets
+                        today!</p> <button class="btn btn-primary">See Tickets</button>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="col-12">
+                    <img class="w-100" src="./image/hightlight-2.png">
+                    <p class="hl-name">
+                       50 Cent </p>
+                    <div class="hl-txt d-flex justify-content-between">
+                        <p>Make sure you catch him on the Final Lap Tour.</p>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <img class="w-100" src="./image/hightlight-3.png">
+                    <p class="hl-name">
+                        Maluma </p>
+                    <div class="hl-txt d-flex justify-content-between">
+                        <p>See him live when he brings the Don Juan Tour to your city.</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container px-5">
+        <h2 class="col-12 mt-5 mb-2 cardmain-title">Recently Viewed <br><span>Jump back into the action.</span></h2>
+        <div class="row col-12 context mx-auto">
+            <div class="col-3 d-grid gap-2">
+                <button type="button" class="btn btn-outline-secondary">
+                    <img src="./image/Recent Viewed-1.webp">Dallas Cowboys</button>
+            </div>
+            <div class="col-3 d-grid gap-2">
+                <button type="button" class="btn btn-outline-secondary">
+                    <img src="./image/Recent Viewed-1.webp">Eagles</button>
+            </div>
+            <div class="col-3 d-grid gap-2">
+                <button type="button" class="btn btn-outline-secondary">
+                    <img src="./image/Recent Viewed-1.webp">Tayolr Swift</button>
+            </div>
+            <div class="col-3 d-grid gap-2">
+                <button type="button" class="btn btn-outline-secondary">
+                    <img src="./image/Recent Viewed-1.webp">Disney On Ice presents Into the Magic</button>
+            </div>
+            <div class="col-3 d-grid gap-2 mt-3">
+                <button type="button" class="btn btn-outline-secondary">
+                    <img src="./image/Recent Viewed-1.webp">Dallas Cowboys</button>
+            </div>
+            <div class="col-3 d-grid gap-2 mt-3">
+                <button type="button" class="btn btn-outline-secondary">
+                    <img src="./image/Recent Viewed-1.webp">Dallas Cowboys</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container px-5">
+        <h2 class="col-12 mt-5 mb-2 cardmain-title">Browse by Category</h2>
+        <div class="row col-12 context mx-auto">
+            <div class="card col-3 ">
+                <div class="pic">
+                    <img src="./image/Browse by Category-1.jpg">
+                </div>
+                <div class="pic-text">
+                    <div>Concerts</div>
+                </div>
+            </div>
+            <div class="card col-3 ">
+                <div class="pic">
+                    <img src="./image/Browse by Category-2.jpg">
+                </div>
+                <div class="pic-text">
+                    <div>Sports</div>
+                </div>
+            </div>
+            <div class="card col-3 ">
+                <div class="pic">
+                    <img src="./image/Browse by Category-3.jpg">
+                </div>
+                <div class="pic-text">
+                    <div>Arts & Theater</div>
+                </div>
+            </div>
+            <div class="card col-3 ">
+                <div class="pic">
+                    <img src="./image/Browse by Category-4.jpg">
+                </div>
+                <div class="pic-text">
+                    <div>Fanily</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container px-5">
+        <h2 class="col-12 mt-5 mb-2 cardmain-title">Top Selling</h2>
+        <div class="row col-12 context mx-auto">
+            <h2 class="d-flex justify-content-between card-title">Concerts<a class="text-decoration-none card-titleurl"
+                    href="#">
+                    See All Concert</a></h2>
+            <div class="card col-3 ">
+                <div class="pic">
+                    <img src="./image/Concerts-1.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Eagles</div>
+                    <div>22 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 ">
+                <div class="pic">
+                    <img src="./image/Concerts-2.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Beyoncé</div>
+                    <div>26 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 ">
+                <div class="pic">
+                    <img src="./image/Concerts-3.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Shania Twain</div>
+                    <div>37 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 ">
+                <div class="pic">
+                    <img src="./image/Concerts-4.webp">
+                </div>
+                <div class="pic-text">
+                    <div>P!nk</div>
+                    <div>57 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 mt-3">
+                <div class="pic">
+                    <img src="./image/Concerts-5.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Paramore</div>
+                    <div>6 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 mt-3">
+                <div class="pic">
+                    <img src="./image/Concerts-6.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Thomas Rhett</div>
+                    <div>21 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 mt-3">
+                <div class="pic">
+                    <img src="./image/Concerts-7.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Davido</div>
+                    <div>5 Events</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row col-12 context mx-auto mt-5">
+            <h2 class="d-flex justify-content-between card-title">Sports<a class="text-decoration-none card-titleurl"
+                    href="#">
+                    See All Sports</a></h2>
+            <div class="card col-3">
+                <div class="pic">
+                    <img src="./image/Sports-1.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Houston Texans</div>
+                    <div>26 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 ">
+                <div class="pic">
+                    <img src="./image/Sports-2.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Dallas Cowboys</div>
+                    <div>21 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 ">
+                <div class="pic">
+                    <img src="./image/Sports-3.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Seattle Mariners</div>
+                    <div>67 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 ">
+                <div class="pic">
+                    <img src="./image/Sports-4.webp">
+                </div>
+                <div class="pic-text">
+                    <div>St. Louis Blues</div>
+                    <div>88 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 mt-3">
+                <div class="pic">
+                    <img src="./image/Sports-5.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Columbus Blue Jackets</div>
+                    <div>135 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 mt-3">
+                <div class="pic">
+                    <img src="./image/Sports-6.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Chicago Blackhawks</div>
+                    <div>87 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 mt-3">
+                <div class="pic">
+                    <img src="./image/Sports-7.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Boston Bruins</div>
+                    <div>88 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 mt-3">
+                <div class="pic">
+                    <img src="./image/Sports-8.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Minnesota Wild</div>
+                    <div>85 Events</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row col-12 context mx-auto mt-5">
+            <h2 class="d-flex justify-content-between card-title">Arts & Theater<a
+                    class="text-decoration-none card-titleurl" href="#">
+                    See All Arts & Theater</a></h2>
+
+            <div class="card col-3 ">
+                <div class="pic">
+                    <img src="./image/Arts & Theater-1.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Rip Micheals</div>
+                    <div>1 Events</div>
+                </div>
+            </div>
+            <div class="card col-3">
+                <div class="pic">
+                    <img src="./image/Arts & Theater-2.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Dave Chappelle</div>
+                    <div>18 Events</div>
+                </div>
+            </div>
+            <div class="card col-3">
+                <div class="pic">
+                    <img src="./image/Arts & Theater-3.webp">
+                </div>
+                <div class="pic-text">
+                    <div>RuPaul's Drag Race Werq the World Tour</div>
+                    <div>31 Events</div>
+                </div>
+            </div>
+            <div class="card col-3">
+                <div class="pic">
+                    <img src="./image/Arts & Theater-4.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Taylor Tomlinson</div>
+                    <div>37 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 mt-3">
+                <div class="pic">
+                    <img src="./image/Arts & Theater-5.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Bert Kreischer</div>
+                    <div>35 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 mt-3">
+                <div class="pic">
+                    <img src="./image/Arts & Theater-6.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Chris Distefano</div>
+                    <div>26 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 mt-3">
+                <div class="pic">
+                    <img src="./image/Arts & Theater-7.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Ben Schwartz</div>
+                    <div>8 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 mt-3">
+                <div class="pic">
+                    <img src="./image/Arts & Theater-8.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Nate Bargatze</div>
+                    <div>65 Events</div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row col-12 context mx-auto mt-5">
+            <h2 class="d-flex justify-content-between card-title">Family<a class="text-decoration-none card-titleurl"
+                    href="#">
+                    See All Family</a></h2>
+
+            <div class="card col-3 ">
+                <div class="pic">
+                    <img src="./image/family-1.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Disney On Ice presents Find Your Hreo</div>
+                    <div>123 Events</div>
+                </div>
+            </div>
+            <div class="card col-3">
+                <div class="pic">
+                    <img src="./image/family-2.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Disney On Ice presents Into the Magic</div>
+                    <div>100 Events</div>
+                </div>
+            </div>
+            <div class="card col-3">
+                <div class="pic">
+                    <img src="./image/family-3.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Jurassic World Live Tour</div>
+                    <div>114 Events</div>
+                </div>
+            </div>
+            <div class="card col-3">
+                <div class="pic">
+                    <img src="./image/family-4.webp">
+                </div>
+                <div class="pic-text">
+                    <div>PBR:Teams</div>
+                    <div>40 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 mt-3">
+                <div class="pic">
+                    <img src="./image/family-5.webp">
+                </div>
+                <div class="pic-text">
+                    <div>Disney On Ice presents Magic in the Stars</div>
+                    <div>125 Events</div>
+                </div>
+            </div>
+            <div class="card col-3 mt-3">
+                <div class="pic">
+                    <img src="./image/family-6.webp">
+                </div>
+                <div class="pic-text">
+                    <div>River City Rodeo</div>
+                    <div>2 Events</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row col-12 context mx-auto mt-5 ">
+            <h2 class="d-flex justify-content-between card-title">Discover More Events <a
+                    class="text-decoration-none card-titleurl" href="#">Things to Do</a></h2>
+            <div class="col-2 findevents">
+                <img class="w-100" src="./image/discovermore-1.jpeg">
+                <a class="text-decoration-none" href="#">NFL</a>
+                <p>Explore NFL ticket options from the Official Ticket Exchange of the NFL.</p>
+            </div>
+            <div class="col-2 findevents">
+                <img class="w-100" src="./image/discovermore-2.jpeg">
+                <a class="text-decoration-none" href="#">NBA</a>
+                <p>Find great tickets for your favorite NBA teams for must-see games.</p>
+            </div>
+            <div class="col-2 findevents">
+                <img class="w-100" src="./image/discovermore-3.jpeg">
+                <a class="text-decoration-none" href="#">NHL</a>
+                <p>Get verified tickets to watch your favorite NHL team take the ice.</p>
+            </div>
+            <div class="col-2 findevents">
+                <img class="w-100" src="./image/discovermore-4.jpeg">
+                <a class="text-decoration-none" href="#">MLS</a>
+                <p>Get Major League Soccer tickets for your favorite team.</p>
+            </div>
+            <div class="col-2 findevents">
+                <img class="w-100" src="./image/discovermore-5.jpeg">
+                <a class="text-decoration-none" href="#">MLB</a>
+                <p>Get Major League Baseball tickets for your favorite team.</p>
+            </div>
+            <div class="col-2 findevents">
+                <img class="w-100" src="./image/discovermore-6.jpeg">
+                <a class="text-decoration-none" href="#">On Broadway & On Tour</a>
+                <p>Musicals and plays happening on Broadway and on the road.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="background">
+        <div class="container mt-5">
+            <div class="row col-10 mx-auto">
+                <div class="col-3">
+                    <ul class="list-unstyled">
+                        <li>Helpful Links</li>
+                        <li>Help/FAQ</li>
+                        <li>My Account</li>
+                        <li>Contact Us</li>
+                        <li>Gift Cards</li>
+                        <li>Refunds and Exchanges</li>
+                        <li>Do Not Sell or Share My Personal Information</li>
+                    </ul>
+                </div>
+                <div class="col-3">
+                    <ul class="list-unstyled">
+                        <li>Our Network</li>
+                        <li> Live Nation</li>
+                        <li>House of Blues</li>
+                        <li>Front Gate Tickets</li>
+                        <li>TicketWeb</li>
+                        <li>NFL</li>
+                        <li>NBA</li>
+                        <li>NHL </li>
+                    </ul>
+                </div>
+                <div class="col-3">
+                    <ul class="list-unstyled">
+                        <li>About Us</li>
+                        <li>Who We Are</li>
+                        <li>Ticketing Truths</li>
+                        <li>Privacy Policy</li>
+                        <li>Ad Choices</li>
+                        <li>Careers</li>
+                        <li>Ticket Your Event</li>
+                        <li>Innovation</li>
+                    </ul>
+                </div>
+                <div class="col-3">
+                    <ul class="list-unstyled">
+                        <li>Friends & Partners</li>
+                        <li>PayPal</li>
+                        <li>Allianz</li>
+                        <li>AWS</li>
+                        <li>Get Our App</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-3">
+            <div class="row col-10 mx-auto justify-content-between ">
+                <div class="col-2">
+                    ticketmaster
+                </div>
+                <div class="footerspan col-5">
+                    By continuing past this page, you agree to our <a class="ms-1" href="#"> Terms of
+                        Use.</a>
+                </div>
+                <div class="col-3 text-end">
+                    ©Ticketmaster 2023
+                </div>
+            </div>
+        </div>
+        <div class="container mt-3">
+            <div class="row col-10 mx-auto">
+                <div class="col-3 fa-brands fa-usps">
+                    United States
+                </div>
+                <div class="col-5">
+                    <i class="fa-brands fa-facebook-f me-3"></i>
+                    <i class="fa-brands fa-instagram me-3"></i>
+                    <i class="fa-brands fa-twitter me-3"></i>
+                    <i class="fa-brands fa-youtube me-3"></i>
+                    <i class="fa-brands fa-linkedin-in me-3"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
