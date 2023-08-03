@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.0.slim.js"
+    integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
+  <style>
+    svg .seat:hover {
+      fill: red;
+      cursor: pointer;
+    }
+
+    /*svg:hover #blob{
+  fill: blue;
+}*/
+  </style>
+</head>
+
+<body>
+  <svg width="1000" height="1000" style="border:0cap 1px solid #fff;">
+
+    <polygon class="seats" id="Y1A" points="354,315,339,343,327,335,320,324,345,306,350,312" fill="yellow">
+    </polygon>
+    <polygon class="seats" id="Y1B" points="309,284,344,285,346,303,317,320,311,299" fill="yellow"></polygon>
+    <polygon class="seats" id="Y1C" points=" 309,241,344,241,345,281,309,280" fill="yellow"></polygon>
+    <polygon class="seats" id="Y1D" points="318,202,344,219,344,238,309,238,311,216" fill="yellow"></polygon>
+    <polygon class="seats" id="Y1E" points="320,197,332,184,343,180,356,205,345,215" fill="yellow"></polygon>
+
+    <polygon class="seats" id="Y2A" points="287,344,315,325,327,340,338,348,321,378,299,360" fill="yellow"></polygon>
+    <polygon class="seats" id="Y2B" points="270,284,304,285,305,303,309,316,313,324,283,340,275,315" fill="yellow">
+    </polygon>
+    <polygon class="seats" id="Y2C" points="270,241,304,241,305,281,271,280" fill="yellow"></polygon>
+    <polygon class="seats" id="Y2D" points="284,180,312,197,306,217,304,237,271,238,274,206" fill="yellow"></polygon>
+    <polygon class="seats" id="Y2E" points="323,144,337,175,323,185,314,194,287,177,303,156" fill="yellow"></polygon>
+    <polygon class="seats" id="Y3A" points="296,475,313,392,302,385,277,469" fill="yellow"></polygon>
+    <polygon class="seats" id="Y3B" points="271,468,299,383,281,368,232,437,250,452" fill="yellow"></polygon>
+    <polygon class="seats" id="Y3C" points="208,392,231,433,278,366,270,352,263,337" fill="yellow"></polygon>
+    <polygon class="seats" id="Y3D" points="205,387,261,334,253,300,186,323,196,355" fill="yellow"></polygon>
+    <polygon class="seats" id="Y3E" points="182,263,253,263,254,297,186,319,184,288" fill="yellow"></polygon>
+    <polygon class="seats" id="Y3F" points="186,201,253,225,254,259,181,258,183,228" fill="yellow"></polygon>
+    <polygon class="seats" id="Y3G" points="207,134,262,188,255,204,253,222,188,198,194,162" fill="yellow"></polygon>
+    <polygon class="seats" id="Y3H" points="230,89,277,156,264,184,207,129,217,107" fill="yellow"></polygon>
+    <polygon class="seats" id="Y3I" points="271,53,299,137,280,154,232,85,249,67" fill="yellow"></polygon>
+
+    <polygon class="seats" id="P1A" points="520,172,540,171,558,176,545,203,532,201,519,201" fill="purple"></polygon>
+    <polygon class="seats" id="P1B" points="475,171,514,171,515,201,476,202" fill="purple"></polygon>
+    <polygon class="seats" id="P1C" points="433,172,472,172,472,201,433,202" fill="purple"></polygon>
+    <polygon class="seats" id="P1D" points="391,172,429,172,429,203,389,204" fill="purple"></polygon>
+    <polygon class="seats" id="P1E" points="347,177,361,173,385,173,385,203,359,204" fill="purple"></polygon>
+
+    <polygon class="seats" id="P2A" points="521,133,550,133,577,143,563,171,536,166,520,166" fill="purple"></polygon>
+    <polygon class="seats" id="P2B" points="477,134,515,134,515,167,476,167" fill="purple"></polygon>
+    <polygon class="seats" id="P2C" points="435,134,471,134,472,166,434,167" fill="purple"></polygon>
+    <polygon class="seats" id="P2D" points="391,133,429,133,430,166,389,166" fill="purple"></polygon>
+    <polygon class="seats" id="P2E" points="329,143,350,134,368,134,384,133,385,167,361,167,343,171" fill="purple">
+    </polygon>
+
+
+    <polygon class="seats" id="R1A" points="521,320,520,349,547,350,560,343,548,319,540,320" fill="red"></polygon>
+    <polygon class="seats" id="R1B" points="476,320,476,350,514,350,514,321" fill="red"></polygon>
+    <polygon class="seats" id="R1C" points="434,320,472,321,472,351,433,350" fill="red"></polygon>
+    <polygon class="seats" id="R1D" points="389,319,389,351,429,351,428,320" fill="red"></polygon>
+    <polygon class="seats" id="R1E" points="359,317,363,320,385,319,385,350,357,349,346,345" fill="red"></polygon>
+
+    <polygon class="seats" id="R3A" points="519,356,519,390,551,388,577,380,562,351,549,356" fill="red"></polygon>
+    <polygon class="seats" id="R3B" points="478,357,477,389,515,389,514,357" fill="red"></polygon>
+    <polygon class="seats" id="R3C" points="433,356,432,389,472,389,471,355" fill="red"></polygon>
+    <polygon class="seats" id="R3D" points="389,389,389,355,428,356,429,390" fill="red"></polygon>
+    <polygon class="seats" id="R3E" points="327,379,343,349,356,355,384,354,385,387,350,387" fill="red"></polygon>
+
+    <polygon class="seats" id="B1A" points="559,306,583,323,575,332,563,340,551,316" fill="blue"></polygon>
+    <polygon class="seats" id="B1B" points="563,284,594,284,587,319,561,303" fill="blue"></polygon>
+    <polygon class="seats" id="B1C" points="563,241,593,241,594,278,562,278" fill="blue"></polygon>
+    <polygon class="seats" id="B1D" points="562,219,588,203,593,224,594,237,561,237" fill="blue"></polygon>
+    <polygon class="seats" id="B1E" points="551,205,564,181,574,188,584,198,560,215,556,210" fill="blue"></polygon>
+
+    <polygon class="seats" id="B2A" points="567,347,583,336,590,327,615,345,602,362,582,376" fill="blue"></polygon>
+    <polygon class="seats" id="B2B" points="600,285,633,284,629,316,620,340,592,323,599,306" fill="blue"></polygon>
+    <polygon class="seats" id="B2C" points="601,241,632,241,632,279,599,279" fill="blue"></polygon>
+    <polygon class="seats" id="B2D" points="593,199,620,182,630,210,633,237,601,237,600,219" fill="blue"></polygon>
+    <polygon class="seats" id="B2E" points="566,175,581,145,602,159,616,177,589,194,581,184" fill="blue"></polygon>
+
+  </svg>
+
+  <script>$(".seats").click(function () {
+      alert("你確定要買" + event.target.id + "?");
+    })</script>
+</body>
+
+</html>
