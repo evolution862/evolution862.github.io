@@ -21,7 +21,7 @@
 
         * {
             font-family: 'Oswald', sans-serif;
-            color: white;
+            color: black;
             margin: 0px;
             padding: 0px;
         }
@@ -64,55 +64,10 @@
             padding-top: 5px;
         }
 
-        .card-titleurl {
-            font-size: 18px;
-        }
 
-        .card .pic {
-            overflow: hidden;
-            border-radius: 0.3em;
-        }
 
-        .card img {
-            width: 100%;
-            vertical-align: top;
-            transition: 1s;
-            transform: scale(1);
-        }
 
-        .card:hover img {
-            transform: scale(1.2);
-        }
 
-        .pic-text {
-            position: absolute;
-            background-color: black;
-            bottom: 5px;
-            left: 20px;
-            opacity: 0.6;
-            box-sizing: border-box;
-            width: fit-content;
-        }
-
-        .pic-text :first-child {
-            padding-top: 5px;
-            padding-left: 5px;
-            font-size: 16px;
-            font-weight: bold;
-            padding-right: 5px;
-        }
-
-        .pic-text :nth-child(2) {
-            padding-left: 5px;
-            padding-bottom: 5px;
-            padding-right: 5px;
-            font-size: 14px;
-        }
-
-        .card-title {
-            font-size: 20px;
-            padding-bottom: 20px;
-        }
 
         .card {
             border: none;
@@ -177,11 +132,26 @@
                 display: none;
             }
 
-            .pic img {
-                width: 45%;
-            }
+ 
 
         }
+
+        .pic {
+            display:inline-block;  
+white-space: nowrap;
+        }
+        .pic img{           
+            display:inline-block;            
+        }
+
+        .pic-text {
+            display: inline-block;       
+        }
+        .pic p{
+            display: inline;
+            vertical-align: top;
+        }
+    
     </style>
 
 
@@ -333,10 +303,10 @@
         </div>
     </div>
 
-    <div class="container px-5">
+    <div class="container px-5 ">
         <h2 class="col-12 mt-5 mb-2 cardmain-title">Browse by Category</h2>
-        <div class="row col-12 context mx-auto">
-            <div class="card col-3 ">
+        <div class="row col-12 context mx-auto ">
+            <div class="card col-3">
                 <div class="pic">
                     <img src="./image/Browse by Category-1.jpg">
                 </div>
@@ -344,6 +314,7 @@
                     <div>Concerts</div>
                 </div>
             </div>
+
             <div class="card col-3 ">
                 <div class="pic">
                     <img src="./image/Browse by Category-2.jpg">
@@ -377,16 +348,16 @@
             <h2 class="d-flex justify-content-between card-title">Concerts<a class="text-decoration-none card-titleurl"
                     href="#">
                     See All Concert</a></h2>
-            <div class="card col-3">
+            <div class="card col-12">
                 <div class="pic">
-                    <img src="./image/Concerts-1.webp">
+                    <img class="col-6" src="./image/Concerts-1.webp">
+                    <p>Beyoncé</p> <br>
+                    <p>26 Events</p>
                 </div>
                 <div class="pic-text">
-                    <div>Beyoncé</div>
-                    <div>26 Events</div>
+                    
                 </div>
             </div>
-            
             <div class="card col-3">
                 <div class="pic">
                     <img src="./image/Concerts-2.webp">

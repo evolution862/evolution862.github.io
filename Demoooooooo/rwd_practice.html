@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Oswald', sans-serif;
+            color: black;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .pic-text a,
+        p {
+            font-size: 14px;
+            flex-grow: 1;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            text-decoration: none;
+        }
+
+        .pic-text :first-child {
+            font-size: 20px;
+        }
+
+        @media (min-width: 992px) {
+            .ticket img {
+                vertical-align: top;
+                transition: 1s;
+                transform: scale(1);
+            }
+
+            .ticket:hover img {
+                transform: scale(1.2);
+            }
+
+            .ticket {
+                position: relative;
+                border: none;
+            }
+
+            .pic-text {
+                position: absolute;
+                background-color: black;
+                bottom: 5px;
+                left: 20px;
+                opacity: 0.6;
+                width: fit-content;
+            }
+
+            .pic-text :first-child {
+                padding: 5px 5px 0px 5px;
+                font-size: 16px;
+            }
+
+            .pic-text :nth-child(2) {
+                padding: 0px 5px 5px 5px;
+                font-size: 14px;
+                color: white;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="containr">
+        <div class="row">
+            <div class="ticket col-sm-12 col-lg-3 d-flex mt-2">
+                <div class="pic col-sm-2 col-lg-12 overflow-hidden rounded">
+                    <img class="w-100" src="https://pbs.twimg.com/media/EtofbFPVoAAjpOu.jpg">
+                </div>
+                <div class="pic-text col-10 d-flex flex-column ">
+                    <a href="#">Alice</a>
+                    <p> 26 Events</p>
+                </div>
+            </div>
+
+            <div class="ticket col-sm-12 col-lg-3 d-flex mt-2">
+                <div class="pic col-sm-2 col-lg-12 overflow-hidden rounded">
+                    <img class="w-100 rounded" src="https://pbs.twimg.com/media/EtofbFPVoAAjpOu.jpg">
+                </div>
+
+                <div class="pic-text col-10 d-flex flex-column ">
+                    <a href="#">Alice</a>
+                    <p> 26 Events</p>
+                </div>
+            </div>
+            <div class="ticket col-sm-12 col-lg-3 d-flex mt-2">
+                <div class="pic col-sm-2 col-lg-12 overflow-hidden rounded">
+                    <img class="w-100 rounded" src="https://pbs.twimg.com/media/EtofbFPVoAAjpOu.jpg">
+                </div>
+
+                <div class="pic-text col-10 d-flex flex-column ">
+                    <a href="#">Alice</a>
+                    <p> 26 Events</p>
+                </div>
+            </div>
+            <div class="ticket col-sm-12 col-lg-3 d-flex mt-2">
+                <div class="pic col-sm-2 col-lg-12 overflow-hidden rounded">
+                    <img class="w-100 rounded" src="https://pbs.twimg.com/media/EtofbFPVoAAjpOu.jpg">
+                </div>
+
+                <div class="pic-text col-10 d-flex flex-column ">
+                    <a href="#">Alice</a>
+                    <p> 26 Events</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
