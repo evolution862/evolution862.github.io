@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Account Overview</title>
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      a {
+        text-decoration: none;
+      }
+      .accounttitle {
+        font-family: "Open Sans", sans-serif;
+        font-size: 46px;
+      }
+      .qtContent {
+        padding-top: 12px;
+        font-size: 13px;
+      }
+      .genywIcon {
+        font-size: 99px;
+        font-weight: 100;
+      }
+      .beyonce {
+        position: relative;
+      }
+      .Events {
+        position: absolute;
+        background-color: rgba(31, 38, 45, 0.8);
+        color: white;
+        top: 100px;
+        left: 12px;
+      }
+      .eventsDate {
+        font-size: 15px;
+      }
+      .eventsDatepurple {
+        color: purple;
+        font-weight: 900;
+      }
+      .eventsInfo {
+        font-size: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .genyw {
+        font-size: 14px;
+        letter-spacing: 0.5px;
+      }
+      .genywTitle {
+        color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 會員中心標題 -->
+    <div class="container py-4">
+      <div class="row">
+        <div class="col-12">
+          <div>
+            <h5 class="accounttitle">
+              <!-- 使用google fonts -->
+              Account Overview
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--左邊區塊 -->
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <ul class="list-group shadow-sm">
+            <li class="list-group-item py-4">
+              <h5 class="my-2 text-center fw-bolder fs-2">
+                XU <br />
+                PENG - XIANG
+              </h5>
+              <p class="text-center text-danger-emphasis">Fan since 2023</p>
+              <div class="d-flex justify-content-center">
+                <a href="#" class="btn btn-outline-primary rounded-0 py-0"
+                  >Edit Profile</a
+                >
+              </div>
+            </li>
+            <li class="list-group-item">
+              <h5 class="mb-1">Email Address</h5>
+              <p class="mb-1">testmail@gmail.com</p>
+              <a href="#">Edit</a>
+            </li>
+            <li class="list-group-item">
+              <h5 class="mb-1">Phone Number</h5>
+              <p class="mb-1">***-***-7510</p>
+              <a href="#">Edit Phone Number</a>
+            </li>
+          </ul>
+          <ul class="list-group my-3 shadow-sm">
+            <li class="list-group-item py-4">
+              <a href="#" class="d-flex">My Tickets</a>
+            </li>
+            <li class="list-group-item py-4">
+              <a href="#" class="d-flex">My Listings</a>
+            </li>
+            <li class="list-group-item py-4">
+              <a
+                href="#"
+                class="d-flex align-items-center justify-content-between"
+              >
+                My Digital Collectibles
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square text-secondary"
+                ></i>
+              </a>
+            </li>
+            <li class="list-group-item py-4">
+              <a href="#" class="d-flex">Favorites</a>
+            </li>
+            <li class="list-group-item py-4">
+              <a href="#" class="d-flex">Settings</a>
+            </li>
+            <li class="list-group-item py-4">
+              <a href="#" class="d-flex">Payment Options</a>
+            </li>
+            <li class="list-group-item py-4">
+              <a href="#" class="d-flex">Gift Card Balance & Codes</a>
+            </li>
+          </ul>
+          <ul class="list-group shadow-sm">
+            <li class="list-group-item">
+              <p class="fs-4 fw-bold my-4">We’re Here to Help</p>
+              <p class="my-1">Have questions?</p>
+              <a href="#" class="d-flex mb-3">Visit our Help Center</a>
+              <p class="my-0">
+                Need help with an existing order? Choose the event you want to
+                contact us about, and hit the 'Contact Us' button.
+              </p>
+              <a href="#" class="d-flex mb-3">Go to My Tickets</a>
+              <p class="my-0">Can't find your order?</p>
+              <a href="#" class="d-flex mb-3">Get Help</a>
+            </li>
+          </ul>
+        </div>
+        <!-- 右邊區塊 -->
+        <div class="col-9 ps-5">
+          <!-- Quick Tips -->
+          <section>
+            <div class="container mb-5">
+              <div class="row">
+                <h5 class="fw-bold mb-5">Quick Tips</h5>
+                <!-- 左 -->
+                <div class="col-4 d-flex">
+                  <div class="d-flex pe-4">
+                    <i class="fa-regular fa-user fs-1 pt-3"></i>
+                  </div>
+                  <div class="d-flex flex-column justify-content-between">
+                    <div>
+                      <p class="d-inline fw-bolder">Account Health Check-Up</p>
+                      <p class="qtContent">
+                        Been awhile? Consider changing your password to protect
+                        your account.
+                      </p>
+                    </div>
+                    <div>
+                      <a href="#" class="btn btn-outline-primary rounded-0 py-0"
+                        >Update Password</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <!-- 中 -->
+                <div class="col-4 d-flex">
+                  <div class="pe-4">
+                    <i class="fa-solid fa-heart fs-1 pt-3"></i>
+                  </div>
+                  <div class="d-flex flex-column justify-content-between">
+                    <div>
+                      <p class="d-inline fw-bolder">Pick Your Favorites</p>
+                      <p class="qtContent">
+                        Pick your favorites for the best way to know what’s
+                        happening live near you.
+                      </p>
+                    </div>
+                    <div>
+                      <a href="#" class="btn btn-outline-primary rounded-0 py-0"
+                        >Pick Favorites</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <!-- 右 -->
+                <div class="col-4 d-flex">
+                  <div class="pe-4">
+                    <i class="fa-regular fa-credit-card fs-1 pt-3"></i>
+                  </div>
+                  <div class="d-flex flex-column justify-content-between">
+                    <div>
+                      <p class="d-inline fw-bolder">Fast and Easy Checkout</p>
+                      <p class="qtContent">
+                        Expired payment info can block you at checkout. Be sure
+                        it’s up to date.
+                      </p>
+                    </div>
+                    <div>
+                      <a href="#" class="btn btn-outline-primary rounded-0 py-0"
+                        >Update Payment</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Sell Your Tickets on Ticketmaster -->
+          <section class="d-flex justify-content-between pt-4">
+            <p class="fw-bolder fs-5">Sell Your Tickets on Ticketmaster</p>
+            <a href="#">View All</a>
+          </section>
+          <!-- The Safest Way to Sell Your Tickets...... -->
+          <div class="py-3">
+            <ul class="list-group shadow-sm">
+              <li
+                class="list-group-item d-flex justify-content-between align-items-lg-center"
+              >
+                <div>
+                  <h5 class="mb-1 my-4 fw-bolder">
+                    The Safest Way to Sell Your Tickets. Only With Ticketmaster.
+                  </h5>
+                  <p class="mb-1 text-secondary py-4">
+                    Sell your tickets in a safe and simple way, and instantly
+                    reach millions of fans who need seats.
+                  </p>
+                </div>
+                <div>
+                  <a href="#" class="btn btn-primary rounded-0">Learn More</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <!-- Events We Think You’ll Love -->
+            <section class="d-flex justify-content-between pt-5 pb-2">
+              <p class="fw-bolder fs-5">
+                Events We Think You’ll Love<i
+                  class="fa-solid fa-circle-info ps-3 fs-6"
+                ></i>
+              </p>
+              <a href="#">Add Favorites</a>
+            </section>
+            <section class="d-flex justify-content-between">
+              <!-- card放置區 -->
+              <!-- 左 -->
+              <div class="mb-5">
+                <a href="">
+                  <div class="card shadow-sm" style="width: 18rem">
+                    <img
+                      src="./_medium.webp"
+                      class="beyonce card-img-top w-100"
+                      alt="Beyonce"
+                    />
+                    <div class="Events px-2 py-1">
+                      <p class="m-0 p-0 fw-bolder">Beyoncé</p>
+                      <p class="m-0 p-0">8 Events</p>
+                    </div>
+                    <div class="card-body">
+                      <a href="#" class="d-flex text-black">
+                        <div class="eventsDate pe-2">
+                          <p class="eventsDatepurple m-0">Aug 9</p>
+                          <p class="m-0 text-nowrap text-secondary">
+                            Wed • 8:00 PM
+                          </p>
+                        </div>
+                        <div class="eventsInfo ps-2">
+                          <p class="eventsInfo m-0">
+                            Charlotte, NC - Bank of America Stadium
+                          </p>
+                          <p class="eventsInfo m-0 text-secondary">
+                            BEYONCÉ - RENAISSANCE WORLD TOUR
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- 中 -->
+              <div>
+                <a href="">
+                  <div class="card shadow-sm" style="width: 18rem">
+                    <img
+                      src="./d22e79fb-1ce3-4919-ba33-9fe0032b69a5_1343211_TABLET_LANDSCAPE_LARGE_16_9.webp"
+                      class="card-img-top w-100"
+                      alt="Seattle Mariners"
+                    />
+                    <div class="Events px-2 py-1">
+                      <p class="m-0 p-0 fw-bolder">Seattle Mariners</p>
+                      <p class="m-0 p-0">10 Events</p>
+                    </div>
+                    <div class="card-body">
+                      <a href="#" class="d-flex text-black">
+                        <div class="eventsDate pe-2">
+                          <p class="eventsDatepurple m-0">Aug 11</p>
+                          <p class="m-0 text-nowrap text-secondary">
+                            Fri • 7:10 PM
+                          </p>
+                        </div>
+                        <div class="eventsInfo ps-2">
+                          <p class="eventsInfo m-0">
+                            Seattle, WA - T-Mobile Park
+                          </p>
+                          <p class="eventsInfo m-0 text-secondary">
+                            Seattle Mariners vs. Baltimore Orioles
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div>
+                <!-- 右 -->
+                <a href="">
+                  <div class="card shadow-sm" style="width: 18rem">
+                    <img
+                      src="./97b67038-f926-4676-be88-ebf94cb5c7d5_1802151_TABLET_LANDSCAPE_LARGE_16_9.webp"
+                      class="beyonce card-img-top w-100"
+                      alt="Ed Sheeran"
+                    />
+                    <div class="Events px-2 py-1">
+                      <p class="m-0 p-0 fw-bolder">Ed Sheeran</p>
+                      <p class="m-0 p-0">7 Events</p>
+                    </div>
+                    <div class="card-body">
+                      <a href="#" class="d-flex text-black">
+                        <div class="eventsDate pe-2">
+                          <p class="eventsDatepurple m-0">Aug 5</p>
+                          <p class="m-0 text-nowrap text-secondary">
+                            Sat • 6:00 PM
+                          </p>
+                        </div>
+                        <div class="eventsInfo ps-2">
+                          <p class="eventsInfo m-0">
+                            Kansas City, MO - GEHA Field at Arrowhead Stadium
+                          </p>
+                          <p class="eventsInfo m-0 text-secondary">
+                            Ed Sheeran: +-=÷x Tour
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </section>
+          </div>
+          <!-- GET EVENT NEWS YOU WANT -->
+          <div>
+            <ul class="list-group shadow-sm">
+              <li
+                class="list-group-item d-flex align-items-center justify-content-center"
+              >
+                <div class="px-4 py-3">
+                  <i class="genywIcon fa-regular fa-envelope"></i>
+                </div>
+                <div class="genyw d-flex align-items-center">
+                  <div>
+                    <p class="genywTitle pt-2">GET EVENT NEWS YOU WANT</p>
+                    <p class="mb-1">
+                      When you tell us who you love, we can tell you what
+                      they’re up to. Customize your subscriptions to get the
+                      latest, breaking news about all things live.
+                    </p>
+                  </div>
+                  <div>
+                    <a
+                      href="#"
+                      class="btn btn-outline-primary rounded-0 fw-bolder text-nowrap"
+                      >Customize Subscriptions</a
+                    >
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div><br /></div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

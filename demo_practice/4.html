@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+    <style>
+        :root {
+            --ColorPrimaryDk: #193957;
+            --ColorPrimaryLt: #31689b;
+        }
+
+        body {
+            padding: 60px 16px 0;
+        }
+
+        .range-slider {
+            --range-slider-common-height: 16px;
+            --range-slider-handle-width: 24px;
+            --range-slider-handle-height: 24px;
+
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 50%;
+            height: 100%;
+        }
+
+        .range-slider>div {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            left: 13px;
+            right: 15px;
+            height: var(--range-slider-common-height);
+        }
+
+        .range-slider>div>.range-slider-val-left,
+        .range-slider>div>.range-slider-val-right,
+        .range-slider>div>.range-slider-val-range {
+            height: 10px;
+        }
+
+        .range-slider>div>.range-slider-val-left {
+            position: absolute;
+            left: 0;
+            border-radius: 10px;
+            background-color: #ccc;
+            margin: 0 7px;
+        }
+
+        .range-slider>div>.range-slider-val-right {
+            position: absolute;
+            right: 0;
+            margin: 0 7px;
+            border-radius: 10px;
+            background-color: #ccc;
+        }
+
+        .range-slider>div>.range-slider-val-range {
+            position: absolute;
+            left: 0;
+            top: -1px;
+            height: 16px;
+            border-radius: 14px;
+            background-color: var(--ColorPrimaryLt);
+        }
+
+        .range-slider>div>.range-slider-handle {
+            z-index: 1;
+            position: absolute;
+            top: -5px;
+            margin-left: -11px;
+            width: var(--range-slider-handle-width);
+            height: var(--range-slider-handle-height);
+            border-radius: 25%;
+            background-color: #fff;
+            text-align: left;
+
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+            outline: none;
+            cursor: pointer;
+        }
+
+        div.range-slider>input[type="range"]::-ms-thumb {
+            width: var(--range-slider-handle-width);
+            height: var(--range-slider-handle-height);
+            border: 0 none;
+            border-radius: 0px;
+            background: red;
+
+            pointer-events: all;
+
+        }
+
+        div.range-slider>input[type="range"]::-moz-range-thumb {
+            width: var(--range-slider-handle-width);
+            height: var(--range-slider-handle-height);
+            border: 0 none;
+            border-radius: 0px;
+            background: red;
+
+            pointer-events: all;
+        }
+
+        div.range-slider>input[type="range"]::-webkit-slider-thumb {
+            width: var(--range-slider-handle-width);
+            height: var(--range-slider-handle-height);
+            border: 0 none;
+            border-radius: 0px;
+            background: red;
+
+            pointer-events: all;
+            -webkit-appearance: none;
+        }
+
+        div.range-slider>input[type="range"]::-ms-fill-lower {
+            background: transparent;
+            border: 0 none;
+        }
+
+        div.range-slider>input[type="range"]::-ms-fill-upper {
+            background: transparent;
+            border: 0 none;
+        }
+
+        .range-slider>input[type="range"] {
+            z-index: 1;
+            position: absolute;
+            width: 100%;
+            height: var(--range-slider-common-height);
+
+            opacity: 0;
+            filter: alpha(opacity=0);
+            cursor: pointer;
+            pointer-events: none;
+            -webkit-appearance: none;
+        }
+
+        div.range-slider>input[type="range"]::-ms-track {
+            background: transparent;
+            color: transparent;
+
+            -webkit-appearance: none;
+        }
+
+        div.range-slider>input[type="range"]::-moz-range-track {
+            background: transparent;
+            color: transparent;
+
+            -moz-appearance: none;
+        }
+
+        div.range-slider>input[type="range"]:focus::-webkit-slider-runnable-track {
+            background: transparent;
+            border: transparent;
+        }
+
+        div.range-slider>input[type="range"]:focus {
+            outline: none;
+        }
+
+        div.range-slider>input[type="range"]::-ms-tooltip {
+            display: none;
+        }
+
+        .range-slider>div>.range-slider-tooltip {
+            z-index: 2;
+            position: absolute;
+            top: -42px;
+            margin-left: -12px;
+            width: 28px;
+            height: 28px;
+            border-radius: 28px;
+            background-color: var(--ColorPrimaryLt);
+            color: #fff;
+            text-align: center;
+
+            opacity: 0;
+        }
+
+        .range-slider>div>.range-slider-tooltip:after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            top: 19px;
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+            border-top-width: 16px;
+            border-top-style: solid;
+            border-top-color: var(--ColorPrimaryLt);
+            border-radius: 16px;
+        }
+
+        .range-slider>div>.range-slider-tooltip>span {
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 28px;
+        }
+
+        .range-slider:hover>div>.range-slider-tooltip {
+            opacity: 1;
+        }
+
+        .pricerange {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="text" class="pricerange cat" placeholder="$0">
+
+    <div id="RangeSlider" class="range-slider">
+        <div>
+
+            <div class="range-slider-val-left"></div>
+            <div class="range-slider-val-right"></div>
+            <div class="range-slider-val-range"></div>
+
+            <span class="range-slider-handle range-slider-handle-left"></span>
+            <span class="range-slider-handle range-slider-handle-right"></span>
+
+            <div class="range-slider-tooltip range-slider-tooltip-left">
+                <span class="range-slider-tooltip-text"></span>
+            </div>
+
+            <div class="range-slider-tooltip range-slider-tooltip-right">
+                <span class="range-slider-tooltip-text"></span>
+            </div>
+        </div>
+
+        <input type="range" class="range-slider-input-left" tabindex="0" max="100" min="0" step="1">
+        <input type="range" class="range-slider-input-right" tabindex="0" max="100" min="0" step="1">
+    </div>
+
+    <input type="text" class="pricerange dog" placeholder="$0">
+
+
+
+</body>
+
+<script>const rangeSlider_min = 30;
+    const rangeSlider_max = 60;
+    let dog = document.querySelector('.dog')
+    let cat = document.querySelector('.cat')
+
+    document.querySelector('#RangeSlider .range-slider-val-left').style.width = `${rangeSlider_min + (100 - rangeSlider_max)}%`;
+    document.querySelector('#RangeSlider .range-slider-val-right').style.width = `${rangeSlider_min + (100 - rangeSlider_max)}%`;
+
+    document.querySelector('#RangeSlider .range-slider-val-range').style.left = `${rangeSlider_min}%`;
+    document.querySelector('#RangeSlider .range-slider-val-range').style.right = `${(100 - rangeSlider_max)}%`;
+
+    document.querySelector('#RangeSlider .range-slider-handle-left').style.left = `${rangeSlider_min}%`;
+    document.querySelector('#RangeSlider .range-slider-handle-right').style.left = `${rangeSlider_max}%`;
+
+    document.querySelector('#RangeSlider .range-slider-tooltip-left').style.left = `${rangeSlider_min}%`;
+    document.querySelector('#RangeSlider .range-slider-tooltip-right').style.left = `${rangeSlider_max}%`;
+
+    document.querySelector('#RangeSlider .range-slider-tooltip-left .range-slider-tooltip-text').innerText = rangeSlider_min;
+    document.querySelector('#RangeSlider .range-slider-tooltip-right .range-slider-tooltip-text').innerText = rangeSlider_max;
+
+    document.querySelector('#RangeSlider .range-slider-input-left').value = rangeSlider_min;
+    document.querySelector('#RangeSlider .range-slider-input-left').addEventListener('input', e => {
+        e.target.value = Math.min(e.target.value, e.target.parentNode.childNodes[5].value - 1);
+        var value = (100 / (parseInt(e.target.max) - parseInt(e.target.min))) * parseInt(e.target.value) - (100 / (parseInt(e.target.max) - parseInt(e.target.min))) * parseInt(e.target.min);
+
+        var children = e.target.parentNode.childNodes[1].childNodes;
+        children[1].style.width = `${value}%`;
+        children[5].style.left = `${value}%`;
+        children[7].style.left = `${value}%`;
+        children[11].style.left = `${value}%`;
+
+        children[11].childNodes[1].innerHTML = e.target.value;
+        cat.value = value
+    });
+
+    document.querySelector('#RangeSlider .range-slider-input-right').value = rangeSlider_max;
+    document.querySelector('#RangeSlider .range-slider-input-right').addEventListener('input', e => {
+        e.target.value = Math.max(e.target.value, e.target.parentNode.childNodes[3].value - (-1));
+        var value = (100 / (parseInt(e.target.max) - parseInt(e.target.min))) * parseInt(e.target.value) - (100 / (parseInt(e.target.max) - parseInt(e.target.min))) * parseInt(e.target.min);
+
+        var children = e.target.parentNode.childNodes[1].childNodes;
+        children[3].style.width = `${100 - value}%`;
+        children[5].style.right = `${100 - value}%`;
+        children[9].style.left = `${value}%`;
+        children[13].style.left = `${value}%`;
+
+        children[13].childNodes[1].innerHTML = e.target.value;
+        dog.value = value
+
+
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+</html>
