@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <style>
+    </style>
     <style>
         .background {
             background-image: url(./image/abstract-black-stripes-diagonal-background-free-vector\ \(1\).webp);
@@ -142,6 +148,12 @@
             color: white;
         }
 
+
+
+        .searchbox *:not(h1):not(h2) {
+            color: black;
+        }
+
         .list-unstyled {
             display: none;
         }
@@ -211,6 +223,11 @@
         swiper-container {
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .swiperbtn {
+            position: absolute;
+            left: px;
         }
 
         @media (min-width: 992px) {
@@ -355,37 +372,37 @@
     </nav>
 
     <div class="background">
-        <div class="container">
-            <div class="row">
-                <h1 class="fs-1 text-center mt-5 title">Let's Make Live Happen</h1>
-                <h2 class="fs-5 text-center mb-5 title">Shop millions of live events and discover
-                    can't-miss concerts,
+        <div class="container-fluid bg-dark pb-5 searchbox">
+            <div class="row col-lg-8 col-md-9 col-sm-10 mx-auto d-flex justify-content- pt-2">
+                <h1 class="fs-1 text-center mt-3 title">Let's Make Live Happen</h1>
+                <h2 class="fs-5 text-center mb-3 title">Shop millions of live events and discover can't-miss concerts,
                     games, theater and more.</h2>
-                <form class="d-flex mb-4 col-9 mx-auto" role="search">
-                    <div class="input-group mb-2 ">
-                        <input type="text" class="form-control" placeholder="City or Zip Code" aria-label="Username"
-                            aria-describedby="basic-addon1">
-                        <span class="input-group-text " id="basic-addon1"><img src="./image/pin.png"></span>
+                <div class="d-flex col-12 mx-auto justify-content-center">
+                    <div class="col-lg-2 col-md-3 col-sm-2 mx-1">
+                        <input type="text" class="form-control" placeholder="Location">
                     </div>
 
-                    <div class="dropdown">
-                        <button class="btn btn-danger dropdown-toggle ms-1 me-1" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            All Dates
-                        </button>
-                        <ul class="dropdown-menu ">
-                            <li><button class="dropdown-item" type="button">All Dates</button></li>
-                            <li><button class="dropdown-item" type="button">This Weekend</button></li>
-                            <li><button class="dropdown-item" type="button">Date Range</button></li>
-                        </ul>
+                    <div class="col-lg-2 col-md-3 col-sm-2 mx-1">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Category</option>
+                            <option value="1">Concerts</option>
+                            <option value="2">Sports</option>
+                            <option value="3">Arts & Theater</option>
+                            <option value="3">Family</option>
+                        </select>
                     </div>
 
-                    <div class="input-group">
-                        <input class="form-control mb-2" type="search"
-                            placeholder="Search for artists, venues, and events" aria-label="Search">
-                        <button class="btn btn-outline-primary mb-2" type="submit">Search</button>
+                    <div class="col-lg-4 col-md-3 col-sm-4 mx-1">
+                        <input type="text" class="form-control" name="dates" value="01/01/2018 - 01/15/2018" />
                     </div>
-                </form>
+                </div>
+            </div>
+
+            <div class="row col-sm-11 col-md-10 col-lg-8 mx-auto d-flex justify-content-center">
+                <div class="pt-2 input-group">
+                    <input type="text" class="form-control" placeholder="General Search">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
             </div>
         </div>
 
@@ -408,6 +425,7 @@
                 <swiper-slide><img src="./image/Concerts-5.webp"></swiper-slide>
             </swiper-container>
         </div>
+        <button type="button" class="btn btn-primary swiperbtn">Primary</button>
     </div>
     <!-- 幻燈片 -->
 
@@ -883,7 +901,7 @@
         </div>
         <!-- footer list -->
 
-         <!-- footer span -->       
+        <!-- footer span -->
         <div class="container mt-3">
             <div class="row col-12 mx-auto justify-content-between footertext">
                 <div class="footermark">
@@ -914,8 +932,29 @@
                 </div>
             </div>
         </div>
-         <!-- footer span -->      
+        <!-- footer span -->
     </div>
+
+    <script>
+        $('input[name="dates"]').daterangepicker({
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Futrue 7 Days': [moment(), moment().subtract(-6, 'days')],
+                'Future 30 Days': [moment(), moment().subtract(-29, 'days')],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            },
+            "showCustomRangeLabel": false,
+            "alwaysShowCalendars": true,
+            "startDate": moment(),
+            "endDate": moment().endOf('month')
+        }, function (start, end, label) {
+            console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+        });
+    </script>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"

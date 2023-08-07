@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+  </head>
+  <body>  
+    <div class="container">
+        <h2>Regular Bootstrap Dropdown</h2>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown button
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
+        <hr class="clearfix"/>
+        <h2>Bootstrap Submenu</h2>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" data-submenu>
+          Dropdown
+          </button>
+          <div class="dropdown-menu">
+            <div class="dropdown dropright dropdown-submenu">
+              <button class="dropdown-item dropdown-toggle" type="button" data-toggle="dropdown">Action</button>
+              <div class="dropdown-menu">
+                <button class="dropdown-item" type="button">Sub action</button>
+                <div class="dropdown dropright dropdown-submenu">
+                  <button class="dropdown-item dropdown-toggle" type="button">Another sub action</button>
+                  <div class="dropdown-menu">
+                    <button class="dropdown-item" type="button">Sub action</button>
+                    <button class="dropdown-item" type="button">Another sub action</button>
+                    <button class="dropdown-item" type="button">Something else here</button>
+                  </div>
+                </div>
+                <button class="dropdown-item" type="button">Something else here</button>
+                <button class="dropdown-item" type="button" disabled>Disabled action</button>
+                <div class="dropdown dropright dropdown-submenu">
+                  <button class="dropdown-item dropdown-toggle" type="button">Another action</button>
+                  <div class="dropdown-menu">
+                    <button class="dropdown-item" type="button">Sub action</button>
+                    <button class="dropdown-item" type="button">Another sub action</button>
+                    <button class="dropdown-item" type="button">Something else here</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dropdown-header">Dropdown header</div>
+            <div class="dropdown dropright dropdown-submenu">
+              <button class="dropdown-item dropdown-toggle" type="button">Another action</button>
+              <div class="dropdown-menu">
+                <button class="dropdown-item" type="button">Sub action</button>
+                <button class="dropdown-item" type="button">Another sub action</button>
+                <button class="dropdown-item" type="button">Something else here</button>
+              </div>
+            </div>
+            <button class="dropdown-item" type="button">Something else here</button>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" type="button">Separated link</button>
+          </div>
+        </div>
+        <hr class="clearfix"/>
+        <h2>Bootstrap Submenu Pull Right</h2>
+        <div class="clearfix">
+          <div class="dropdown float-right">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" data-submenu>
+            Dropdown
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <div class="dropdown dropleft dropdown-submenu">
+                <button class="dropdown-item dropdown-toggle" type="button" data-toggle="dropdown">Action</button>
+                <div class="dropdown-menu">
+                  <button class="dropdown-item" type="button">Sub action</button>
+                  <div class="dropdown dropleft dropdown-submenu">
+                    <button class="dropdown-item dropdown-toggle" type="button">Another sub action</button>
+                    <div class="dropdown-menu">
+                      <button class="dropdown-item" type="button">Sub action</button>
+                      <button class="dropdown-item" type="button">Another sub action</button>
+                      <button class="dropdown-item" type="button">Something else here</button>
+                    </div>
+                  </div>
+                  <button class="dropdown-item" type="button">Something else here</button>
+                  <button class="dropdown-item" type="button" disabled>Disabled action</button>
+                  <div class="dropdown dropleft dropdown-submenu">
+                    <button class="dropdown-item dropdown-toggle" type="button">Another action</button>
+                    <div class="dropdown-menu">
+                      <button class="dropdown-item" type="button">Sub action</button>
+                      <button class="dropdown-item" type="button">Another sub action</button>
+                      <button class="dropdown-item" type="button">Something else here</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="dropdown-header">Dropdown header</div>
+              <div class="dropdown dropleft dropdown-submenu">
+                <button class="dropdown-item dropdown-toggle" type="button">Another action</button>
+                <div class="dropdown-menu">
+                  <button class="dropdown-item" type="button">Sub action</button>
+                  <button class="dropdown-item" type="button">Another sub action</button>
+                  <button class="dropdown-item" type="button">Something else here</button>
+                </div>
+              </div>
+              <button class="dropdown-item" type="button">Something else here</button>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item" type="button">Separated link</button>
+            </div>
+          </div>
+        </div>
+        <hr class="clearfix"/>
+        <h2>Bootstrap Nav with submenu</h2>
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <div class="dropdown-divider"></div>
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-submenu>
+                Multi-level Lv0
+              </a>
+              <ul class="dropdown-menu">
+                <li class="dropdown dropright dropdown-submenu">
+                  <a class="dropdown-item dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">Multi-level Lv1</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Multi-level Lv2</a></li>
+                    <li class="dropdown dropright dropdown-submenu">
+                      <a class="dropdown-item dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">Multi-level Lv2</a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Multi-level Lv3</a></li>
+                        <li><a class="dropdown-item" href="#">Multi-level Lv3</a></li>
+                        <li class="dropdown dropright dropdown-submenu">
+                          <a class="dropdown-item dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">Multi-level Lv3</a>
+                          <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Multi-level Lv4</a></li>
+                            <li><a class="dropdown-item" href="#">Multi-level Lv4</a></li>
+                            <li><a class="dropdown-item" href="#">Multi-level Lv4</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a class="dropdown-item" href="#">Multi-level Lv2</a></li>
+                  </ul>
+                </li>
+                <li><a class="dropdown-item" href="#">Multi-level Lv1</a></li>
+                <li><a class="dropdown-item" href="#">Multi-level Lv1</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    <!-- <script>
+        $(function () {
+  $("[data-submenu]").submenupicker();
+  $(".dropdown-toggle").on("click", function () {
+    $(this).toggleClass("on");
+  });
+
+  $(".dropdown").on("hide.bs.dropdown", function () {
+    $(".dropdown-toggle").removeClass("on");
+  });
+
+  $(document).on("keypress", "input", function (e) {
+    var code = e.keyCode || e.which;
+    if (code == 27) {
+      $(".dropdown-toggle").removeClass("on");
+    }
+  });
+});
+
+    </script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>
