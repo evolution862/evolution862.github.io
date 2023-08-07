@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        .intro {
+  height: 100%;
+}
+
+.form-outline .form-control:focus~.form-notch .form-notch-leading {
+  border-top: 0.125rem solid #00b74a;
+  border-bottom: 0.125rem solid #00b74a;
+  border-left: 0.125rem solid #00b74a;
+}
+.form-outline .form-control:focus~.form-notch .form-notch-middle {
+  border-color: #00b74a;
+}
+.form-outline .form-control:focus~.form-notch .form-notch-trailing {
+  border-top: 0.125rem solid #00b74a;
+  border-bottom: 0.125rem solid #00b74a;
+  border-right: 0.125rem solid #00b74a;
+}
+.form-outline .form-control:focus~.form-label {
+  color: #00b74a;
+}
+.autocomplete-input.focused~.form-notch .form-notch-leading {
+  border-top: 2px solid #00b74a;
+  border-bottom: 2px solid #00b74a;
+  border-left: 2px solid #00b74a;
+  transition: all 0.2s linear;
+}
+.autocomplete-input.focused~.form-notch .form-notch-middle {
+  border-color: #00b74a;
+}
+.autocomplete-input.focused~.form-notch .form-notch-trailing {
+  border-color: #00b74a;
+}
+.autocomplete-input.focused~.autocomplete-label {
+  color: #00b74a;
+}
+    </style>
+</head>
+
+<body>
+    <section class="intro">
+        <div class="bg-image h-100" style="
+                background-color: rgb(167, 152, 239);
+              ">
+          <div class="mask d-flex align-items-center h-100">
+            <div class="container">
+              <div class="card">
+                <div class="card-body p-4">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="input-group">
+                        <a class="input-group-text text-body dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                          data-mdb-toggle="dropdown" aria-expanded="false">Categories</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <li><a class="dropdown-item" href="#">Accessories</a></li>
+                          <li><a class="dropdown-item" href="#">Clothing</a></li>
+                          <li><a class="dropdown-item" href="#">Footwear</a></li>
+                          <li><a class="dropdown-item" href="#">Ladies</a></li>
+                          <li><a class="dropdown-item" href="#">Men</a></li>
+                          <li><a class="dropdown-item" href="#">New Arrivals</a></li>
+                          <li><a class="dropdown-item" href="#">Sale</a></li>
+                        </ul>
+                        <div class="form-outline flex-fill">
+                          <input type="search" id="form1" class="form-control form-control-lg" />
+                          <label class="form-label" for="form1">Enter keywords?</label>
+                        </div>
+                        <button type="button" class="btn btn-success">
+                          <i class="fas fa-search"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+</body>
+
+</html>
