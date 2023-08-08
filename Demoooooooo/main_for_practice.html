@@ -60,7 +60,7 @@
 
         /* Discover More Events 圖片下的文字 */
         .findevents :nth-child(3) {
-            font-size: 14px;
+            display: none;
         }
 
 
@@ -226,13 +226,14 @@
             margin-right: auto;
         }
 
-        .swiper{
+        .swiper {
             position: relative;
         }
+
         .swiperbtn {
-            position: absolute;            
+            position: absolute;
             left: 68%;
-            bottom:0px;
+            bottom: 0px;
         }
 
         @media (min-width: 992px) {
@@ -310,14 +311,20 @@
                 top: 30%;
                 right: 0%;
                 margin-top: 0px;
-                display: inline;  
-                width: 25%;           
+                display: inline;
+                width: 25%;
             }
 
             .fa-solid {
                 display: none;
                 position: absolute;
                 top: 60%;
+            }
+
+            /* Discover More Events 圖片下的文字 */
+            .findevents :nth-child(3) {
+                display: inline;
+                font-size: 14px;
             }
 
         }
