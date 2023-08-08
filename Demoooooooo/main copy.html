@@ -226,9 +226,13 @@
             margin-right: auto;
         }
 
+        .swiper{
+            position: relative;
+        }
         .swiperbtn {
-            position: absolute;
-            left: px;
+            position: absolute;            
+            left: 68%;
+            bottom:0px;
         }
 
         @media (min-width: 992px) {
@@ -412,7 +416,7 @@
     </div>
 
     <!-- 幻燈片 -->
-    <div class="conainer py-5">
+    <div class="conainer py-5 swiper">
         <div class="row col-sm-10 col-md-10 col-lg-7 col-xl-6 mx-auto">
             <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true"
                 space-between="30" loop="true">
@@ -427,7 +431,7 @@
                 <swiper-slide><img src="./image/Concerts-5.webp"></swiper-slide>
             </swiper-container>
         </div>
-        <button type="button" class="btn btn-primary swiperbtn">Primary</button>
+        <button type="button" class="btn btn-primary swiperbtn">Buy Ticket</button>
     </div>
     <!-- 幻燈片 -->
 
