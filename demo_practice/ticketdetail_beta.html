@@ -50,7 +50,7 @@
             font-size: 28px;
         }
 
-        .eventlist .btn {
+        .elbtn {
             width: 50%;
             aspect-ratio: 1/1;
             border-radius: 50%
@@ -70,16 +70,16 @@
         }
 
         /* ----------------footer css---------------- */
-        .background {
+        .footer {
             background-color: black;
             background-size: cover;
         }
 
-        .background * {
+        .footer * {
             color: white;
         }
 
-        .list-unstyled {
+        .footer .list-unstyled {
             display: none;
         }
 
@@ -129,15 +129,29 @@
             font-weight: bolder;
             text-decoration: none;
         }
+        .btntitle {
+            position: absolute;
+            top: 32%;
+            right: 18%;
+        }    
+         .btn {
+            width: fit-content;
+        }
 
-        @media (min-width: 768px) {}
+        @media (min-width: 768px) {
+            .btntitle {
+            position: absolute;
+            top: 42%;
+            right: 20%;
+        }   
+        }
 
         @media (min-width: 992px) {
-            .list-unstyled {
+            .footer .list-unstyled {
                 display: block;
             }
 
-            .list-unstyled :first-child {
+            .footer .list-unstyled :first-child {
                 margin-top: 50px;
                 font-size: 16px;
                 font-weight: bold;
@@ -170,7 +184,7 @@
                 width: 25%;
             }
 
-            .background .fa-solid {
+            .footer.fa-solid {
                 display: none;
                 position: absolute;
                 top: 60%;
@@ -180,6 +194,11 @@
                 font-size: 30px;
             }
 
+        .btntitle {
+            position: absolute;
+            top: 40%;
+            right: 30%;
+        }
         }
 
         @media (min-width: 1400px) {
@@ -187,14 +206,17 @@
                 font-size: 50px;
             }
         }
+
+   
+
     </style>
 </head>
 
 <body>
 
     <div class="header ">
-        <div class="px-3 bg pb-3">
-            <nav class="col-sm-12 col-md-8 d-flex  mx-auto " aria-label="breadcrumb">
+        <div class="bg pb-3 px-3">
+            <nav class="col-xs-11 col-lg-8 d-flex mx-auto" aria-label="breadcrumb">
                 <ol class="breadcrumb text-decoration-none pt-2">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Concerts</a></li>
@@ -202,125 +224,128 @@
                     <li class="breadcrumb-item active" aria-current="page"><a href="#">BLACKPINK Tickets</a></li>
                 </ol>
             </nav>
-            <div class="col-sm-12 col-md-8 d-flex  mx-auto ">
-                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-2"><img class="w-100 rounded" src="./image/blackpink.jpg"
+            <div class="col-xs-11 col-lg-8 d-flex mx-auto ">
+                <div class="col-sm-4 col-xl-2"><img class="w-100 rounded" src="./image/blackpink.jpg"
                         alt=""></div>
-                <div class="col-sm-8 col-md-8 col-lg-8 col-xl-10 d-flex flex-column justify-content-center">
-                    <p class="pt-3 px-3">Pop</p>
-                    <button class="btn btn-primary fa-solid fa-star">4.8</button>
-                    <h1 class="pt-3 px-3 fw-bolder">BLACKPINK Tickets</h1>
+                <div class="pt-3 px-3 col-sm-8 col-xl-10 d-flex flex-column justify-content-center">
+                    <p class="fs-5">Pop</p>
+                    <button class="btn btn-primary fa-solid fa-star btntitle">4.8</button>
+                    <h1 class="pt-1 fw-bolder">BLACKPINK Tickets</h1>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="col-11 mx-auto pt-5 ">
-        <p class="pt-5">EVENTS </p>
-        <p>5 </p>
-        <p>RESULTS</p>
 
+    <div class="container col-xs-11 col-lg-8 mx-auto mt-5">
+        <div class="row">
+            <h2 class="text-center">EVENTS</h2>       
+        </div>
     </div>
 
     <!-- input -->
-    <div class="col-11 mx-auto mt-5">
-        <div class="col-lg-2 col-md-3 col-sm-12 mx-1">
-            <input type="text" class="form-control" placeholder="Location">
-        </div>
-        <div class="col-lg-4 col-md-3 col-sm-12 mx-1 pt-3">
-            <input type="text" class="form-control" name="dates" value="01/01/2018 - 01/15/2018" />
-        </div>
-    </div>
-    <!-- input -->
-
-    <!-- eventlist  -->
-    <div class="col-xs-11 col-lg-6 mx-auto">
-        <div class="col-11 mx-auto d-flex pt-3 eventlist border-bottom">
-            <div class="col-1 text-center">
-                <p>AUG</p>
-                <p class="fw-bolder fs-4">11</p>
+    <div class="container col-xs-11 col-lg-8 mx-auto pt-1 ">
+        <div class="row ">
+            <div class="col-sm-12 col-lg-6 pt-3">
+                <input type="text" class="form-control text-center" placeholder="Location">
             </div>
-            <div class="col-10 ps-3">
-                <p class="d-inline">Fri 8:30 PM</p>
-                <p class="my-0 fw-bold">East Rutherford, NJ <br>MetLife Stadium</p>
-                <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
-                <p class="d-inline">ENCORE IN </p>
-                <p class="d-inline">NORTH AMERICA</p>
-            </div>
-            <div class="col-1 d-flex flex-column justify-content-center">
-                <button class="btn btn-primary">></button>
-            </div>
-        </div>
-        <div class="col-11 mx-auto d-flex pt-3 eventlist border-bottom">
-            <div class="col-1 text-center">
-                <p>AUG</p>
-                <p class="fw-bolder fs-4">12</p>
-            </div>
-            <div class="col-10 ps-3">
-                <p class="d-inline">Sat 8:30 PM</p>
-                <p class="my-0 fw-bold">East Rutherford, NJ <br>MetLife Stadium</p>
-                <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
-                <p class="d-inline">ENCORE IN </p>
-                <p class="d-inline">NORTH AMERICA</p>
-            </div>
-            <div class="col-1 d-flex flex-column justify-content-center">
-                <button class="btn btn-primary">></button>
-            </div>
-        </div>
-        <div class="col-11 mx-auto d-flex pt-3 eventlist border-bottom">
-            <div class="col-1 text-center">
-                <p>AUG</p>
-                <p class="fw-bolder fs-4">18</p>
-            </div>
-            <div class="col-10 ps-3">
-                <p class="d-inline">Fri 8:30 PM</p>
-                <p class="my-0 fw-bold">Las Vegas , NV <br>Allegiant Stadium </p>
-                <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
-                <p class="d-inline">ENCORE IN </p>
-                <p class="d-inline">NORTH AMERICA</p>
-            </div>
-            <div class="col-1 d-flex flex-column justify-content-center">
-                <button class="btn btn-primary">></button>
-            </div>
-        </div>
-        <div class="col-11 mx-auto d-flex pt-3 eventlist border-bottom">
-            <div class="col-1 text-center">
-                <p>AUG</p>
-                <p class="fw-bolder fs-4">22</p>
-            </div>
-            <div class="col-10 ps-3">
-                <p class="d-inline">Fri 8:30 PM</p>
-                <p class="my-0 fw-bold">San Francisco, CA <br>Oracle Park</p>
-                <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
-                <p class="d-inline">ENCORE IN </p>
-                <p class="d-inline">NORTH AMERICA</p>
-            </div>
-            <div class="col-1 d-flex flex-column justify-content-center">
-                <button class="btn btn-primary">></button>
-            </div>
-        </div>
-        <div class="col-11 mx-auto d-flex pt-3 eventlist border-bottom">
-            <div class="col-1 text-center">
-                <p>AUG</p>
-                <p class="fw-bolder fs-4">26</p>
-            </div>
-            <div class="col-10 ps-3">
-                <p class="d-inline">Fri 8:30 PM</p>
-                <p class="my-0 fw-bold">Los Angeles, CA<br>Dodger Stadium</p>
-                <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
-                <p class="d-inline">ENCORE IN </p>
-                <p class="d-inline">NORTH AMERICA</p>
-            </div>
-            <div class="col-1 d-flex flex-column justify-content-center">
-                <button class="btn btn-primary">></button>
+            <div class="col-sm-12 col-lg-6 pt-3 ">
+                <input type="text" class="form-control text-center" name="dates" value="01/01/2018 - 01/15/2018" />
             </div>
         </div>
     </div>
 
     <!-- eventlist  -->
+    <div class=" container col-xs-11 col-lg-8 mx-auto">
+        <div class="row">
+            <div class="mx-auto d-flex pt-3 border-bottom">
+                <div class="col-1 text-center">
+                    <p>AUG</p>
+                    <p class="fw-bolder fs-4">11</p>
+                </div>
+                <div class="col-10 ps-3">
+                    <p class="d-inline">Fri 8:30 PM</p>
+                    <p class="my-0 fw-bold">East Rutherford, NJ <br>MetLife Stadium</p>
+                    <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
+                    <p class="d-inline">ENCORE IN </p>
+                    <p class="d-inline">NORTH AMERICA</p>
+                </div>
+                <div class="col-1 d-flex flex-column justify-content-center">
+                    <button class="btn btn-primary elbtn">></button>
+                </div>
+            </div>
+            <div class="mx-auto d-flex pt-3 border-bottom">
+                <div class="col-1 text-center">
+                    <p>AUG</p>
+                    <p class="fw-bolder fs-4">12</p>
+                </div>
+                <div class="col-10 ps-3">
+                    <p class="d-inline">Sat 8:30 PM</p>
+                    <p class="my-0 fw-bold">East Rutherford, NJ <br>MetLife Stadium</p>
+                    <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
+                    <p class="d-inline">ENCORE IN </p>
+                    <p class="d-inline">NORTH AMERICA</p>
+                </div>
+                <div class="col-1 d-flex flex-column justify-content-center">
+                    <button class="btn btn-primary elbtn">></button>
+                </div>
+            </div>
+            <div class="mx-auto d-flex pt-3 border-bottom">
+                <div class="col-1 text-center">
+                    <p>AUG</p>
+                    <p class="fw-bolder fs-4">18</p>
+                </div>
+                <div class="col-10 ps-3">
+                    <p class="d-inline">Fri 8:30 PM</p>
+                    <p class="my-0 fw-bold">Las Vegas , NV <br>Allegiant Stadium </p>
+                    <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
+                    <p class="d-inline">ENCORE IN </p>
+                    <p class="d-inline">NORTH AMERICA</p>
+                </div>
+                <div class="col-1 d-flex flex-column justify-content-center">
+                    <button class="btn btn-primary elbtn">></button>
+                </div>
+            </div>
+            <div class="mx-auto d-flex pt-3 border-bottom">
+                <div class="col-1 text-center">
+                    <p>AUG</p>
+                    <p class="fw-bolder fs-4">22</p>
+                </div>
+                <div class="col-10 ps-3">
+                    <p class="d-inline">Fri 8:30 PM</p>
+                    <p class="my-0 fw-bold">San Francisco, CA <br>Oracle Park</p>
+                    <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
+                    <p class="d-inline">ENCORE IN </p>
+                    <p class="d-inline">NORTH AMERICA</p>
+                </div>
+                <div class="col-1 d-flex flex-column justify-content-center">
+                    <button class="btn btn-primary elbtn">></button>
+                </div>
+            </div>
+            <div class="mx-auto d-flex pt-3 border-bottom">
+                <div class="col-1 text-center">
+                    <p>AUG</p>
+                    <p class="fw-bolder fs-4">26</p>
+                </div>
+                <div class="col-10 ps-3">
+                    <p class="d-inline">Fri 8:30 PM</p>
+                    <p class="my-0 fw-bold">Los Angeles, CA<br>Dodger Stadium</p>
+                    <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
+                    <p class="d-inline">ENCORE IN </p>
+                    <p class="d-inline">NORTH AMERICA</p>
+                </div>
+                <div class="col-1 d-flex flex-column justify-content-center">
+                    <button class="btn btn-primary elbtn">></button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <div class="container col-xs-11 col-lg-6 mx-auto pt-5 about">
+
+    <!-- About -->
+    <div class="container col-xs-11 col-lg-8 mx-auto pt-5 about">
         <div class="row mx-auto">
-            <h2>ABOUT</h2>
+            <h2 class="text-center">ABOUT</h2>
             <p class="fw-bolder">BLACKPINK in Concert</p>
             <p>Since first bursting onto the scene in 2016, BLACKPINK have redefined the possibilities of K-pop,
                 transcending all categorization and ascending to global stardom. With their unstoppably catchy single
@@ -371,80 +396,89 @@
     </div>
 
 
-    <div class="container col-xs-11 col-lg-6 mx-auto pt-5 d-flex justify-content-between">
-        <div class="row">
-            <h2>REVIEWS</h2>
-            <p class="px-3 fw-bolder">1230</p>
-            <button class="btn btn-primary fa-solid fa-star">4.8</button>
+    <!-- Review -->
+    <div class="container col-xs-11 col-lg-8 mx-auto pt-5 ">
+        <div class="row d-flex">
+            <h2 class="text-center">REVIEWS</h2>
+            <!-- <p>1230</p>       -->
+            <div class="col-12 d-flex justify-content-around ">
+                   <button class="btn btn-primary fa-solid fa-star ">4.8</button>
+            <button class="btn btn-primary ">Write a review</button>
+            </div>
+         
+            <ul class="mx-auto pt-4 list-unstyled">
+                <li class="d-flex">★★★★★</li>
+                <li>Yes. Iconic.</li>
+                <li class="d-inline">by</li>
+                <li class="d-inline">N. S.</li>
+                <li class="d-inline">on</li>
+                <li class="d-inline">8/7/23</li>
+                <li class="pt-2">Very good show! Definetley was worth driving five hours!</li>
+            </ul>
+            <ul class="mx-auto pt-4 list-unstyled">
+                <li class="d-flex">★★★★★</li>
+                <li>Perfect</li>
+                <li class="d-inline">by</li>
+                <li class="d-inline">martinaray</li>
+                <li class="d-inline">on</li>
+                <li class="d-inline">7/26/23</li>
+                <li class="pt-2">I was a casual listener and went to their Paris concert encore and they were amazing,
+                    the
+                    choreo, the stages, they were clearly singing live and how they interact with their fans was so
+                    sweet to
+                    see, a little too expensive but worth it, bought tickets for the MetLife stadium encore, CANT
+                    WAIT!!!
+                </li>
+            </ul>
+            <ul class="mx-auto pt-4 list-unstyled">
+                <li class="d-flex">★★★★★</li>
+                <li>Amazing</li>
+                <li class="d-inline">by</li>
+                <li class="d-inline">M.J.</li>
+                <li class="d-inline">on</li>
+                <li class="d-inline">7/24/23</li>
+                <li class="pt-2">I went to the one in Newark and when I tell you, it was amazing it gave me chills.
+                    Blinks
+                    were so nice to me some were only there for their one biased member but u do u. The VRS were
+                    gorgeous
+                    and the suspense of them coming out in the beginning was top tier. They played a really good decent
+                    amount of their songs and the remix’s and dance changes were so good. We did get an encore and here
+                    they
+                    were just freely talking to crowd which I love even the ones on the lower level. They did talk here
+                    there before they continued dancing. I did wish Jisoo spoke more even if it would be in Korean but
+                    she
+                    still spoke. The energy we gave them and the energy they gave us was surreal. They know how to keep
+                    you
+                    excited and hyped the whole time which I love. However, I do wish they could’ve played more of their
+                    b-sides like you never know, kick it, ready for love or see you later maybe even the happiest girl
+                    or
+                    hope not, you know to slow it down a bit and just enjoy their vocals and for it not to feel like it
+                    lasted 50 mins. I do know I was in there for like two hours but felt so little so that’s why I think
+                    a
+                    bit of singing their songs and not dancing would be amazing but also for it to feel like it lasted
+                    those
+                    two hours. Overall though it was amazing the PINKS and the dancers and the band ate and so proud of
+                    the
+                    girlies.</li>
+            </ul>
+            <ul class="mx-auto pt-4 list-unstyled">
+                <li class="d-flex">★★★★★</li>
+                <li>So Fun!</li>
+                <li class="d-inline">by</li>
+                <li class="d-inline">Tony</li>
+                <li class="d-inline">on</li>
+                <li class="d-inline">7/1/23</li>
+                <li class="pt-2">Such a fun concert! They are super talented and engaging with the audience. Their
+                    backup
+                    dancers did a great job as well. The outfits were awesome and screen sets were really cool. Sounded
+                    the
+                    same live as they do on audio (HUGE plus!). Can't wait for their next tour and to see them again!
+                </li>
+            </ul>
         </div>
     </div>
 
-    <div class="col-xs-11 col-lg-6 mx-auto pt-1 d-flex">
-        <button class="btn btn-primary">Write a review</button>
-    </div>
-
-    <div class="container-fluid">
-        <ul class="col-11 mx-auto pt-4 list-unstyled">
-            <li class="d-flex">★★★★★</li>
-            <li>Yes. Iconic.</li>
-            <li class="d-inline">by</li>
-            <li class="d-inline">N. S.</li>
-            <li class="d-inline">on</li>
-            <li class="d-inline">8/7/23</li>
-            <li class="pt-2">Very good show! Definetley was worth driving five hours!</li>
-        </ul>
-        <ul class="col-11 mx-auto pt-4 list-unstyled">
-            <li class="d-flex">★★★★★</li>
-            <li>Perfect</li>
-            <li class="d-inline">by</li>
-            <li class="d-inline">martinaray</li>
-            <li class="d-inline">on</li>
-            <li class="d-inline">7/26/23</li>
-            <li class="pt-2">I was a casual listener and went to their Paris concert encore and they were amazing, the
-                choreo, the stages, they were clearly singing live and how they interact with their fans was so sweet to
-                see, a little too expensive but worth it, bought tickets for the MetLife stadium encore, CANT WAIT!!!
-            </li>
-        </ul>
-        <ul class="col-11 mx-auto pt-4 list-unstyled">
-            <li class="d-flex">★★★★★</li>
-            <li>Amazing</li>
-            <li class="d-inline">by</li>
-            <li class="d-inline">M.J.</li>
-            <li class="d-inline">on</li>
-            <li class="d-inline">7/24/23</li>
-            <li class="pt-2">I went to the one in Newark and when I tell you, it was amazing it gave me chills. Blinks
-                were so nice to me some were only there for their one biased member but u do u. The VRS were gorgeous
-                and the suspense of them coming out in the beginning was top tier. They played a really good decent
-                amount of their songs and the remix’s and dance changes were so good. We did get an encore and here they
-                were just freely talking to crowd which I love even the ones on the lower level. They did talk here
-                there before they continued dancing. I did wish Jisoo spoke more even if it would be in Korean but she
-                still spoke. The energy we gave them and the energy they gave us was surreal. They know how to keep you
-                excited and hyped the whole time which I love. However, I do wish they could’ve played more of their
-                b-sides like you never know, kick it, ready for love or see you later maybe even the happiest girl or
-                hope not, you know to slow it down a bit and just enjoy their vocals and for it not to feel like it
-                lasted 50 mins. I do know I was in there for like two hours but felt so little so that’s why I think a
-                bit of singing their songs and not dancing would be amazing but also for it to feel like it lasted those
-                two hours. Overall though it was amazing the PINKS and the dancers and the band ate and so proud of the
-                girlies.</li>
-        </ul>
-        <ul class="col-11 mx-auto pt-4 list-unstyled">
-            <li class="d-flex">★★★★★</li>
-            <li>So Fun!</li>
-            <li class="d-inline">by</li>
-            <li class="d-inline">Tony</li>
-            <li class="d-inline">on</li>
-            <li class="d-inline">7/1/23</li>
-            <li class="pt-2">Such a fun concert! They are super talented and engaging with the audience. Their backup
-                dancers did a great job as well. The outfits were awesome and screen sets were really cool. Sounded the
-                same live as they do on audio (HUGE plus!). Can't wait for their next tour and to see them again!</li>
-        </ul>
-    </div>
-
-    <div class="col-11 mx-auto pt-5 d-flex">
-        <h2>FANS ALSO VIEWED</h2>
-    </div>
-
-    <div class="background">
+    <div class="background footer">
         <!-- footer list -->
         <div class="container mt-5">
             <div class="row mx-auto">
