@@ -33,32 +33,29 @@
             text-decoration: none;
         }
 
-        .imgbg {
-            position: absolute;
-            width: 100%;        
-            inset: 0px;
+        .header {
+            background-image: url(./image/blackpink.jpg);
             background-position: center center;
+            width: 100%;
             background-repeat: no-repeat;
             background-size: cover;
-            background-image: url(./image/blackpink.jpg);
-            transform: translateY(-75%);    
-            filter: blur(12px);
-            z-index: -1;
-            filter: brightness(.3);
-            overflow: hidden;
+        }
+
+        .bg {
+            backdrop-filter: brightness(.3) blur(8px);
+            width: 100%;
         }
 
         .header h1 {
-            font-size: 32px;
-            font-weight: bolder;
-        }     
+            font-size: 28px;
+        }
 
         .eventlist .btn {
-            width: 100%;
+            width: 50%;
             aspect-ratio: 1/1;
             border-radius: 50%
-        }        
-     
+        }
+
         h2::after {
             content: " ";
             display: block;
@@ -71,17 +68,17 @@
         h2:hover::after {
             width: 100%;
         }
-         /* ----------------footer css---------------- */
 
-         .background {
+        /* ----------------footer css---------------- */
+        .background {
             background-color: black;
             background-size: cover;
         }
 
-         .background * {
+        .background * {
             color: white;
         }
-      
+
         .list-unstyled {
             display: none;
         }
@@ -121,7 +118,7 @@
             width: 80%;
         }
 
-        .fa-solid {
+        .background .fa-solid {
             display: none;
         }
 
@@ -133,9 +130,9 @@
             text-decoration: none;
         }
 
-        /* ----------------footer css---------------- */
-        @media (min-width: 992px) {        
+        @media (min-width: 768px) {}
 
+        @media (min-width: 992px) {
             .list-unstyled {
                 display: block;
             }
@@ -173,39 +170,55 @@
                 width: 25%;
             }
 
-            .fa-solid {
+            .background .fa-solid {
                 display: none;
                 position: absolute;
                 top: 60%;
-            }            
+            }
 
+            .header h1 {
+                font-size: 30px;
+            }
+
+        }
+
+        @media (min-width: 1400px) {
+            .header h1 {
+                font-size: 50px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container-fluid header">
-        <div class="imgbg"></div>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb text-decoration-none pt-2">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Concerts</a></li>
-                <li class="breadcrumb-item"><a href="#">Pop</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="#">BLACKPINK Tickets</a></li>
-            </ol>
-        </nav>
-        <div class="col-2"><img class="w-100 rounded" src="./image/blackpink.jpg" alt=""></div>
-        <p class="pt-3">Pop</p>
-        <h1>BLACKPINK Tickets</h1>
-        <button class="btn btn-primary fa-solid fa-star ">4.8</button>
+    <div class="header ">
+        <div class="px-3 bg pb-3">
+            <nav class="col-sm-12 col-md-8 d-flex  mx-auto " aria-label="breadcrumb">
+                <ol class="breadcrumb text-decoration-none pt-2">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Concerts</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pop</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="#">BLACKPINK Tickets</a></li>
+                </ol>
+            </nav>
+            <div class="col-sm-12 col-md-8 d-flex  mx-auto ">
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-2"><img class="w-100 rounded" src="./image/blackpink.jpg"
+                        alt=""></div>
+                <div class="col-sm-8 col-md-8 col-lg-8 col-xl-10 d-flex flex-column justify-content-center">
+                    <p class="pt-3 px-3">Pop</p>
+                    <button class="btn btn-primary fa-solid fa-star">4.8</button>
+                    <h1 class="pt-3 px-3 fw-bolder">BLACKPINK Tickets</h1>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="col-11 mx-auto pt-5 ">       
-            <p class="pt-5">EVENTS </p>
-            <p>5 </p>
-            <p>RESULTS</p>
-       
+    <div class="col-11 mx-auto pt-5 ">
+        <p class="pt-5">EVENTS </p>
+        <p>5 </p>
+        <p>RESULTS</p>
+
     </div>
 
     <!-- input -->
@@ -220,131 +233,154 @@
     <!-- input -->
 
     <!-- eventlist  -->
-    <div class="col-11 mx-auto d-flex pt-3 eventlist border-bottom">
-        <div class="col-1 text-center">
-            <p>AUG</p>
-            <p class="fw-bolder fs-4">11</p>
+    <div class="col-xs-11 col-lg-6 mx-auto">
+        <div class="col-11 mx-auto d-flex pt-3 eventlist border-bottom">
+            <div class="col-1 text-center">
+                <p>AUG</p>
+                <p class="fw-bolder fs-4">11</p>
+            </div>
+            <div class="col-10 ps-3">
+                <p class="d-inline">Fri 8:30 PM</p>
+                <p class="my-0 fw-bold">East Rutherford, NJ <br>MetLife Stadium</p>
+                <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
+                <p class="d-inline">ENCORE IN </p>
+                <p class="d-inline">NORTH AMERICA</p>
+            </div>
+            <div class="col-1 d-flex flex-column justify-content-center">
+                <button class="btn btn-primary">></button>
+            </div>
         </div>
-        <div class="col-10 ps-3">
-            <p class="d-inline">Fri 8:30 PM</p>
-            <p class="my-0 fw-bold">East Rutherford, NJ <br>MetLife Stadium</p>
-            <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
-            <p class="d-inline">ENCORE IN </p>
-            <p class="d-inline">NORTH AMERICA</p>
+        <div class="col-11 mx-auto d-flex pt-3 eventlist border-bottom">
+            <div class="col-1 text-center">
+                <p>AUG</p>
+                <p class="fw-bolder fs-4">12</p>
+            </div>
+            <div class="col-10 ps-3">
+                <p class="d-inline">Sat 8:30 PM</p>
+                <p class="my-0 fw-bold">East Rutherford, NJ <br>MetLife Stadium</p>
+                <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
+                <p class="d-inline">ENCORE IN </p>
+                <p class="d-inline">NORTH AMERICA</p>
+            </div>
+            <div class="col-1 d-flex flex-column justify-content-center">
+                <button class="btn btn-primary">></button>
+            </div>
         </div>
-        <div class="col-1 d-flex flex-column justify-content-center">
-            <button class="btn btn-primary">></button>
+        <div class="col-11 mx-auto d-flex pt-3 eventlist border-bottom">
+            <div class="col-1 text-center">
+                <p>AUG</p>
+                <p class="fw-bolder fs-4">18</p>
+            </div>
+            <div class="col-10 ps-3">
+                <p class="d-inline">Fri 8:30 PM</p>
+                <p class="my-0 fw-bold">Las Vegas , NV <br>Allegiant Stadium </p>
+                <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
+                <p class="d-inline">ENCORE IN </p>
+                <p class="d-inline">NORTH AMERICA</p>
+            </div>
+            <div class="col-1 d-flex flex-column justify-content-center">
+                <button class="btn btn-primary">></button>
+            </div>
+        </div>
+        <div class="col-11 mx-auto d-flex pt-3 eventlist border-bottom">
+            <div class="col-1 text-center">
+                <p>AUG</p>
+                <p class="fw-bolder fs-4">22</p>
+            </div>
+            <div class="col-10 ps-3">
+                <p class="d-inline">Fri 8:30 PM</p>
+                <p class="my-0 fw-bold">San Francisco, CA <br>Oracle Park</p>
+                <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
+                <p class="d-inline">ENCORE IN </p>
+                <p class="d-inline">NORTH AMERICA</p>
+            </div>
+            <div class="col-1 d-flex flex-column justify-content-center">
+                <button class="btn btn-primary">></button>
+            </div>
+        </div>
+        <div class="col-11 mx-auto d-flex pt-3 eventlist border-bottom">
+            <div class="col-1 text-center">
+                <p>AUG</p>
+                <p class="fw-bolder fs-4">26</p>
+            </div>
+            <div class="col-10 ps-3">
+                <p class="d-inline">Fri 8:30 PM</p>
+                <p class="my-0 fw-bold">Los Angeles, CA<br>Dodger Stadium</p>
+                <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
+                <p class="d-inline">ENCORE IN </p>
+                <p class="d-inline">NORTH AMERICA</p>
+            </div>
+            <div class="col-1 d-flex flex-column justify-content-center">
+                <button class="btn btn-primary">></button>
+            </div>
         </div>
     </div>
-    <div class="col-11 mx-auto d-flex pt-3 eventlist border-bottom">
-        <div class="col-1 text-center">
-            <p>AUG</p>
-            <p class="fw-bolder fs-4">12</p>
-        </div>
-        <div class="col-10 ps-3">
-            <p class="d-inline">Sat 8:30 PM</p>
-            <p class="my-0 fw-bold">East Rutherford, NJ <br>MetLife Stadium</p>
-            <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
-            <p class="d-inline">ENCORE IN </p>
-            <p class="d-inline">NORTH AMERICA</p>
-        </div>
-        <div class="col-1 d-flex flex-column justify-content-center">
-            <button class="btn btn-primary">></button>
-        </div>
-    </div>
-    <div class="col-11 mx-auto d-flex pt-3 eventlist border-bottom">
-        <div class="col-1 text-center">
-            <p>AUG</p>
-            <p class="fw-bolder fs-4">18</p>
-        </div>
-        <div class="col-10 ps-3">
-            <p class="d-inline">Fri 8:30 PM</p>
-            <p class="my-0 fw-bold">Las Vegas , NV <br>Allegiant Stadium </p>
-            <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
-            <p class="d-inline">ENCORE IN </p>
-            <p class="d-inline">NORTH AMERICA</p>
-        </div>
-        <div class="col-1 d-flex flex-column justify-content-center">
-            <button class="btn btn-primary">></button>
-        </div>
-    </div>
-    <div class="col-11 mx-auto d-flex pt-3 eventlist border-bottom">
-        <div class="col-1 text-center">
-            <p>AUG</p>
-            <p class="fw-bolder fs-4">22</p>
-        </div>
-        <div class="col-10 ps-3">
-            <p class="d-inline">Fri 8:30 PM</p>
-            <p class="my-0 fw-bold">San Francisco, CA <br>Oracle Park</p>
-            <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
-            <p class="d-inline">ENCORE IN </p>
-            <p class="d-inline">NORTH AMERICA</p>
-        </div>
-        <div class="col-1 d-flex flex-column justify-content-center">
-            <button class="btn btn-primary">></button>
-        </div>
-    </div>
-    <div class="col-11 mx-auto d-flex pt-3 eventlist border-bottom">
-        <div class="col-1 text-center">
-            <p>AUG</p>
-            <p class="fw-bolder fs-4">26</p>
-        </div>
-        <div class="col-10 ps-3">
-            <p class="d-inline">Fri 8:30 PM</p>
-            <p class="my-0 fw-bold">Los Angeles, CA<br>Dodger Stadium</p>
-            <p class="d-inline">BLACKPINK WORLD TOUR [BORN PINK] </p>
-            <p class="d-inline">ENCORE IN </p>
-            <p class="d-inline">NORTH AMERICA</p>
-        </div>
-        <div class="col-1 d-flex flex-column justify-content-center">
-            <button class="btn btn-primary">></button>
-        </div>
-    </div>
+
     <!-- eventlist  -->
 
-    <div class="col-11 mx-auto pt-5 about">
-        <h2>ABOUT</h2>
-        <p>BLACKPINK in Concert</p>
-        <p>Since first bursting onto the scene in 2016, BLACKPINK have redefined the possibilities of K-pop,
-            transcending all categorization and ascending to global stardom. With their unstoppably catchy single
-            "Ddu-Du Ddu-Du," the South Korean quartet shattered the record for highest-charting Billboard Hot 100 debut
-            by an all-female K-pop act, while its head-turning video surpassed 10 million views in just six hours and
-            amassed 36.2 million views in one day. As they continue to shake up the pop landscape, BLACKPINK are now set
-            to deliver their first-ever U.S. performance: a much-buzzed-about appearance as one of the top-billed acts
-            at this year's Coachella, making them the first K-pop girl group ever to grace the stage at the country's
-            premier music festival.
+    <div class="container col-xs-11 col-lg-6 mx-auto pt-5 about">
+        <div class="row mx-auto">
+            <h2>ABOUT</h2>
+            <p class="fw-bolder">BLACKPINK in Concert</p>
+            <p>Since first bursting onto the scene in 2016, BLACKPINK have redefined the possibilities of K-pop,
+                transcending all categorization and ascending to global stardom. With their unstoppably catchy single
+                "Ddu-Du Ddu-Du," the South Korean quartet shattered the record for highest-charting Billboard Hot 100
+                debut
+                by an all-female K-pop act, while its head-turning video surpassed 10 million views in just six hours
+                and
+                amassed 36.2 million views in one day. As they continue to shake up the pop landscape, BLACKPINK are now
+                set
+                to deliver their first-ever U.S. performance: a much-buzzed-about appearance as one of the top-billed
+                acts
+                at this year's Coachella, making them the first K-pop girl group ever to grace the stage at the
+                country's
+                premier music festival.
 
-            Discovered by YG Entertainment, BLACKPINK is comprised of Jisoo, Jennie, Lisa, and Rosé—four immensely
-            charismatic vocalists, dancers, and fashion icons. Though the group boasts a boundary-crossing appeal,
-            they've had a particularly powerful impact on millennial and Gen Z women and girls around the world,
-            building a passionate following who go by the fandom nickname of "Blinks." With their eclectic
-            backgrounds—Rosé was born in New Zealand and raised in Australia, Jennie was raised in New Zealand and
-            Korea, Lisa grew up in Thailand, and Jisoo is a Seoul native—BLACKPINK proves to be a uniquely multicultural
-            and multilingual force within the K-pop world.</p>
-        <p>BLACKPINK on Tour</p>
-        <p>Arriving in August 2016, BLACKPINK's debut release Square One quickly proved their crossover power, with
-            Rolling Stone praising the two-song offering as "a perfect marriage of K-pop and A-town trap." The group's
-            tightly curated catalog also includes their debut EP Square Up, a June 2018 release that shot to #40 on the
-            Billboard 200 and #1 on the Billboard World Albums chart. Several months after Square Up hit the charts, YG
-            Entertainment and Interscope Records announced a global partnership for BLACKPINK, paving the way for the
-            group's international breakthrough. That same month, BLACKPINK appeared as a featured artist on Dua Lipa's
-            "Kiss and Make Up"—an October 2018 release that's garnered over 164 million streams on Spotify.
-            To feed the fan frenzy for their high-energy pop and irresistibly bold visuals, all four members have begun
-            working on solo material that runs parallel to BLACKPINK's output but spotlights their distinct
-            personalities (including Jennie's recent single "Solo," a #1 hit on the World Digital Song Sales chart).
-            With their fast-growing following now including 19 million YouTube subscribers, 15 million Instagram
-            followers, and 14 million monthly listeners on Spotify, BLACKPINK are currently traveling the globe on the
-            In Your Area tour: an arena-sized run bringing their larger-than-life performance to audiences throughout
-            North America, Europe, Australia, and Asia.</p>
-    </div>
-    <div class="col-11 mx-auto pt-5 d-flex justify-content-between">
-        <h2>REVIEWS</h2>
-        <p class="px-3 fw-bolder">1230</p>
-        <button class="btn btn-primary fa-solid fa-star">4.8</button>
+                Discovered by YG Entertainment, BLACKPINK is comprised of Jisoo, Jennie, Lisa, and Rosé—four immensely
+                charismatic vocalists, dancers, and fashion icons. Though the group boasts a boundary-crossing appeal,
+                they've had a particularly powerful impact on millennial and Gen Z women and girls around the world,
+                building a passionate following who go by the fandom nickname of "Blinks." With their eclectic
+                backgrounds—Rosé was born in New Zealand and raised in Australia, Jennie was raised in New Zealand and
+                Korea, Lisa grew up in Thailand, and Jisoo is a Seoul native—BLACKPINK proves to be a uniquely
+                multicultural
+                and multilingual force within the K-pop world.</p>
+            <p class="fw-bolder">BLACKPINK on Tour</p>
+            <p>Arriving in August 2016, BLACKPINK's debut release Square One quickly proved their crossover power, with
+                Rolling Stone praising the two-song offering as "a perfect marriage of K-pop and A-town trap." The
+                group's
+                tightly curated catalog also includes their debut EP Square Up, a June 2018 release that shot to #40 on
+                the
+                Billboard 200 and #1 on the Billboard World Albums chart. Several months after Square Up hit the charts,
+                YG
+                Entertainment and Interscope Records announced a global partnership for BLACKPINK, paving the way for
+                the
+                group's international breakthrough. That same month, BLACKPINK appeared as a featured artist on Dua
+                Lipa's
+                "Kiss and Make Up"—an October 2018 release that's garnered over 164 million streams on Spotify.
+                To feed the fan frenzy for their high-energy pop and irresistibly bold visuals, all four members have
+                begun
+                working on solo material that runs parallel to BLACKPINK's output but spotlights their distinct
+                personalities (including Jennie's recent single "Solo," a #1 hit on the World Digital Song Sales chart).
+                With their fast-growing following now including 19 million YouTube subscribers, 15 million Instagram
+                followers, and 14 million monthly listeners on Spotify, BLACKPINK are currently traveling the globe on
+                the
+                In Your Area tour: an arena-sized run bringing their larger-than-life performance to audiences
+                throughout
+                North America, Europe, Australia, and Asia.</p>
+        </div>
     </div>
 
-    <div class="col-11 mx-auto pt-1 d-flex">
-        <button class="btn btn-primary w-100">Write a review</button>
+
+    <div class="container col-xs-11 col-lg-6 mx-auto pt-5 d-flex justify-content-between">
+        <div class="row">
+            <h2>REVIEWS</h2>
+            <p class="px-3 fw-bolder">1230</p>
+            <button class="btn btn-primary fa-solid fa-star">4.8</button>
+        </div>
+    </div>
+
+    <div class="col-xs-11 col-lg-6 mx-auto pt-1 d-flex">
+        <button class="btn btn-primary">Write a review</button>
     </div>
 
     <div class="container-fluid">
