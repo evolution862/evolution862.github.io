@@ -12,9 +12,7 @@
             --ColorPrimaryLt: #31689b;
         }
 
-        body {
-            padding: 60px 16px 0;
-        }
+   
 
         .range-slider {
             --range-slider-common-height: 16px;
@@ -212,7 +210,32 @@
 </head>
 
 <body>
+    <input type="text" class="pricerange cat" placeholder="$0">
 
+    <div id="RangeSlider" class="range-slider">
+        <div>
+
+            <div class="range-slider-val-left"></div>
+            <div class="range-slider-val-right"></div>
+            <div class="range-slider-val-range"></div>
+
+            <span class="range-slider-handle range-slider-handle-left"></span>
+            <span class="range-slider-handle range-slider-handle-right"></span>
+
+            <div class="range-slider-tooltip range-slider-tooltip-left">
+                <span class="range-slider-tooltip-text"></span>
+            </div>
+
+            <div class="range-slider-tooltip range-slider-tooltip-right">
+                <span class="range-slider-tooltip-text"></span>
+            </div>
+        </div>
+
+        <input type="range" class="range-slider-input-left" tabindex="0" max="100" min="0" step="1">
+        <input type="range" class="range-slider-input-right" tabindex="0" max="100" min="0" step="1">
+    </div>
+
+    <input type="text" class="pricerange dog" placeholder="$0">
 
 
 
