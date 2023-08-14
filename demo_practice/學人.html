@@ -314,77 +314,7 @@
             width: 100%;
             background-image: none;
         }
-
-        .price-input {
-            display: flex;
-            width: 100%;
-        }
-
-        .field {
-            display: flex;
-            width: 50px;
-            height: 30px;
-            align-items: center;
-        }
-
-        .min-input,
-        .max-input {
-            width: 100%;
-            height: 100%;
-            outline: none;
-            border: 1px solid #999;
-            border-radius: 5px;
-            text-align: center;
-            font-size: 18px;
-        }
-
-        .min-input::-webkit-outer-spin-button,
-        .min-input::-webkit-inner-spin-button,
-        .max-input::-webkit-outer-spin-button,
-        .max-input::-webkit-inner-spin-button {
-            display: none;
-        }
-
-        .slider {
-            height: 5px;
-            position: relative;
-            background-color: #ddd;
-            border-radius: 5px;
-            width: 100%;
-        }
-
-        .progress {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            /* left: 5%; */
-            /* right: 65%; */
-            background-color: #4070f4;
-            border-radius: 5px;
-        }
-
-        .range-input {
-            position: relative;
-        }
-
-        .range-input input {
-            position: absolute;
-            width: 100%;
-            height: 5px;
-            top: -5px;
-            pointer-events: none;
-            background: none;
-            appearance: none;
-        }
-
-        .range-input input::-webkit-slider-thumb {
-            height: 15px;
-            width: 15px;
-            background-color: #4070f4;
-            border-radius: 50%;
-            pointer-events: auto;
-        }
-
+ 
         .modal {
             color: black;
         }
@@ -562,6 +492,8 @@
             }
         }
     </style>
+
+ 
 </head>
 
 <body>
@@ -1176,21 +1108,7 @@
 
                         <div class="price-range mt-2">
                             <div class="price-input mb-2">
-                                <div class="field">
-                                    <input type="number" value="75" class="min-input" />
-                                </div>
-
-                                <div class="slider">
-                                    <div class="progress"></div>
-                                </div>
-                                <div class="range-input d-flex">
-                                    <input type="range" min="0" max="10000" value="75" class="min-range" /><input
-                                        type="range" min="0" max="10000" value="300" class="max-range" />
-                                </div>
-
-                                <div class="field">
-                                    <input type="number" value="300" class="max-input" />
-                                </div>
+                               
                             </div>
                         </div>
                         
