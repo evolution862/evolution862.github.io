@@ -314,7 +314,7 @@
             width: 100%;
             background-image: none;
         }
- 
+
         .modal {
             color: black;
         }
@@ -493,7 +493,7 @@
         }
     </style>
 
- 
+
 </head>
 
 <body>
@@ -1108,10 +1108,10 @@
 
                         <div class="price-range mt-2">
                             <div class="price-input mb-2">
-                               
+
                             </div>
                         </div>
-                        
+
                         <div class="memo mt-3">
                             <div class="memo-text text-justify">
                                 An order processing fee of up to $6.00 may be added to each
@@ -1121,70 +1121,44 @@
                         <div class="lower-price d-flex justify-content-center mt-1 pb-1">
                             <a class="lowerPrice text-decoration-none" href="">Lowest Price</a>
                         </div>
-                        <div class="price-detail">
-                            <ul class="list-unstyled">
-                                <li class="price-delist">
-                                    <div class="bcg-hover d-flex justify-content-between align-items-center m-2">
-                                        <div class="seat-num d-flex flex-column">
-                                            <span class="seatNum">Sec 111, Row 19</span><span class="seat-type">Standard
-                                                Adimission</span>
-                                        </div>
-                                        <div class="seat-price ms-3">
-                                            <a class="seatPrice text-decoration-none" href="#">$78.45</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="price-delist">
-                                    <div class="bcg-hover d-flex justify-content-between align-items-center m-2">
-                                        <div class="seat-num d-flex flex-column">
-                                            <span class="seatNum">Sec 111, Row 19</span><span class="seat-type">Standard
-                                                Adimission</span>
-                                        </div>
-                                        <div class="seat-price">
-                                            <a class="seatPrice text-decoration-none" href="#">$78.45</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="price-delist">
-                                    <div class="bcg-hover d-flex justify-content-between align-items-center m-2">
-                                        <div class="seat-num d-flex flex-column">
-                                            <span class="seatNum">Sec 111, Row 19</span><span class="seat-type">Standard
-                                                Adimission</span>
-                                        </div>
-                                        <div class="seat-price">
-                                            <a class="seatPrice text-decoration-none" href="#">$78.45</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="price-delist">
-                                    <div class="bcg-hover d-flex justify-content-between align-items-center m-2">
-                                        <div class="seat-num d-flex flex-column">
-                                            <span class="seatNum">Sec 111, Row 19</span><span class="seat-type">Standard
-                                                Adimission</span>
-                                        </div>
-                                        <div class="seat-price">
-                                            <a class="seatPrice text-decoration-none" href="#">$78.45</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="price-delist">
-                                    <div class="bcg-hover d-flex justify-content-between align-items-center m-2">
-                                        <div class="seat-num d-flex flex-column">
-                                            <span class="seatNum">Sec 111, Row 19</span><span class="seat-type">Standard
-                                                Adimission</span>
-                                        </div>
-                                        <div class="seat-price">
-                                            <a class="seatPrice text-decoration-none" href="#">$78.45</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                        <div class="price-detail">                           
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        $(".infield").click(function () {
+            $(this).attr("fill", "white");
+            alert("你確定要買" + "'" + event.target.id + "'" + "價格是" + "'" + event.target.getAttribute("price") + "'" + "元" + "?");
+
+        })
+        $(".center").click(function () {
+            $(this).attr("fill", "white");
+            alert("你確定要買" + "'" + event.target.id + "'" + "價格是" + "'" + event.target.getAttribute("price") + "'" + "元" + "?");
+        })
+        $(".outfield").click(function () {
+            $(this).attr("fill", "white");
+            alert("你確定要買" + "'" + event.target.id + "'" + "價格是" + "'" + event.target.getAttribute("price") + "'" + "元" + "?");
+            let ticketPrice = $(this).attr("price")
+            let ticketType = $(this).attr("id")
+            let ticketDetail = ` <ul class="list-unstyled">
+                                <li class="price-delist">
+                                    <div class="bcg-hover d-flex justify-content-between align-items-center m-2">      
+                                                           <div class="seat-num d-flex flex-column">
+                                            <span class="seatNum">自由座</span><span class="seat-type">${ticketType}</span>
+                                        </div>
+                                        <div class="seat-price">
+                                            <a class="seatPrice text-decoration-none" href="#">${ticketPrice}元</a>
+                                        </div>                           
+                                    </div>
+                                </li>                               
+                            </ul>`
+            $(".price-detail").append(ticketDetail);
+        })
+    </script>
 </body>
 
 </html>
